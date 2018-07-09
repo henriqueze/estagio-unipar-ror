@@ -22,6 +22,8 @@ gem 'rails-i18n'
 gem 'foreman'
 #Flexible authentication solution for Rails with Warden.
 gem 'devise'
+#Translations for the devise gem
+gem 'devise-i18n'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
