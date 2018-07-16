@@ -4,7 +4,7 @@ class DeviseCreateSystemUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :system_users do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
+      t.string :email             , default: ""
       t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
