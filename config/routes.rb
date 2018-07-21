@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :people
   resources :categories
   devise_for :system_users
   devise_for :master_users
