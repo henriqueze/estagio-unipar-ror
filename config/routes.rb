@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :payment_types
+  resources :products
   resources :people
   resources :categories
   devise_for :system_users
