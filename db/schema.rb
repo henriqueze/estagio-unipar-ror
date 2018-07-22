@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_21_172057) do
+ActiveRecord::Schema.define(version: 2018_07_22_182655) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", limit: 100, null: false
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2018_07_21_172057) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_master_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_master_users_on_reset_password_token", unique: true
+  end
+
+  create_table "payment_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "kind", limit: 50, null: false
+    t.string "description", limit: 100
+    t.decimal "interest_rates", precision: 10, default: "0"
+    t.integer "max_parcel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "people", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -58,6 +67,20 @@ ActiveRecord::Schema.define(version: 2018_07_21_172057) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "product_code", limit: 100, null: false
+    t.string "description", limit: 100, null: false
+    t.decimal "purchase_price", precision: 10, default: "0"
+    t.decimal "sale_price", precision: 10, null: false
+    t.decimal "profit_margin", precision: 10, default: "0"
+    t.integer "stock"
+    t.integer "stock_reserved", default: 0
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
   create_table "system_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: ""
     t.string "encrypted_password", default: "", null: false
@@ -77,4 +100,5 @@ ActiveRecord::Schema.define(version: 2018_07_21_172057) do
     t.index ["username"], name: "index_system_users_on_username", unique: true
   end
 
+  add_foreign_key "products", "categories"
 end
