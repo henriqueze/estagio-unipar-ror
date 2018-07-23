@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  state: MyString
+  description: MyString
+  kind: MyString
+  issue_date: 2018-07-23 01:58:46
+  expiration_date: 2018-07-23 01:58:46
+  received_date: 2018-07-23 01:58:46
+  total_value: 9.99
+  received_value: 9.99
+  remaining_value: 9.99
+  total_parcels: 1
+  parcel: 1
+  sales: one
+  payment_type: one
+  system_user: one
+
+two:
+  state: MyString
+  description: MyString
+  kind: MyString
+  issue_date: 2018-07-23 01:58:46
+  expiration_date: 2018-07-23 01:58:46
+  received_date: 2018-07-23 01:58:46
+  total_value: 9.99
+  received_value: 9.99
+  remaining_value: 9.99
+  total_parcels: 1
+  parcel: 1
+  sales: two
+  payment_type: two
+  system_user: two
