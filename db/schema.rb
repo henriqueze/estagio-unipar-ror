@@ -10,7 +10,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_22_182655) do
+ActiveRecord::Schema.define(version: 2018_07_23_025557) do
+
+  create_table "accounts_payables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "state", limit: 20, default: "Aberta", null: false
+    t.string "description", limit: 100, null: false
+    t.string "document_kind", limit: 20
+    t.string "document_number", limit: 100
+    t.datetime "issue_date", null: false
+    t.datetime "expiration_date", null: false
+    t.datetime "payment_date"
+    t.integer "total_parcels", default: 0, null: false
+    t.integer "current_parcel", default: 0
+    t.decimal "payable_value", precision: 10, null: false
+    t.decimal "additions_value", precision: 10, default: "0"
+    t.decimal "discount_value", precision: 10, default: "0"
+    t.decimal "total_value", precision: 10, null: false
+    t.decimal "paid_value", precision: 10, default: "0"
+    t.binary "voucher_image", limit: 4294967295
+    t.bigint "purchase_id"
+    t.bigint "system_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["purchase_id"], name: "index_accounts_payables_on_purchase_id"
+    t.index ["system_user_id"], name: "index_accounts_payables_on_system_user_id"
+  end
+
+  create_table "accounts_receivables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "state", default: "Aberta", null: false
+    t.string "description", limit: 100, null: false
+    t.string "kind", limit: 50
+    t.datetime "issue_date", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "expiration_date", null: false
+    t.datetime "received_date"
+    t.decimal "total_value", precision: 10, null: false
+    t.decimal "received_value", precision: 10, default: "0"
+    t.decimal "remaining_value", precision: 10
+    t.integer "total_parcels", default: 0, null: false
+    t.integer "parcel"
+    t.bigint "sales_id"
+    t.bigint "payment_type_id"
+    t.bigint "system_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["payment_type_id"], name: "index_accounts_receivables_on_payment_type_id"
+    t.index ["sales_id"], name: "index_accounts_receivables_on_sales_id"
+    t.index ["system_user_id"], name: "index_accounts_receivables_on_system_user_id"
+  end
+
+  create_table "budgets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "kind", limit: 20
+    t.string "note", limit: 200
+    t.datetime "date", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "expiration_date", null: false
+    t.decimal "total_value", precision: 10, null: false
+    t.string "state", limit: 20, default: "Aberto", null: false
+    t.bigint "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_budgets_on_person_id"
+  end
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "description", limit: 100, null: false
@@ -81,6 +140,27 @@ ActiveRecord::Schema.define(version: 2018_07_22_182655) do
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
+  create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "date", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.decimal "total_value", precision: 10, null: false
+    t.decimal "freight_value", precision: 10, default: "0"
+    t.bigint "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_purchases_on_person_id"
+  end
+
+  create_table "sales", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "date", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.decimal "total_value", precision: 10, null: false
+    t.decimal "discount_value", precision: 10, default: "0"
+    t.string "state", limit: 20, default: "Aberta", null: false
+    t.bigint "person_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_sales_on_person_id"
+  end
+
   create_table "system_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: ""
     t.string "encrypted_password", default: "", null: false
@@ -100,5 +180,13 @@ ActiveRecord::Schema.define(version: 2018_07_22_182655) do
     t.index ["username"], name: "index_system_users_on_username", unique: true
   end
 
+  add_foreign_key "accounts_payables", "purchases"
+  add_foreign_key "accounts_payables", "system_users"
+  add_foreign_key "accounts_receivables", "payment_types"
+  add_foreign_key "accounts_receivables", "sales", column: "sales_id"
+  add_foreign_key "accounts_receivables", "system_users"
+  add_foreign_key "budgets", "people"
   add_foreign_key "products", "categories"
+  add_foreign_key "purchases", "people"
+  add_foreign_key "sales", "people"
 end
