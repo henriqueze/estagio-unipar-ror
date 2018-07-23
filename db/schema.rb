@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_23_025557) do
+ActiveRecord::Schema.define(version: 2018_07_23_031618) do
 
   create_table "accounts_payables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "state", limit: 20, default: "Aberta", null: false
@@ -75,6 +75,39 @@ ActiveRecord::Schema.define(version: 2018_07_23_025557) do
     t.string "description", limit: 100, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "item_budgets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "amount", default: 0, null: false
+    t.decimal "value", precision: 10, null: false
+    t.bigint "product_id"
+    t.bigint "budget_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["budget_id"], name: "index_item_budgets_on_budget_id"
+    t.index ["product_id"], name: "index_item_budgets_on_product_id"
+  end
+
+  create_table "item_purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "amount", default: 0, null: false
+    t.decimal "value", precision: 10, null: false
+    t.bigint "product_id"
+    t.bigint "purchase_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_item_purchases_on_product_id"
+    t.index ["purchase_id"], name: "index_item_purchases_on_purchase_id"
+  end
+
+  create_table "item_sales", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "amount", default: 0, null: false
+    t.decimal "value", precision: 10, null: false
+    t.bigint "product_id"
+    t.bigint "sale_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_item_sales_on_product_id"
+    t.index ["sale_id"], name: "index_item_sales_on_sale_id"
   end
 
   create_table "master_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -186,6 +219,12 @@ ActiveRecord::Schema.define(version: 2018_07_23_025557) do
   add_foreign_key "accounts_receivables", "sales", column: "sales_id"
   add_foreign_key "accounts_receivables", "system_users"
   add_foreign_key "budgets", "people"
+  add_foreign_key "item_budgets", "budgets"
+  add_foreign_key "item_budgets", "products"
+  add_foreign_key "item_purchases", "products"
+  add_foreign_key "item_purchases", "purchases"
+  add_foreign_key "item_sales", "products"
+  add_foreign_key "item_sales", "sales"
   add_foreign_key "products", "categories"
   add_foreign_key "purchases", "people"
   add_foreign_key "sales", "people"
