@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kind: MyString
+  note: MyString
+  date: 2018-07-23 01:15:08
+  expiration_date: 2018-07-23 01:15:08
+  total_value: 9.99
+  state: MyString
+  person: one
+
+two:
+  kind: MyString
+  note: MyString
+  date: 2018-07-23 01:15:08
+  expiration_date: 2018-07-23 01:15:08
+  total_value: 9.99
+  state: MyString
+  person: two

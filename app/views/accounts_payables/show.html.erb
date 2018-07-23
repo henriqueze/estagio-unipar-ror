@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>State:</strong>
+  <%= @accounts_payable.state %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @accounts_payable.description %>
+</p>
+
+<p>
+  <strong>Document kind:</strong>
+  <%= @accounts_payable.document_kind %>
+</p>
+
+<p>
+  <strong>Document number:</strong>
+  <%= @accounts_payable.document_number %>
+</p>
+
+<p>
+  <strong>Issue date:</strong>
+  <%= @accounts_payable.issue_date %>
+</p>
+
+<p>
+  <strong>Expiration date:</strong>
+  <%= @accounts_payable.expiration_date %>
+</p>
+
+<p>
+  <strong>Payment date:</strong>
+  <%= @accounts_payable.payment_date %>
+</p>
+
+<p>
+  <strong>Total parcels:</strong>
+  <%= @accounts_payable.total_parcels %>
+</p>
+
+<p>
+  <strong>Current parcel:</strong>
+  <%= @accounts_payable.current_parcel %>
+</p>
+
+<p>
+  <strong>Payable value:</strong>
+  <%= @accounts_payable.payable_value %>
+</p>
+
+<p>
+  <strong>Additions value:</strong>
+  <%= @accounts_payable.additions_value %>
+</p>
+
+<p>
+  <strong>Discount value:</strong>
+  <%= @accounts_payable.discount_value %>
+</p>
+
+<p>
+  <strong>Total value:</strong>
+  <%= @accounts_payable.total_value %>
+</p>
+
+<p>
+  <strong>Paid value:</strong>
+  <%= @accounts_payable.paid_value %>
+</p>
+
+<p>
+  <strong>Voucher image:</strong>
+  <%= @accounts_payable.voucher_image %>
+</p>
+
+<p>
+  <strong>Purchase:</strong>
+  <%= @accounts_payable.purchase %>
+</p>
+
+<p>
+  <strong>System user:</strong>
+  <%= @accounts_payable.system_user %>
+</p>
+
+<%= link_to 'Edit', edit_accounts_payable_path(@accounts_payable) %> |
+<%= link_to 'Back', accounts_payables_path %>
