@@ -3,7 +3,7 @@ class Category < ApplicationRecord
 
 	validates :description, uniqueness: { case_sensitive: false}, presence: true,
 				length: { minimum: 2 }
-	validates :description, format: { with: /\A[a-zA-Z\s]+\z/,
+	validates :description, format: { with: /[[:alpha:]]/,
 				message: "Aceita Somente Letras" }
 
 	def self.search(search)
