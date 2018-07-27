@@ -26,6 +26,8 @@ gem 'devise'
 gem 'devise-i18n'
 #Rails gem of the Bootstrap based admin theme SB Admin 2.
 gem 'bootstrap_sb_admin_base_v2'
+#bootstrap
+gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
