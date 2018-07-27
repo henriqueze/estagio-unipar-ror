@@ -1,0 +1,37 @@
+<%= form_with(model: backoffice_purchase, local: true) do |form| %>
+  <% if backoffice_purchase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(backoffice_purchase.errors.count, "error") %> prohibited this backoffice_purchase from being saved:</h2>
+
+      <ul>
+      <% backoffice_purchase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_value %>
+    <%= form.text_field :total_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :freight_value %>
+    <%= form.text_field :freight_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :person_id %>
+    <%= form.text_field :person_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

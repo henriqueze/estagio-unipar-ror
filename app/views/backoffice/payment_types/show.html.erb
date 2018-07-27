@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Kind:</strong>
+  <%= @backoffice_payment_type.kind %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @backoffice_payment_type.description %>
+</p>
+
+<p>
+  <strong>Interest rates:</strong>
+  <%= @backoffice_payment_type.interest_rates %>
+</p>
+
+<p>
+  <strong>Max parcel:</strong>
+  <%= @backoffice_payment_type.max_parcel %>
+</p>
+
+<%= link_to 'Edit', edit_backoffice_payment_type_path(@backoffice_payment_type) %> |
+<%= link_to 'Back', backoffice_payment_types_path %>

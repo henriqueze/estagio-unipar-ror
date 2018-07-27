@@ -1,0 +1,107 @@
+<%= form_with(model: backoffice_accounts_payable, local: true) do |form| %>
+  <% if backoffice_accounts_payable.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(backoffice_accounts_payable.errors.count, "error") %> prohibited this backoffice_accounts_payable from being saved:</h2>
+
+      <ul>
+      <% backoffice_accounts_payable.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :state %>
+    <%= form.text_field :state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :document_kind %>
+    <%= form.text_field :document_kind %>
+  </div>
+
+  <div class="field">
+    <%= form.label :document_number %>
+    <%= form.text_field :document_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :issue_date %>
+    <%= form.datetime_select :issue_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expiration_date %>
+    <%= form.datetime_select :expiration_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :payment_date %>
+    <%= form.datetime_select :payment_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_parcels %>
+    <%= form.number_field :total_parcels %>
+  </div>
+
+  <div class="field">
+    <%= form.label :current_parcel %>
+    <%= form.number_field :current_parcel %>
+  </div>
+
+  <div class="field">
+    <%= form.label :payable_value %>
+    <%= form.text_field :payable_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :additions_value %>
+    <%= form.text_field :additions_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :discount_value %>
+    <%= form.text_field :discount_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_value %>
+    <%= form.text_field :total_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :paid_value %>
+    <%= form.text_field :paid_value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :voucher_image %>
+    <%= form.text_field :voucher_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :purchase_id %>
+    <%= form.text_field :purchase_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :system_user %>
+    <%= form.text_field :system_user %>
+  </div>
+
+  <div class="field">
+    <%= form.label :references %>
+    <%= form.text_field :references %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

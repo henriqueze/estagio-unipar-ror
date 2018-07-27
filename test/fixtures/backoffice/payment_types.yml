@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kind: MyString
+  description: MyString
+  interest_rates: 9.99
+  max_parcel: 1
+
+two:
+  kind: MyString
+  description: MyString
+  interest_rates: 9.99
+  max_parcel: 1

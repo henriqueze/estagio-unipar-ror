@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  state: MyString
+  description: MyString
+  document_kind: MyString
+  document_number: MyString
+  issue_date: 2018-07-27 03:25:45
+  expiration_date: 2018-07-27 03:25:45
+  payment_date: 2018-07-27 03:25:45
+  total_parcels: 1
+  current_parcel: 1
+  payable_value: 9.99
+  additions_value: 9.99
+  discount_value: 9.99
+  total_value: 9.99
+  paid_value: 9.99
+  voucher_image: 
+  purchase: one
+  system_user: MyString
+  references: MyString
+
+two:
+  state: MyString
+  description: MyString
+  document_kind: MyString
+  document_number: MyString
+  issue_date: 2018-07-27 03:25:45
+  expiration_date: 2018-07-27 03:25:45
+  payment_date: 2018-07-27 03:25:45
+  total_parcels: 1
+  current_parcel: 1
+  payable_value: 9.99
+  additions_value: 9.99
+  discount_value: 9.99
+  total_value: 9.99
+  paid_value: 9.99
+  voucher_image: 
+  purchase: two
+  system_user: MyString
+  references: MyString

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Backoffice Payment Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kind</th>
+      <th>Description</th>
+      <th>Interest rates</th>
+      <th>Max parcel</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @backoffice_payment_types.each do |backoffice_payment_type| %>
+      <tr>
+        <td><%= backoffice_payment_type.kind %></td>
+        <td><%= backoffice_payment_type.description %></td>
+        <td><%= backoffice_payment_type.interest_rates %></td>
+        <td><%= backoffice_payment_type.max_parcel %></td>
+        <td><%= link_to 'Show', backoffice_payment_type %></td>
+        <td><%= link_to 'Edit', edit_backoffice_payment_type_path(backoffice_payment_type) %></td>
+        <td><%= link_to 'Destroy', backoffice_payment_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Backoffice Payment Type', new_backoffice_payment_type_path %>

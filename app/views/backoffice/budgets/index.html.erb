@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Backoffice Budgets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kind</th>
+      <th>Note</th>
+      <th>Date</th>
+      <th>Expiration date</th>
+      <th>Total value</th>
+      <th>State</th>
+      <th>Person</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @backoffice_budgets.each do |backoffice_budget| %>
+      <tr>
+        <td><%= backoffice_budget.kind %></td>
+        <td><%= backoffice_budget.note %></td>
+        <td><%= backoffice_budget.date %></td>
+        <td><%= backoffice_budget.expiration_date %></td>
+        <td><%= backoffice_budget.total_value %></td>
+        <td><%= backoffice_budget.state %></td>
+        <td><%= backoffice_budget.person %></td>
+        <td><%= link_to 'Show', backoffice_budget %></td>
+        <td><%= link_to 'Edit', edit_backoffice_budget_path(backoffice_budget) %></td>
+        <td><%= link_to 'Destroy', backoffice_budget, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Backoffice Budget', new_backoffice_budget_path %>

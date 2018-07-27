@@ -1,0 +1,2 @@
+json.extract! backoffice_accounts_payable, :id, :state, :description, :document_kind, :document_number, :issue_date, :expiration_date, :payment_date, :total_parcels, :current_parcel, :payable_value, :additions_value, :discount_value, :total_value, :paid_value, :voucher_image, :purchase_id, :system_user, :references, :created_at, :updated_at
+json.url backoffice_accounts_payable_url(backoffice_accounts_payable, format: :json)
