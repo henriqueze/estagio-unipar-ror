@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :site do
+    get 'home/index'
+  end
   resources :accounts_payables
   resources :accounts_receivables
   resources :purchases
