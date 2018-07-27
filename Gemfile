@@ -24,7 +24,8 @@ gem 'foreman'
 gem 'devise'
 #Translations for the devise gem
 gem 'devise-i18n'
-
+#Rails gem of the Bootstrap based admin theme SB Admin 2.
+gem 'bootstrap_sb_admin_base_v2'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -60,6 +61,8 @@ group :development do
   #Better error page for Rack apps
   gem 'better_errors'
   gem 'binding_of_caller'
+  # Generate Entity-Relationship Diagrams for Rails applications
+  gem 'rails-erd'
 end
 
 group :test do

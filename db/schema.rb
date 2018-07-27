@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_23_031618) do
+ActiveRecord::Schema.define(version: 2018_07_27_041136) do
 
   create_table "accounts_payables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "state", limit: 20, default: "Aberta", null: false
@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 2018_07_23_031618) do
     t.string "personC_ie", default: ""
     t.string "person_cpf", default: ""
     t.string "personC_cnpj", default: ""
+    t.string "personC_provider", limit: 3, default: "Não"
     t.string "address", limit: 100, default: ""
     t.string "address_number", limit: 50, default: ""
     t.string "address_complement", limit: 100, default: ""

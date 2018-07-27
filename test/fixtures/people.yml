@@ -4,10 +4,11 @@ one:
   kind: MyString
   name: MyString
   company_name: MyString
-  person_rg: 
-  personC_ie: 
-  person_cpf: 
-  personC_cnpj: 
+  person_rg: MyString
+  personC_ie: MyString
+  person_cpf: MyString
+  personC_cnpj: MyString
+  personC_provider: MyString
   address: MyString
   address_number: MyString
   address_complement: MyString
@@ -24,10 +25,11 @@ two:
   kind: MyString
   name: MyString
   company_name: MyString
-  person_rg: 
-  personC_ie: 
-  person_cpf: 
-  personC_cnpj: 
+  person_rg: MyString
+  personC_ie: MyString
+  person_cpf: MyString
+  personC_cnpj: MyString
+  personC_provider: MyString
   address: MyString
   address_number: MyString
   address_complement: MyString

@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :backoffice do
+    get 'dashboard/index'
+  end
+  namespace :site do
+    get 'home/index'
+  end
   resources :accounts_payables
   resources :accounts_receivables
   resources :purchases
@@ -11,6 +17,6 @@ Rails.application.routes.draw do
   devise_for :system_users
   devise_for :master_users
   get 'home/index'
-  root 'home#index'
+  root 'site/home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
