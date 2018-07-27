@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-07-27 04:10:33
+  total_value: 9.99
+  freight_value: 9.99
+  person: one
+
+two:
+  date: 2018-07-27 04:10:33
+  total_value: 9.99
+  freight_value: 9.99
+  person: two

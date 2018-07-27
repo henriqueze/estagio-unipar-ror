@@ -1,32 +1,5 @@
 Rails.application.routes.draw do
   namespace :backoffice do
-    resources :accounts_payables
-  end
-  namespace :backoffice do
-    resources :accounts_receivables
-  end
-  namespace :backoffice do
-    resources :purchases
-  end
-  namespace :backoffice do
-    resources :budgets
-  end
-  namespace :backoffice do
-    resources :sales
-  end
-  namespace :backoffice do
-    resources :payment_types
-  end
-  namespace :backoffice do
-    resources :people
-  end
-  namespace :backoffice do
-    resources :products
-  end
-  namespace :backoffice do
-    resources :categories
-  end
-  namespace :backoffice do
     get 'dashboard/index'
   end
   namespace :site do

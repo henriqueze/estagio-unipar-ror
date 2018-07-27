@@ -1,1 +1,0 @@
-json.partial! "backoffice_accounts_receivables/backoffice_accounts_receivable", backoffice_accounts_receivable: @backoffice_accounts_receivable
