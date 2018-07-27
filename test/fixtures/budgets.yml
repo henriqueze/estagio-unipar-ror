@@ -3,8 +3,8 @@
 one:
   kind: MyString
   note: MyString
-  date: 2018-07-23 01:15:08
-  expiration_date: 2018-07-23 01:15:08
+  date: 2018-07-27 04:10:25
+  expiration_date: 2018-07-27 04:10:25
   total_value: 9.99
   state: MyString
   person: one
@@ -12,8 +12,8 @@ one:
 two:
   kind: MyString
   note: MyString
-  date: 2018-07-23 01:15:08
-  expiration_date: 2018-07-23 01:15:08
+  date: 2018-07-27 04:10:25
+  expiration_date: 2018-07-27 04:10:25
   total_value: 9.99
   state: MyString
   person: two

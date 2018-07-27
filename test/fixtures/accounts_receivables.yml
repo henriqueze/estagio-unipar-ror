@@ -4,9 +4,9 @@ one:
   state: MyString
   description: MyString
   kind: MyString
-  issue_date: 2018-07-23 01:58:46
-  expiration_date: 2018-07-23 01:58:46
-  received_date: 2018-07-23 01:58:46
+  issue_date: 2018-07-27 04:10:40
+  expiration_date: 2018-07-27 04:10:40
+  received_date: 2018-07-27 04:10:40
   total_value: 9.99
   received_value: 9.99
   remaining_value: 9.99
@@ -20,9 +20,9 @@ two:
   state: MyString
   description: MyString
   kind: MyString
-  issue_date: 2018-07-23 01:58:46
-  expiration_date: 2018-07-23 01:58:46
-  received_date: 2018-07-23 01:58:46
+  issue_date: 2018-07-27 04:10:40
+  expiration_date: 2018-07-27 04:10:40
+  received_date: 2018-07-27 04:10:40
   total_value: 9.99
   received_value: 9.99
   remaining_value: 9.99

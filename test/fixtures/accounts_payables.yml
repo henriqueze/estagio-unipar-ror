@@ -5,9 +5,9 @@ one:
   description: MyString
   document_kind: MyString
   document_number: MyString
-  issue_date: 2018-07-23 02:55:57
-  expiration_date: 2018-07-23 02:55:57
-  payment_date: 2018-07-23 02:55:57
+  issue_date: 2018-07-27 04:10:47
+  expiration_date: 2018-07-27 04:10:47
+  payment_date: 2018-07-27 04:10:47
   total_parcels: 1
   current_parcel: 1
   payable_value: 9.99
@@ -24,9 +24,9 @@ two:
   description: MyString
   document_kind: MyString
   document_number: MyString
-  issue_date: 2018-07-23 02:55:57
-  expiration_date: 2018-07-23 02:55:57
-  payment_date: 2018-07-23 02:55:57
+  issue_date: 2018-07-27 04:10:47
+  expiration_date: 2018-07-27 04:10:47
+  payment_date: 2018-07-27 04:10:47
   total_parcels: 1
   current_parcel: 1
   payable_value: 9.99

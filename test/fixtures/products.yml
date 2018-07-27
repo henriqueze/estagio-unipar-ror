@@ -3,9 +3,9 @@
 one:
   product_code: MyString
   description: MyString
-  purchase_price: 1.5
-  sale_price: 1.5
-  profit_margin: 1.5
+  purchase_price: 9.99
+  sale_price: 9.99
+  profit_margin: 9.99
   stock: 1
   stock_reserved: 1
   category: one
@@ -13,9 +13,9 @@ one:
 two:
   product_code: MyString
   description: MyString
-  purchase_price: 1.5
-  sale_price: 1.5
-  profit_margin: 1.5
+  purchase_price: 9.99
+  sale_price: 9.99
+  profit_margin: 9.99
   stock: 1
   stock_reserved: 1
   category: two

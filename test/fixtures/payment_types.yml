@@ -3,11 +3,11 @@
 one:
   kind: MyString
   description: MyString
-  interest_rates: 1.5
+  interest_rates: 9.99
   max_parcel: 1
 
 two:
   kind: MyString
   description: MyString
-  interest_rates: 1.5
+  interest_rates: 9.99
   max_parcel: 1
