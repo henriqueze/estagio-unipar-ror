@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+
+  get 'admin', to: 'backoffice/dashboard#index'
+
   namespace :backoffice do
+    resources :categories, except: [:show, :destroy]
+    get 'categories/index'
     get 'dashboard', to: 'dashboard#index'
   end
-  get 'admin', to: 'backoffice/dashboard#index'
 
   namespace :site do
     get 'home', to: 'home#index'
@@ -15,7 +19,6 @@ Rails.application.routes.draw do
   resources :payment_types
   resources :products
   resources :people
-  resources :categories
   devise_for :system_users
   devise_for :master_users
   get 'home/index'
