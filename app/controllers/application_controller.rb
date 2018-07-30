@@ -1,4 +1,15 @@
 class ApplicationController < ActionController::Base
+	layout :layout_by_resource
+
+	protected
+
+	def layout_by_resource
+		if devise_controller? && resource_name == :master_user
+			"backoffice_devise"
+		else
+			"application"
+		end
+	end
 
 	before_action :configure_permitted_parameters, if: :devise_controller?
 

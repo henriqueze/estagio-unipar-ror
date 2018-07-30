@@ -2,18 +2,13 @@
 <html>
   <head>
     <title>DevtechAdmin</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
   </head>
 
   <body>
-    <p class="alert"><%= alert %></p>
-
-      <p><%= link_to "Home *teste*, views/layouts/application.html", site_home_index_path %></p>
-
     <%= yield %>
   </body>
 </html>
