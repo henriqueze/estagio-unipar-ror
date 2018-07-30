@@ -1,5 +1,3 @@
-//= require bootstrap
-
 (function($) {
   "use strict"; // Start of use strict
 
@@ -28,5 +26,4 @@
     offset: 54
   });
 
-}) // End of use strict
-
+})(jQuery); // End of use strict
