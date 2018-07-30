@@ -18,6 +18,8 @@ gem 'uglifier', '>= 1.3.0'
 
 #This gem provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+#A simple, versatile notification library
+gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
 #Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff
 gem 'rails-i18n'
 #Manage Procfile-based applications
