@@ -5,6 +5,7 @@ class Backoffice::CategoriesController < BackofficeController
 		@categories = Category.all
 	end
 
+	#before_action :authenticate_system_user! verificar depois porque não está passando o sql correto
 	def new
 		@category = Category.new
 	end
