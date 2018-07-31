@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
 
-
-  namespace :backoffice do
-    get 'products/index'
-  end
   get 'admin', to: 'backoffice/dashboard#index'
 
   namespace :backoffice do
     resources :categories, except: [:show, :destroy]
     resources :people, except: [ :destroy]
+    resources :products, except: [:destroy]
     get 'categories/index'
     get 'people/index'
+    get 'products/index'
     get 'dashboard', to: 'dashboard#index'
   end
 
@@ -23,7 +21,7 @@ Rails.application.routes.draw do
   resources :budgets
   resources :sales
   resources :payment_types
-  resources :products
+
 
   devise_for :system_users
   devise_for :master_users
