@@ -6,5 +6,6 @@ class Person < ApplicationRecord
 	has_many :budget
 
 	validates :person_cpf, :personC_cnpj, uniqueness:true, :allow_blank => true
+	validates :address_zip, :person_tel1, :person_name, presence: true
 
 end
