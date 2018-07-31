@@ -1,0 +1,80 @@
+<h1 class="page-header">Produtos</h1>
+
+<% if @product.errors.any? %>
+<div class="alert alert-danger alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+
+  <ul>
+    <% @product.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end -%>
+  </ul>
+
+</div>
+<% end -%>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= link_to backoffice_products_path, class: "btn btn-warning btn-circle pull-right",
+    style:"margin-top: -5px"  do %>
+    <i class="fa fa-arrow-left"></i>
+    <% end %>
+    <%= action %>
+  </div>
+  <!-- /.panel-heading -->
+  <div class="panel-body">
+    <div class="col-lg-6">
+      <%= form_for([:backoffice, @product]) do |f| %>
+
+      <!-- Colocar div em cada form a baixo -->
+      <div class="form-group">
+
+      </div>
+
+      <div class="field">
+        <%= f.label :product_code %>
+        <%= f.text_field :product_code %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+      </div>
+
+      <div class="field">
+        <%= f.label :purchase_price %>
+        <%= f.text_field :purchase_price %>
+      </div>
+
+      <div class="field">
+        <%= f.label :sale_price %>
+        <%= f.text_field :sale_price %>
+      </div>
+
+      <div class="field">
+        <%= f.label :profit_margin %>
+        <%= f.text_field :profit_margin %>
+      </div>
+
+      <div class="field">
+        <%= f.label :stock %>
+        <%= f.number_field :stock %>
+      </div>
+
+      <div class="field">
+        <%= f.label :stock_reserved %>
+        <%= f.number_field :stock_reserved %>
+      </div>
+
+      <div class="field">
+        <%= f.label :category_id %>
+        <%= f.text_field :category_id %>
+      </div>
+
+
+      <button type="submit" class="btn btn-success">Salvar</button>
+      <% end %>
+    </div>
+  </div>
+  <!-- /.panel-body -->
+</div>
