@@ -1,0 +1,2 @@
+module Backoffice::PeopleHelper
+end

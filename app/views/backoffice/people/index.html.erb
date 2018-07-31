@@ -1,0 +1,84 @@
+<h1 class="page-header">Pessoas</h1>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Listando Pessoas
+		<%= link_to new_backoffice_person_path, class: "btn btn-success btn-circle
+		pull-right", style:"margin-top: -5px" do %>
+		<i class="fa fa-plus"></i>
+		<% end -%>
+	</div>
+	<div class="panel-body">
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Kind</th>
+						<th>Name</th>
+						<th>Company name</th>
+						<th>Person rg</th>
+						<th>Personc ie</th>
+						<th>Person cpf</th>
+						<th>Personc cnpj</th>
+						<th>Address</th>
+						<th>Address number</th>
+						<th>Address complement</th>
+						<th>Address bairro</th>
+						<th>Address zip</th>
+						<th>Address city</th>
+						<th>Address state</th>
+						<th>Person tel1</th>
+						<th>Person tel2</th>
+						<th>Person email</th>
+						<th>Person obs</th>
+						<th colspan="3"></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @people.each do |person| %>
+					<tr>
+						<td><%= person.id %></td>
+						<td><%= person.kind %></td>
+						<td><%= person.name %></td>
+						<td><%= person.company_name %></td>
+						<td><%= person.person_rg %></td>
+						<td><%= person.personC_ie %></td>
+						<td><%= person.person_cpf %></td>
+						<td><%= person.personC_cnpj %></td>
+						<td><%= person.address %></td>
+						<td><%= person.address_number %></td>
+						<td><%= person.address_complement %></td>
+						<td><%= person.address_bairro %></td>
+						<td><%= person.address_zip %></td>
+						<td><%= person.address_city %></td>
+						<td><%= person.address_state %></td>
+						<td><%= person.person_tel1 %></td>
+						<td><%= person.person_tel2 %></td>
+						<td><%= person.person_email %></td>
+						<td><%= person.person_obs %></td>
+						<td style="width: 150px">
+							<%= link_to backoffice_person_path(person),
+								class: "btn btn-primary btn-circle" do %>
+								<i class="fa fa-info-circle"></i>
+								<% end -%>
+                <%= link_to edit_backoffice_person_path(person),
+                class: "btn btn-primary btn-circle" do %>
+                <i class="fa fa-edit"></i>
+                <% end %>
+                <button type="button" disabled="disabled"
+                class="btn btn-danger btn-circle">
+                <i class="fa fa-minus"></i>
+              </button>
+            </td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+		<!-- /.table-responsive -->
+	</div>
+	<!-- /.panel-body -->
+</div>
+
