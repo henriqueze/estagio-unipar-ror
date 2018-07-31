@@ -14,7 +14,7 @@ class Backoffice::PeopleController < BackofficeController
 		@person = Person.new(params_person)
 		if @person.save
 			redirect_to backoffice_people_path,
-				 notice: "Pessoa (#{@person.name}) cadastrada com Sucesso"
+				 notice: "Pessoa #{@person.name} cadastrada com Sucesso"
 		else
 			render :new
 		end
@@ -29,7 +29,7 @@ class Backoffice::PeopleController < BackofficeController
 	def update
 		if @person.update(params_person)
 			redirect_to backoffice_people_path,
-				 notice: "Pessoa (#{@person.name}) atualizada com Sucesso"
+				 notice: "Pessoa #{@person.name} atualizada com Sucesso"
 		else
 			render :edit
 		end
