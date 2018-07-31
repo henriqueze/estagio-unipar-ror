@@ -1,0 +1,57 @@
+<h1 class="page-header">Tipos de Pagamentos</h1>
+
+<% if @payment_type.errors.any? %>
+<div class="alert alert-danger alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+
+  <ul>
+    <% @payment_type.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end -%>
+  </ul>
+
+</div>
+<% end -%>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= link_to backoffice_payment_types_path, class: "btn btn-warning btn-circle pull-right",
+    style:"margin-top: -5px"  do %>
+    <i class="fa fa-arrow-left"></i>
+    <% end %>
+    <%= action %>
+  </div>
+  <!-- /.panel-heading -->
+  <div class="panel-body">
+    <div class="col-lg-6">
+      <%= form_for([:backoffice, @payment_type]) do |f| %>
+
+      <div class="form-group">
+      </div>
+
+      <div class="field">
+        <%= f.label :kind %>
+        <%= f.text_field :kind %>
+      </div>
+
+      <div class="field">
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+      </div>
+
+      <div class="field">
+        <%= f.label :interest_rates %>
+        <%= f.text_field :interest_rates %>
+      </div>
+
+      <div class="field">
+        <%= f.label :max_parcel %>
+        <%= f.number_field :max_parcel %>
+      </div>
+
+      <button type="submit" class="btn btn-success">Salvar</button>
+      <% end %>
+    </div>
+  </div>
+  <!-- /.panel-body -->
+</div>
