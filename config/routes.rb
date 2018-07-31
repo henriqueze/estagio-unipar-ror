@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
 
+  namespace :backoffice do
+    get 'products/index'
+  end
   get 'admin', to: 'backoffice/dashboard#index'
 
   namespace :backoffice do
