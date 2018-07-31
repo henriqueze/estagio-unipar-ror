@@ -20,6 +20,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 #A simple, versatile notification library
 gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
+#Tables plug-in for jQuery
+gem 'rails-assets-DataTables', source: 'https://rails-assets.org'
 #Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff
 gem 'rails-i18n'
 #Manage Procfile-based applications
