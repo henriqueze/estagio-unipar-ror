@@ -7,10 +7,13 @@ Rails.application.routes.draw do
     resources :people, except: [ :destroy]
     resources :products, except: [:destroy]
     resources :payment_types, except: [:destroy]
+    resources :sales, except: [:destroy]
+
     get 'categories/index'
     get 'people/index'
     get 'products/index'
     get 'payment_types/index'
+    get 'sales/index'
     get 'dashboard', to: 'dashboard#index'
   end
 
@@ -21,7 +24,7 @@ Rails.application.routes.draw do
   resources :accounts_receivables
   resources :purchases
   resources :budgets
-  resources :sales
+
 
 
 
