@@ -1,4 +1,4 @@
-class Backoffice::PurchaseController < BackofficeController
+class Backoffice::PurchasesController < BackofficeController
 	before_action :set_purchase, only: [:edit, :update, :show]
 
 	def index

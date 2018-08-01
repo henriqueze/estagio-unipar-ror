@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     get 'payment_types/index'
     get 'sales/index'
     get 'budgets/index'
-    get 'purchase/index'
+    get 'purchases/index'
     get 'accounts_receivables/index'
     get 'accounts_payables/index'
     get 'dashboard', to: 'dashboard#index'
