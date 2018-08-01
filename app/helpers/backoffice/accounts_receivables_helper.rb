@@ -1,0 +1,2 @@
+module Backoffice::AccountsReceivablesHelper
+end

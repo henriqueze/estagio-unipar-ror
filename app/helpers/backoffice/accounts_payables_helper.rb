@@ -1,0 +1,2 @@
+module Backoffice::AccountsPayablesHelper
+end
