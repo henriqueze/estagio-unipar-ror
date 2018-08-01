@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :sales, except: [:destroy]
     resources :budgets, except: [:destroy]
     resources :purchases, except: [:destroy]
+    resources :accounts_receivables, except: [:destroy]
 
     get 'categories/index'
     get 'people/index'
@@ -18,6 +19,7 @@ Rails.application.routes.draw do
     get 'sales/index'
     get 'budgets/index'
     get 'purchase/index'
+    get 'accounts_receivables/index'
     get 'dashboard', to: 'dashboard#index'
   end
 
@@ -25,7 +27,6 @@ Rails.application.routes.draw do
     get 'home', to: 'home#index'
   end
   resources :accounts_payables
-  resources :accounts_receivables
 
   devise_for :system_users
   devise_for :master_users
