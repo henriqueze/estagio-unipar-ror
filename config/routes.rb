@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :backoffice do
-    get 'accounts_payables/index'
-  end
   get 'admin', to: 'backoffice/dashboard#index'
 
   namespace :backoffice do
@@ -14,6 +11,7 @@ Rails.application.routes.draw do
     resources :budgets, except: [:destroy]
     resources :purchases, except: [:destroy]
     resources :accounts_receivables, except: [:destroy]
+    resources :accounts_payables, except: [:destroy]
 
     get 'categories/index'
     get 'people/index'
@@ -23,13 +21,13 @@ Rails.application.routes.draw do
     get 'budgets/index'
     get 'purchase/index'
     get 'accounts_receivables/index'
+    get 'accounts_payables/index'
     get 'dashboard', to: 'dashboard#index'
   end
 
   namespace :site do
     get 'home', to: 'home#index'
   end
-  resources :accounts_payables
 
   devise_for :system_users
   devise_for :master_users
