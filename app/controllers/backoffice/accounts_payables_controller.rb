@@ -42,10 +42,11 @@ class Backoffice::AccountsPayablesController < BackofficeController
 	end
 
 	def params_accounts_payable
-		params.require(:accounts_payable).permit(:state, :description, :kind,
-						 :issue_date, :expiration_date, :received_date, :total_value,
-						 :received_value, :remaining_value, :total_parcels, :parcel,
-						 :sales_id, :payment_type_id, :system_user_id)
+		params.require(:accounts_payable).permit(:state, :description, :document_kind,
+						 :document_number, :issue_date, :expiration_date,
+						 :payment_date, :total_parcels, :current_parcel, :payable_value,
+						 :additions_value, :discount_value, :total_value, :paid_value,
+						  :voucher_image, :purchase_id, :system_user_id)
 	end
 end
 
