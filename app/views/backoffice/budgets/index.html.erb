@@ -15,6 +15,13 @@
 				<thead>
 					<tr>
 						<th>#</th>
+						<th>Kind</th>
+						<th>Note</th>
+						<th>Date</th>
+						<th>Expiration date</th>
+						<th>Total value</th>
+						<th>State</th>
+						<th>Person</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -22,9 +29,19 @@
 					<% @budgets.each do |budget| %>
 					<tr>
 						<td><%= budget.id %></td>
-						<td></td>
+						<td><%= budget.kind %></td>
+						<td><%= budget.note %></td>
+						<td><%= budget.date %></td>
+						<td><%= budget.expiration_date %></td>
+						<td><%= budget.total_value %></td>
+						<td><%= budget.state %></td>
+						<td><%= budget.person %></td>
 						<td style="width: 150px">
-							<%= link_to new_backoffice_budget_path(budget),
+							<%= link_to backoffice_budget_path(budget),
+							class: "btn btn-primary btn-circle" do %>
+							<i class="fa fa-info-circle"></i>
+							<% end %>
+							<%= link_to edit_backoffice_budget_path(budget),
 							class: "btn btn-primary btn-circle" do %>
 							<i class="fa fa-edit"></i>
 							<% end %>

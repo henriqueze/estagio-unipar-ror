@@ -1,0 +1,32 @@
+<h1 class="page-header">Compras</h1>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Visualizando Compra
+    <%= link_to backoffice_purchases_path, class: "btn btn-warning btn-circle pull-right",
+    style:"margin-top: -5px"  do %>
+    <i class="fa fa-arrow-left"></i>
+    <% end %>
+  </div>
+  <div class="panel-body">
+    <p>
+      <strong>Date:</strong>
+      <%= @purchase.date %>
+    </p>
+
+    <p>
+      <strong>Total value:</strong>
+      <%= @purchase.total_value %>
+    </p>
+
+    <p>
+      <strong>Freight value:</strong>
+      <%= @purchase.freight_value %>
+    </p>
+
+    <p>
+      <strong>Person:</strong>
+      <%= @purchase.person %>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<h1 class="page-header">Contas a Receber</h1>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Visualizando Conta a Receber
+    <%= link_to backoffice_accounts_receivables_path, class: "btn btn-warning btn-circle pull-right",
+    style:"margin-top: -5px"  do %>
+    <i class="fa fa-arrow-left"></i>
+    <% end %>
+  </div>
+  <div class="panel-body">
+    <p>
+      <strong>State:</strong>
+      <%= @accounts_receivable.state %>
+    </p>
+
+    <p>
+      <strong>Description:</strong>
+      <%= @accounts_receivable.description %>
+    </p>
+
+    <p>
+      <strong>Kind:</strong>
+      <%= @accounts_receivable.kind %>
+    </p>
+
+    <p>
+      <strong>Issue date:</strong>
+      <%= @accounts_receivable.issue_date %>
+    </p>
+
+    <p>
+      <strong>Expiration date:</strong>
+      <%= @accounts_receivable.expiration_date %>
+    </p>
+
+    <p>
+      <strong>Received date:</strong>
+      <%= @accounts_receivable.received_date %>
+    </p>
+
+    <p>
+      <strong>Total value:</strong>
+      <%= @accounts_receivable.total_value %>
+    </p>
+
+    <p>
+      <strong>Received value:</strong>
+      <%= @accounts_receivable.received_value %>
+    </p>
+
+    <p>
+      <strong>Remaining value:</strong>
+      <%= @accounts_receivable.remaining_value %>
+    </p>
+
+    <p>
+      <strong>Total parcels:</strong>
+      <%= @accounts_receivable.total_parcels %>
+    </p>
+
+    <p>
+      <strong>Parcel:</strong>
+      <%= @accounts_receivable.parcel %>
+    </p>
+
+    <p>
+      <strong>Sales:</strong>
+      <%= @accounts_receivable.sale %>
+    </p>
+
+    <p>
+      <strong>Payment type:</strong>
+      <%= @accounts_receivable.payment_type %>
+    </p>
+
+  </div>
+</div>

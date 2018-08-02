@@ -15,6 +15,10 @@
 				<thead>
 					<tr>
 						<th>#</th>
+						<th>Date</th>
+						<th>Total value</th>
+						<th>Freight value</th>
+						<th>Person</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -22,8 +26,15 @@
 					<% @purchases.each do |purchase| %>
 					<tr>
 						<td><%= purchase.id %></td>
-						<td></td>
+						<td><%= purchase.date %></td>
+						<td><%= purchase.total_value %></td>
+						<td><%= purchase.freight_value %></td>
+						<td><%= purchase.person %></td>
 						<td style="width: 150px">
+							<%= link_to backoffice_purchase_path(purchase),
+							class: "btn btn-primary btn-circle" do %>
+							<i class="fa fa-info-circle"></i>
+							<% end %>
 							<%= link_to edit_backoffice_purchase_path(purchase),
 							class: "btn btn-primary btn-circle" do %>
 							<i class="fa fa-edit"></i>

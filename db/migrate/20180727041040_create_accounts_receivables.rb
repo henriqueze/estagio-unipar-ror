@@ -12,9 +12,8 @@ class CreateAccountsReceivables < ActiveRecord::Migration[5.2]
       t.decimal :remaining_value
       t.integer :total_parcels, null: false, default: 0
       t.integer :parcel
-      t.references :sales, foreign_key: true
+      t.references :sale, foreign_key: true
       t.references :payment_type, foreign_key: true
-      t.references :system_user, foreign_key: true
 
       t.timestamps
     end

@@ -45,7 +45,7 @@ class Backoffice::AccountsReceivablesController < BackofficeController
 		params.require(:accounts_receivable).permit(:state, :description, :kind,
 						 :issue_date, :expiration_date, :received_date, :total_value,
 						 :received_value, :remaining_value, :total_parcels, :parcel,
-						 :sales_id, :payment_type_id, :system_user_id)
+						 :sale_id, :payment_type_id)
 	end
 end
 
