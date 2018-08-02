@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :categories, except: [:show, :destroy]
     resources :people, except: [ :destroy]
     resources :products, except: [:destroy]
-    resources :payment_types, except: [:destroy]
+    resources :payment_types, except: [:show, :destroy]
     resources :sales, except: [:destroy]
     resources :budgets, except: [:destroy]
     resources :purchases, except: [:destroy]
