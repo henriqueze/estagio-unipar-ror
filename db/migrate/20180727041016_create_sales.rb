@@ -6,6 +6,7 @@ class CreateSales < ActiveRecord::Migration[5.2]
       t.decimal :discount_value, default: 0
       t.string :state, limit: 20, null: false, default: "Aberta"
       t.references :person, foreign_key: true
+      t.references :payment_type, foreign_key: true
 
       t.timestamps
     end

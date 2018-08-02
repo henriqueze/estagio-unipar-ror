@@ -20,6 +20,7 @@
 						<th>Discount value</th>
 						<th>State</th>
 						<th>Person</th>
+						<th>Payment type</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -32,6 +33,7 @@
 						<td><%= sale.discount_value %></td>
 						<td><%= sale.state %></td>
 						<td><%= sale.person %></td>
+						<td><%= sale.payment_type %></td>
 						<td style="width: 150px">
 							<%= link_to backoffice_sale_path(sale),
 							class: "btn btn-primary btn-circle" do %>

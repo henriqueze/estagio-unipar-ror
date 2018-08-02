@@ -188,8 +188,10 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
     t.decimal "discount_value", precision: 10, default: "0"
     t.string "state", limit: 20, default: "Aberta", null: false
     t.bigint "person_id"
+    t.bigint "payment_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["payment_type_id"], name: "index_sales_on_payment_type_id"
     t.index ["person_id"], name: "index_sales_on_person_id"
   end
 
@@ -225,5 +227,6 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
   add_foreign_key "item_sales", "sales"
   add_foreign_key "products", "categories"
   add_foreign_key "purchases", "people"
+  add_foreign_key "sales", "payment_types"
   add_foreign_key "sales", "people"
 end
