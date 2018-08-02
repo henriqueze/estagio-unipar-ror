@@ -1,0 +1,37 @@
+<h1 class="page-header">Vendas</h1>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Visualizando Venda
+    <%= link_to backoffice_sales_path, class: "btn btn-warning btn-circle pull-right",
+                                         style:"margin-top: -5px"  do %>
+    <i class="fa fa-arrow-left"></i>
+    <% end %>
+  </div>
+  <div class="panel-body">
+    <p>
+  <strong>Date:</strong>
+  <%= @sale.date %>
+</p>
+
+<p>
+  <strong>Total value:</strong>
+  <%= @sale.total_value %>
+</p>
+
+<p>
+  <strong>Discount value:</strong>
+  <%= @sale.discount_value %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @sale.state %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @sale.person %>
+</p>
+  </div>
+</div>

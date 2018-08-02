@@ -1,2 +1,75 @@
-<h1>Backoffice::AccountsPayables#index</h1>
-<p>Find me in app/views/backoffice/accounts_payables/index.html.erb</p>
+<h1 class="page-header">Contas a Pagar</h1>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Listando Contas a Pagar
+		<%= link_to new_backoffice_accounts_payable_path, class: "btn btn-success btn-circle
+		pull-right", style:"margin-top: -5px" do %>
+		<i class="fa fa-plus"></i>
+		<% end -%>
+	</div>
+	<!-- /.panel-heading -->
+	<div class="panel-body">
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>State</th>
+						<th>Description</th>
+						<th>Document kind</th>
+						<th>Document number</th>
+						<th>Issue date</th>
+						<th>Expiration date</th>
+						<th>Payment date</th>
+						<th>Total parcels</th>
+						<th>Current parcel</th>
+						<th>Payable value</th>
+						<th>Additions value</th>
+						<th>Discount value</th>
+						<th>Total value</th>
+						<th>Paid value</th>
+						<th>Voucher image</th>
+						<th>Purchase</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @accounts_payables.each do |accounts_payable| %>
+					<tr>
+						<td><%= accounts_payable.id %></td>
+						<td><%= accounts_payable.state %></td>
+						<td><%= accounts_payable.description %></td>
+						<td><%= accounts_payable.document_kind %></td>
+						<td><%= accounts_payable.document_number %></td>
+						<td><%= accounts_payable.issue_date %></td>
+						<td><%= accounts_payable.expiration_date %></td>
+						<td><%= accounts_payable.payment_date %></td>
+						<td><%= accounts_payable.total_parcels %></td>
+						<td><%= accounts_payable.current_parcel %></td>
+						<td><%= accounts_payable.payable_value %></td>
+						<td><%= accounts_payable.additions_value %></td>
+						<td><%= accounts_payable.discount_value %></td>
+						<td><%= accounts_payable.total_value %></td>
+						<td><%= accounts_payable.paid_value %></td>
+						<td><%= accounts_payable.voucher_image %></td>
+						<td><%= accounts_payable.purchase %></td>
+						<td style="width: 150px">
+							<%= link_to edit_backoffice_accounts_payable_path(accounts_payable),
+							class: "btn btn-primary btn-circle" do %>
+							<i class="fa fa-edit"></i>
+							<% end %>
+							<button type="button" disabled="disabled"
+							class="btn btn-danger btn-circle">
+							<i class="fa fa-minus"></i>
+						</button>
+					</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<!-- /.table-responsive -->
+</div>
+<!-- /.panel-body -->
+</div>

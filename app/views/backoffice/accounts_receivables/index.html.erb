@@ -1,2 +1,73 @@
-<h1>Backoffice::AccountsReceivables#index</h1>
-<p>Find me in app/views/backoffice/accounts_receivables/index.html.erb</p>
+<h1 class="page-header">Contas a Receber</h1>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Listando Contas a Receber
+		<%= link_to new_backoffice_accounts_receivable_path, class: "btn btn-success btn-circle
+		pull-right", style:"margin-top: -5px" do %>
+		<i class="fa fa-plus"></i>
+		<% end -%>
+	</div>
+	<!-- /.panel-heading -->
+	<div class="panel-body">
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>State</th>
+						<th>Description</th>
+						<th>Kind</th>
+						<th>Issue date</th>
+						<th>Expiration date</th>
+						<th>Received date</th>
+						<th>Total value</th>
+						<th>Received value</th>
+						<th>Remaining value</th>
+						<th>Total parcels</th>
+						<th>Parcel</th>
+						<th>Sales</th>
+						<th>Payment type</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @accounts_receivables.each do |accounts_receivable| %>
+					<tr>
+						<td><%= accounts_receivable.id %></td>
+						<td><%= accounts_receivable.state %></td>
+						<td><%= accounts_receivable.description %></td>
+						<td><%= accounts_receivable.kind %></td>
+						<td><%= accounts_receivable.issue_date %></td>
+						<td><%= accounts_receivable.expiration_date %></td>
+						<td><%= accounts_receivable.received_date %></td>
+						<td><%= accounts_receivable.total_value %></td>
+						<td><%= accounts_receivable.received_value %></td>
+						<td><%= accounts_receivable.remaining_value %></td>
+						<td><%= accounts_receivable.total_parcels %></td>
+						<td><%= accounts_receivable.parcel %></td>
+						<td><%= accounts_receivable.sale %></td>
+						<td><%= accounts_receivable.payment_type %></td>
+						<td style="width: 150px">
+							<%= link_to backoffice_accounts_receivable_path(accounts_receivable),
+							class: "btn btn-primary btn-circle" do %>
+							<i class="fa fa-info-circle"></i>
+							<% end %>
+							<%= link_to edit_backoffice_accounts_receivable_path(accounts_receivable),
+							class: "btn btn-primary btn-circle" do %>
+							<i class="fa fa-edit"></i>
+							<% end %>
+							<button type="button" disabled="disabled"
+							class="btn btn-danger btn-circle">
+							<i class="fa fa-minus"></i>
+						</button>
+					</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<!-- /.table-responsive -->
+</div>
+<!-- /.panel-body -->
+</div>

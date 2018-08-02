@@ -1,0 +1,47 @@
+<h1 class="page-header">Orçamentos</h1>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Visualizando Orçamento
+    <%= link_to backoffice_budgets_path, class: "btn btn-warning btn-circle pull-right",
+    style:"margin-top: -5px"  do %>
+    <i class="fa fa-arrow-left"></i>
+    <% end %>
+  </div>
+  <div class="panel-body">
+    <p>
+      <strong>Kind:</strong>
+      <%= @budget.kind %>
+    </p>
+
+    <p>
+      <strong>Note:</strong>
+      <%= @budget.note %>
+    </p>
+
+    <p>
+      <strong>Date:</strong>
+      <%= @budget.date %>
+    </p>
+
+    <p>
+      <strong>Expiration date:</strong>
+      <%= @budget.expiration_date %>
+    </p>
+
+    <p>
+      <strong>Total value:</strong>
+      <%= @budget.total_value %>
+    </p>
+
+    <p>
+      <strong>State:</strong>
+      <%= @budget.state %>
+    </p>
+
+    <p>
+      <strong>Person:</strong>
+      <%= @budget.person %>
+    </p>
+  </div>
+</div>

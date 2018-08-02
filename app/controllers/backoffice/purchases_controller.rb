@@ -14,7 +14,7 @@ class Backoffice::PurchasesController < BackofficeController
 		@purchase = Purchase.new(params_purchase)
 		if @purchase.save
 			redirect_to backoffice_purchases_path,
-			notice: "Compra #{@budget.id} Atualizada com Sucesso"
+			notice: "Compra #{@purchase.id} Cadastrada com Sucesso"
 		else
 			render :new
 		end
@@ -29,7 +29,7 @@ class Backoffice::PurchasesController < BackofficeController
 	def update
 		if @purchase.update(params_purchase)
 			redirect_to backoffice_purchases_path,
-			notice: "Compra #{@budget.id} Atualizada com Sucesso"
+			notice: "Compra #{@purchase.id} Atualizada com Sucesso"
 		else
 			render :edit
 		end

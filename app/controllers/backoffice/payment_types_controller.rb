@@ -1,5 +1,5 @@
 class Backoffice::PaymentTypesController < BackofficeController
-	before_action :set_payment_type, only: [:edit, :update, :show]
+	before_action :set_payment_type, only: [:edit, :update]
 
 	def index
 		@payment_types = PaymentType.all
@@ -18,9 +18,6 @@ class Backoffice::PaymentTypesController < BackofficeController
 		else
 			render :new
 		end
-	end
-
-	def show
 	end
 
 	def edit
