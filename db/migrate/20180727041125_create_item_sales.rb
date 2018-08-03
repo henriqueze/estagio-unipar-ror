@@ -3,6 +3,7 @@ class CreateItemSales < ActiveRecord::Migration[5.2]
     create_table :item_sales do |t|
       t.integer :amount, null: false, default: 0
       t.decimal :value, null: false
+      t.decimal :total_value, null: false
       t.references :product, foreign_key: true
       t.references :sale, foreign_key: true
 

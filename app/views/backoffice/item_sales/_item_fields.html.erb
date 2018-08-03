@@ -1,0 +1,27 @@
+      <div class="panel-body">
+
+        <%= f.fields_for :item_sales do |f| %>
+        <div class="form-group">
+          <%= f.label :amount %>
+          <%= f.text_field :amount %>
+        </div>
+        <div class="form-group">
+          <%= f.label :value %>
+          <%= f.text_field :value %>
+        </div>
+        <div class="form-group">
+          <%= f.label :total_value %>
+          <%= f.text_field :total_value %>
+        </div>
+        <div class="form-group">
+          <%= f.label :product_id %>
+          <%= f.text_field :product_id %>
+        </div>
+        <div class="form-group">
+          <%= f.label :sale_id %>
+          <%= f.text_field :sale_id %>
+        </div>
+        <% end %>
+
+
+      </div>

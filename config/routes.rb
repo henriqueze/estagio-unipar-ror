@@ -5,13 +5,14 @@ Rails.application.routes.draw do
   namespace :backoffice do
     resources :categories, except: [:show, :destroy]
     resources :people, except: [ :destroy]
-    resources :products, except: [:destroy]
+    resources :products, except: [:show, :destroy]
     resources :payment_types, except: [:show, :destroy]
     resources :sales, except: [:destroy]
     resources :budgets, except: [:destroy]
     resources :purchases, except: [:destroy]
     resources :accounts_receivables, except: [:destroy]
     resources :accounts_payables, except: [:destroy]
+    resources :item_sales
 
     get 'categories/index'
     get 'people/index'

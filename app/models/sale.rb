@@ -4,4 +4,7 @@ class Sale < ApplicationRecord
   has_many :accounts_receivable
   has_many :item_sale
   has_many :product, through: :item_sale
+
+  accepts_nested_attributes_for :product
+  accepts_nested_attributes_for :item_sale
 end

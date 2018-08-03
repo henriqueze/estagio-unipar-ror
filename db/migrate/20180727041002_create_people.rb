@@ -8,7 +8,6 @@ class CreatePeople < ActiveRecord::Migration[5.2]
       t.string :personC_ie, default: ""
       t.string :person_cpf, default: ""
       t.string :personC_cnpj, default: ""
-      t.string :personC_provider, limit: 3, default: "Não"
       t.string :address, limit: 100, default: ""
       t.string :address_number, limit: 50, default: ""
       t.string :address_complement, limit: 100, default: ""

@@ -1,5 +1,5 @@
 class Backoffice::ProductsController < BackofficeController
-	before_action :set_product, only: [:edit, :update, :show]
+	before_action :set_product, only: [:edit, :update]
 
 	def index
 		@products = Product.all
@@ -18,9 +18,6 @@ class Backoffice::ProductsController < BackofficeController
 		else
 			render :new
 		end
-	end
-
-	def show
 	end
 
 	def edit
