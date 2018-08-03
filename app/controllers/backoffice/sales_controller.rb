@@ -43,8 +43,8 @@ class Backoffice::SalesController < BackofficeController
 
 	def params_sale
 		params.require(:sale).permit(:date, :total_value, :discount_value, :state,
-									 :person_id, :payment_type_id)
+			:person_id, :payment_type_id,
+			:product_attributes, :item_sale_attributes)
 	end
 end
-
 

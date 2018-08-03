@@ -16,118 +16,149 @@
 <div class="panel panel-default">
   <div class="panel-heading">
     <%= link_to backoffice_people_path, class: "btn btn-warning btn-circle pull-right",
-                                         style:"margin-top: -5px"  do %>
+    style:"margin-top: -5px"  do %>
     <i class="fa fa-arrow-left"></i>
     <% end %>
     <%= action %>
   </div>
   <!-- /.panel-heading -->
   <div class="panel-body">
-    <div class="col-lg-6">
+    <div class="form-horizontal">
       <%= form_for([:backoffice, @person]) do |f| %>
-
-<!-- Colocar div em cada form a baixo -->
-      <div class="form-group">
-
+      <div class="row">
+        <div class="form-group">
+          <%= f.label :kind, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-2 ">
+            <%= f.select(:kind, options_for_select([['Fisica', 'Fisica'], ['Juridica', 'Juridica']]), {:id => 'tipo_pessoa'},
+            {:onchange => 'exibir_ocultar(this)', :class => 'form-control'}) %>
+          </div>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :kind %>
-        <%= f.text_field :kind %>
+      <!-- Pessoa Fisica -->
+      <div id="pes_fisica">
+        <div class='row'>
+          <div class="form-group">
+            <%= f.label :name, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-8">
+              <%= f.text_field :name, :class => 'form-control'%>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :person_rg, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-3">
+              <%= f.text_field :person_rg, :class => 'form-control' %>
+            </div>
+            <%= f.label :person_cpf, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-3">
+              <%= f.text_field :person_cpf, :class => 'form-control' %>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
+      <!-- Pessoa Juridica -->
+      <div id="pes_juridica">
+        <div class="row">
+          <div class="form-group">
+            <%= f.label :company_name, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-8">
+              <%= f.text_field :company_name, :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :personC_ie, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-3">
+              <%= f.text_field :personC_ie, :class => 'form-control' %>
+            </div>
+            <div id="cnpj">
+              <%= f.label :personC_cnpj, :class => 'control-label col-lg-2' %>
+              <div class="col-lg-3">
+                <%= f.text_field :personC_cnpj, :class => 'form-control' %>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :company_name %>
-        <%= f.text_field :company_name %>
-      </div>
+      <!-- endereço -->
+      <div class="row">
+        <div class="form-group">
+          <%= f.label :address, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-4">
+            <%= f.text_field :address, :class => 'form-control' %>
+          </div>
 
-      <div class="field">
-        <%= f.label :person_rg %>
-        <%= f.text_field :person_rg %>
-      </div>
+          <%= f.label :address_number, :class => 'control-label col-xs-1' %>
+          <div class="col-lg-1">
+            <%= f.text_field :address_number, :class => 'form-control' %>
+          </div>
 
-      <div class="field">
-        <%= f.label :personC_ie %>
-        <%= f.text_field :personC_ie %>
-      </div>
+          <%= f.label :address_complement, :class => 'control-label col-xs-1' %>
+          <div class="col-lg-2">
+            <%= f.text_field :address_complement, :class => 'form-control' %>
+          </div>
+        </div>
 
-      <div class="field">
-        <%= f.label :person_cpf %>
-        <%= f.text_field :person_cpf %>
-      </div>
+        <div class="form-group">
+          <%= f.label :address_bairro, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-2">
+            <%= f.text_field :address_bairro, :class => 'form-control' %>
+          </div>
 
-      <div class="field">
-        <%= f.label :personC_cnpj %>
-        <%= f.text_field :personC_cnpj %>
-      </div>
+          <%= f.label :address_zip, :class => 'control-label col-xs-1' %>
+          <div class="col-lg-1">
+            <%= f.text_field :address_zip, :class => 'form-control' %>
+          </div>
 
-      <div class="field">
-        <%= f.label :personC_provider %>
-        <%= f.text_field :personC_provider %>
-      </div>
+          <%= f.label :address_city, :class => 'control-label col-xs-1' %>
+          <div class="col-lg-2">
+           <%= f.text_field :address_city, :class => 'form-control' %>
+         </div>
 
-      <div class="field">
-        <%= f.label :address %>
-        <%= f.text_field :address %>
+         <%= f.label :address_state, :class => 'control-label col-xs-1' %>
+         <div class="col-lg-1">
+          <%= f.text_field :address_state, :class => 'form-control' %>
+        </div>
       </div>
-
-      <div class="field">
-        <%= f.label :address_number %>
-        <%= f.text_field :address_number %>
-      </div>
-
-      <div class="field">
-        <%= f.label :address_complement %>
-        <%= f.text_field :address_complement %>
-      </div>
-
-      <div class="field">
-        <%= f.label :address_bairro %>
-        <%= f.text_field :address_bairro %>
-      </div>
-
-      <div class="field">
-        <%= f.label :address_zip %>
-        <%= f.text_field :address_zip %>
-      </div>
-
-      <div class="field">
-        <%= f.label :address_city %>
-        <%= f.text_field :address_city %>
-      </div>
-
-      <div class="field">
-        <%= f.label :address_state %>
-        <%= f.text_field :address_state %>
-      </div>
-
-      <div class="field">
-        <%= f.label :person_tel1 %>
-        <%= f.text_field :person_tel1 %>
-      </div>
-
-      <div class="field">
-        <%= f.label :person_tel2 %>
-        <%= f.text_field :person_tel2 %>
-      </div>
-
-      <div class="field">
-        <%= f.label :person_email %>
-        <%= f.text_field :person_email %>
-      </div>
-
-      <div class="field">
-        <%= f.label :person_obs %>
-        <%= f.text_field :person_obs %>
-      </div>
-      <button type="submit" class="btn btn-success">Salvar</button>
-      <% end %>
     </div>
+    <!-- end endereço -->
+
+    <!-- contato -->
+    <div class="row">
+      <div class="form-group">
+        <%= f.label :person_tel1, :class => 'control-label col-xs-2' %>
+        <div class="col-lg-2">
+          <%= f.text_field :person_tel1, :class => 'form-control' %>
+        </div>
+        <%= f.label :person_tel2, :class => 'control-label col-lg-1' %>
+        <div class="col-lg-2">
+          <%= f.text_field :person_tel2, :class => 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <div class='row'>
+      <div class="form-group">
+        <%= f.label :person_email, :class => 'control-label col-lg-2' %>
+        <div class="col-lg-5">
+          <%= f.text_field :person_email, :class => 'form-control' %>
+        </div>
+      </div>
+    </div>
+    <!-- end contato -->
+
+    <div class="row">
+      <div class="form-group">
+        <%= f.label :person_obs, :class => 'control-label col-lg-2' %>
+        <div class="col-lg-8">
+          <%= f.text_area :person_obs, :class => 'form-control', :rows => '5' %>
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <% end %>
   </div>
-  <!-- /.panel-body -->
+</div>
+<!-- /.panel-body -->
 </div>

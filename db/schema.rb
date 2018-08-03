@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
   create_table "item_sales", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "amount", default: 0, null: false
     t.decimal "value", precision: 10, null: false
+    t.decimal "total_value", precision: 10, null: false
     t.bigint "product_id"
     t.bigint "sale_id"
     t.datetime "created_at", null: false
@@ -142,7 +143,6 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
     t.string "personC_ie", default: ""
     t.string "person_cpf", default: ""
     t.string "personC_cnpj", default: ""
-    t.string "personC_provider", limit: 3, default: "Não"
     t.string "address", limit: 100, default: ""
     t.string "address_number", limit: 50, default: ""
     t.string "address_complement", limit: 100, default: ""

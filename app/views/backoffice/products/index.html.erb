@@ -16,12 +16,12 @@
 					<tr>
 						<th>Product code</th>
 						<th>Description</th>
+						<th>Category</th>
 						<th>Purchase price</th>
 						<th>Sale price</th>
 						<th>Profit margin</th>
 						<th>Stock</th>
 						<th>Stock reserved</th>
-						<th>Category</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -30,17 +30,13 @@
 					<tr>
 						<td><%= product.product_code %></td>
 						<td><%= product.description %></td>
+						<td><%= product.category.description %></td>
 						<td><%= product.purchase_price %></td>
 						<td><%= product.sale_price %></td>
 						<td><%= product.profit_margin %></td>
 						<td><%= product.stock %></td>
 						<td><%= product.stock_reserved %></td>
-						<td><%= product.category %></td>
 						<td style="width: 150px">
-							<%= link_to backoffice_product_path(product),
-							class: "btn btn-primary btn-circle" do %>
-							<i class="fa fa-info-circle"></i>
-							<% end %>
 							<%= link_to edit_backoffice_product_path(product),
 							class: "btn btn-primary btn-circle" do %>
 							<i class="fa fa-edit"></i>

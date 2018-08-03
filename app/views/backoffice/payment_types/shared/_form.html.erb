@@ -5,9 +5,11 @@
   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 
   <ul>
-    <% @payment_type.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end -%>
+    <div id="error_expl" class="panel panel-danger">
+      <% @payment_type.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end -%>
+    </div>
   </ul>
 
 </div>
@@ -23,30 +25,35 @@
   </div>
   <!-- /.panel-heading -->
   <div class="panel-body">
-    <div class="col-lg-6">
+    <div class="form-horizontal">
       <%= form_for([:backoffice, @payment_type]) do |f| %>
 
-      <div class="form-group">
+      <div class="row">
+        <div class="form-group">
+          <%= f.label :kind, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-2 ">
+            <%= f.select(:kind, options_for_select([['À Vista'], ['À Prazo'], ['Cartão Débito'],
+            ['Cartão Credito'], ['Credito Parcelado'], ['Cheque'], ['Nota']]), {}, {:class => 'form-control'}) %>
+          </div>
+          <%= f.label :description, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-4">
+            <%= f.text_field :description, :class => 'form-control',
+             :placeholder => 'Ex: Somente Dinheiro/ Nota 30 dias' %>
+          </div>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :kind %>
-        <%= f.text_field :kind %>
-      </div>
-
-      <div class="field">
-        <%= f.label :description %>
-        <%= f.text_field :description %>
-      </div>
-
-      <div class="field">
-        <%= f.label :interest_rates %>
-        <%= f.text_field :interest_rates %>
-      </div>
-
-      <div class="field">
-        <%= f.label :max_parcel %>
-        <%= f.number_field :max_parcel %>
+      <div class="row">
+        <div class="form-group">
+          <%= f.label :interest_rates, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-2">
+            <%= f.text_field :interest_rates, :class => 'form-control' %>
+          </div>
+          <%= f.label :max_parcel, :class => 'control-label col-lg-2' %>
+          <div class="col-lg-2">
+            <%= f.text_field :max_parcel, :class => 'form-control' %>
+          </div>
+        </div>
       </div>
 
       <button type="submit" class="btn btn-success">Salvar</button>
