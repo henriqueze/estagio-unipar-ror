@@ -1,6 +1,6 @@
 class PaymentType < ApplicationRecord
-	has_many :accounts_receivable
-	has_many :sale
+	#has_many :accounts_receivables
+	has_many :sales
 
 	validates_numericality_of :interest_rates, :max_parcel, length: { in: 1..10}
 	validates_presence_of :kind, :description

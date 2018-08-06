@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-	has_many :product
+	has_many :products
 
 	validates :description, uniqueness: { case_sensitive: false }, presence: true,
 		length: { minimum: 2 }
