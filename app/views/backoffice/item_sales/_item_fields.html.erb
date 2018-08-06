@@ -1,6 +1,15 @@
       <div class="panel-body">
 
-        <%= f.fields_for :item_sales do |f| %>
+        <div class="row">
+          <div class="form-group">
+            <%= f.label :product_id, :class => 'control-label col-lg-2' %>
+            <div class="col-lg-4">
+              <%= f.collection_select :product_id, Product.all, :id, :description,
+              {}, {:class => 'form-control'} %>
+            </div>
+          </div>
+        </div>
+
         <div class="form-group">
           <%= f.label :amount %>
           <%= f.text_field :amount %>
@@ -13,15 +22,6 @@
           <%= f.label :total_value %>
           <%= f.text_field :total_value %>
         </div>
-        <div class="form-group">
-          <%= f.label :product_id %>
-          <%= f.text_field :product_id %>
-        </div>
-        <div class="form-group">
-          <%= f.label :sale_id %>
-          <%= f.text_field :sale_id %>
-        </div>
-        <% end %>
 
 
       </div>

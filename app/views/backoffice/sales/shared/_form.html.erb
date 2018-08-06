@@ -23,15 +23,55 @@
   </div>
   <!-- /.panel-heading -->
   <div class="panel-body">
-    <div class="col-lg-6">
+    <div class="form-horizontal">
       <%= form_for([:backoffice, @sale]) do |f| %>
 
-      <div class="form-group">
+      <!-- <div class="form-group">
+        <%= f.label :date, :class => 'control-label col-lg-2' %>
+        <div class="col-lg-5">
+          <%= f.datetime_select :date, :class => 'form-control', :disabled => 'disabled' %>
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="form-group">
+          <%= f.label :state, :class => 'control-label col-lg-1' %>
+          <div class="col-lg-3">
+            <%= f.select(:state, options_for_select([['Ativa'], ['Aguardando Pagamento'],
+            ['Finalizada'], ['Cancelada']]), {}, {:class => 'form-control'}) %>
+          </div>
+          <div class="colg-lg-5">
+            <%= f.label :payment_type_id, :class => 'control-label col-lg-3' %>
+            <div class="col-lg-3">
+              <%= f.collection_select :payment_type_id, PaymentType.all, :id, :kind,
+              {}, {:class => 'form-control'} %>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div class="field">
-        <%= f.label :date %>
-        <%= f.datetime_select :date %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h5>Cliente</h5>
+        </div>
+        <div class="panel-body">
+          <div class="field">
+            <%= f.label :person_id %>
+            <%= f.text_field :person_id %>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h5>Produtos</h5>
+        </div>
+        <div class="panel-body">
+          <%= f.fields_for :item_sale do |f| %>
+          <div class="form-group">
+            <%= render 'backoffice/item_sales/item_fields', f: f  %>
+          </div>
+          <% end %>
+        </div>
       </div>
 
       <div class="field">
@@ -44,20 +84,6 @@
         <%= f.text_field :discount_value %>
       </div>
 
-      <div class="field">
-        <%= f.label :state %>
-        <%= f.text_field :state %>
-      </div>
-
-      <div class="field">
-        <%= f.label :person_id %>
-        <%= f.text_field :person_id %>
-      </div>
-
-      <div class="field">
-        <%= f.label :payment_type_id %>
-        <%= f.text_field :payment_type_id %>
-      </div>
 
       <button type="submit" class="btn btn-success">Salvar</button>
       <% end %>

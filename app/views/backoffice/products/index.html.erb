@@ -31,9 +31,9 @@
 						<td><%= product.product_code %></td>
 						<td><%= product.description %></td>
 						<td><%= product.category.description %></td>
-						<td><%= product.purchase_price %></td>
-						<td><%= product.sale_price %></td>
-						<td><%= product.profit_margin %></td>
+						<td><%= valor_formatado(product.purchase_price) %></td>
+						<td><%= valor_formatado(product.sale_price) %></td>
+						<td><%= percentual_formatado(product.profit_margin) %></td>
 						<td><%= product.stock %></td>
 						<td><%= product.stock_reserved %></td>
 						<td style="width: 150px">

@@ -5,9 +5,11 @@ class Backoffice::SalesController < BackofficeController
 		@sales = Sale.all
 	end
 
-	#before_action :authenticate_system_user! verificar depois porque não está passando o sql correto
+	#before_action :authenticate_system_user!
 	def new
 		@sale = Sale.new
+		@sale.item_sale.build
+
 	end
 
 	def create
@@ -44,7 +46,10 @@ class Backoffice::SalesController < BackofficeController
 	def params_sale
 		params.require(:sale).permit(:date, :total_value, :discount_value, :state,
 			:person_id, :payment_type_id,
-			:product_attributes, :item_sale_attributes)
+			item_sale_attributes: [:id, :amount, :value, :total_value, :product_id, :sale_id],
+			product_attributes: [:id, :product_code, :description, :purchase_price,
+				:sale_price, :profit_margin, :stock, :stock_reserved, :category_id])
 	end
+
 end
 
