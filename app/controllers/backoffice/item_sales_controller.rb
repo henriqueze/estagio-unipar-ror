@@ -8,6 +8,7 @@ class Backoffice::ItemSalesController < BackofficeController
 	#before_action :authenticate_system_user! verificar depois porque não está passando o sql correto
 	def new
 		@item_sale = ItemSale.new
+		@item_sale.product.build
 	end
 
 	def create
@@ -47,6 +48,7 @@ class Backoffice::ItemSalesController < BackofficeController
 	end
 
 	def params_item_sale
-		params.require(:item_sale).permit(:amount, :value, :total_value, :product_id, :sale_id)
+		params.require(:item_sale).permit(:amount, :value, :total_value,
+			:product_id, :sale_id)
 	end
 end

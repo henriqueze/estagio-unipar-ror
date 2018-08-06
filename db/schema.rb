@@ -49,10 +49,8 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
     t.integer "total_parcels", default: 0, null: false
     t.integer "parcel"
     t.bigint "sale_id"
-    t.bigint "payment_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["payment_type_id"], name: "index_accounts_receivables_on_payment_type_id"
     t.index ["sale_id"], name: "index_accounts_receivables_on_sale_id"
   end
 
@@ -216,7 +214,6 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
 
   add_foreign_key "accounts_payables", "purchases"
   add_foreign_key "accounts_payables", "system_users"
-  add_foreign_key "accounts_receivables", "payment_types"
   add_foreign_key "accounts_receivables", "sales"
   add_foreign_key "budgets", "people"
   add_foreign_key "item_budgets", "budgets"

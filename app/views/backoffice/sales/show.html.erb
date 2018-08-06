@@ -4,39 +4,55 @@
   <div class="panel-heading">
     Visualizando Venda
     <%= link_to backoffice_sales_path, class: "btn btn-warning btn-circle pull-right",
-                                         style:"margin-top: -5px"  do %>
+    style:"margin-top: -5px"  do %>
     <i class="fa fa-arrow-left"></i>
     <% end %>
   </div>
   <div class="panel-body">
     <p>
-  <strong>Date:</strong>
-  <%= @sale.date %>
-</p>
+      <strong>Date:</strong>
+      <%= @sale.date %>
+    </p>
 
-<p>
-  <strong>Total value:</strong>
-  <%= @sale.total_value %>
-</p>
+    <p>
+      <strong>Total value:</strong>
+      <%= @sale.total_value %>
+    </p>
 
-<p>
-  <strong>Discount value:</strong>
-  <%= @sale.discount_value %>
-</p>
+    <p>
+      <strong>Discount value:</strong>
+      <%= @sale.discount_value %>
+    </p>
 
-<p>
-  <strong>State:</strong>
-  <%= @sale.state %>
-</p>
+    <p>
+      <strong>State:</strong>
+      <%= @sale.state %>
+    </p>
 
-<p>
-  <strong>Person:</strong>
-  <%= @sale.person %>
-</p>
+    <p>
+      <strong>Person:</strong>
+      <%= @sale.person.name %>
+    </p>
 
-<p>
-  <strong>Payment Type:</strong>
-  <%= @sale.payment_type %>
-</p>
+    <p>
+      <strong>Payment Type:</strong>
+      <%= @sale.payment_type.kind %>
+    </p>
+
+    <p>
+      <strong>Item Venda * TESTE *:</strong>
+      <% @sale.item_sale.each do |item| %>
+      <p>
+        <%= item.product.description  %>
+      </p>
+      <p>
+        <%= item.amount  %>
+      </p>
+      <p>
+        <%= item.total_value %>
+      </p>
+      <% end %>
+    </p>
+
   </div>
 </div>
