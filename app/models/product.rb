@@ -1,14 +1,14 @@
 class Product < ApplicationRecord
   belongs_to :category
   #venda
-  has_many :item_sale
-  has_many :sale, through: :item_sale
+  has_many :item_sales
+  has_many :sales, through: :item_sales
   #orçamento
-  has_many :item_budget
-  has_many :budget, through: :item_budget
+  has_many :item_budgets
+  has_many :budgets, through: :item_budgets
   #compra
-  has_many :item_purchase
-  has_many :purchase, through: :item_purchase
+  has_many :item_purchases
+  has_many :purchases, through: :item_purchases
 
   validates :description, :product_code, :sale_price, presence: true
   validates :product_code, uniqueness: {case_sensitive: false} , length: { maximum: 20}
