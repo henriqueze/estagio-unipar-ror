@@ -8,6 +8,5 @@ class ItemSale < ApplicationRecord
 	def subtotal
 		product.sale_price * amount
 	end
-end
 
 end

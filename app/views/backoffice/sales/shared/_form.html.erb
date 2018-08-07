@@ -32,6 +32,7 @@
           <%= f.datetime_select :date, :class => 'form-control', :disabled => 'disabled' %>
         </div>
       </div> -->
+
       <div class="row">
         <div class="form-group">
           <%= f.label :state, :class => 'control-label col-lg-1' %>
@@ -71,6 +72,10 @@
             <%= render 'backoffice/item_sales/item_fields', f: f  %>
           </div>
           <% end %>
+          <div class="form-actions">
+            <%= link_to_add_association 'Adicionar Produto', f, :item_sales, :class => "btn btn-success "%>
+            <hr/>
+          </div>
         </div>
       </div>
 
