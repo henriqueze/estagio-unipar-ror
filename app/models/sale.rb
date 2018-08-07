@@ -11,7 +11,7 @@ class Sale < ApplicationRecord
 
 	def atualiza_estoque_diminui
 		products.each do |product|
-			item_sale = item_sales.find_by(prodct_id: product)
+			item_sale = item_sales.find_by(product_id: product)
 			product.stock -= item_sale.amount
 			product.save
 		end
@@ -19,7 +19,7 @@ class Sale < ApplicationRecord
 
 	def atualiza_estoque_aumenta
 		products.each do |product|
-			item_sale = item_sales.find_by(prodct_id: product)
+			item_sale = item_sales.find_by(product_id: product)
 			product.stock += item_sale.amount
 			product.save
 		end
