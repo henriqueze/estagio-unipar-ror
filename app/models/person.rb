@@ -20,7 +20,7 @@ class Person < ApplicationRecord
 	validates_inclusion_of :kind, in: %w(Fisica Juridica), message: "Aceita somente Fisica ou Juridica"
 
 	validates :name, :company_name, format: { with: /\A[a-zA-ZàáâãèéêìíóôõùúçÀÁÂĖÈÉÊÌÍÒÓÔÕÙÚÛÇ ]+\z/,
-	 message: 'Apenas Permite Letras' }
+	 message: 'Apenas Permite Letras' }, :allow_blank => true
 	validates :address_state, presence: true, length: { is: 2 },
 	 format: { with: /\A[a-zA-Z]+\z/, message: 'Apenas Permite Letras' }
 

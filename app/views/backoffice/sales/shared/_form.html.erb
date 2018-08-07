@@ -24,7 +24,7 @@
   <!-- /.panel-heading -->
   <div class="panel-body">
     <div class="form-horizontal">
-      <%= form_for([:backoffice, @sale]) do |f| %>
+      <%= simple_form_for([:backoffice, @sale]) do |f| %>
 
       <!-- <div class="form-group">
         <%= f.label :date, :class => 'control-label col-lg-2' %>
@@ -49,33 +49,35 @@
           </div>
         </div>
       </div>
-
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h5>Cliente</h5>
-        </div>
-        <div class="panel-body">
-          <div class="field">
-            <%= f.label :person_id %>
-            <%= f.text_field :person_id %>
+      <div class="form-inputs ">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h5>Cliente</h5>
+          </div>
+          <div class="panel-body">
+            <%= f.association :person, :class => 'control-label col-lg-5' %>
+            <hr/>
           </div>
         </div>
-      </div>
 
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h5>Produtos</h5>
-        </div>
-        <div class="panel-body">
-          <div id="item_sales">
-            <%= f.simple_fields_for :item_sales do |f| %>
-            <div class="form-group">
-              <%= render 'backoffice/item_sales/item_fields', f: f  %>
-            </div>
-            <% end %>
-            <div class="links">
-              <%= link_to_add_association 'Adicionar Produto', f, :item_sales,
-              :partial => 'backoffice/item_sales/item_fields', :class => "btn btn-success "%>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h5>Produtos</h5>
+          </div>
+          <div class="panel-body">
+            <div id="item_sales">
+              <div class="control-label col-lg-5">
+                <%= f.simple_fields_for :item_sales do |f| %>
+                <%= render 'backoffice/item_sales/item_fields', f: f %>
+                <% end %>
+              </div>
+              <div class="form-actions">
+                <div class="pull-right">
+                  <hr/>
+                  <%= link_to_add_association 'Adicionar Produto', f, :item_sales,
+                  :partial => 'backoffice/item_sales/item_fields', :class => "btn btn-success "%>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -91,10 +93,16 @@
         <%= f.text_field :discount_value %>
       </div>
 
-
-      <button type="submit" class="btn btn-success">Salvar</button>
-      <% end %>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-success">Salvar</button>
+        <% end %>
+      </div>
     </div>
   </div>
   <!-- /.panel-body -->
 </div>
+
+
+
+
+
