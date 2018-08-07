@@ -32,11 +32,12 @@
           <%= f.datetime_select :date, :class => 'form-control', :disabled => 'disabled' %>
         </div>
       </div> -->
+
       <div class="row">
         <div class="form-group">
           <%= f.label :state, :class => 'control-label col-lg-1' %>
           <div class="col-lg-3">
-            <%= f.select(:state, options_for_select([['Ativa'], ['Aguardando Pagamento'],
+            <%= f.select(:state, options_for_select([['Aberta'], ['Aguardando Pagamento'],
             ['Finalizada'], ['Cancelada']]), {}, {:class => 'form-control'}) %>
           </div>
           <div class="colg-lg-5">
@@ -66,11 +67,17 @@
           <h5>Produtos</h5>
         </div>
         <div class="panel-body">
-          <%= f.fields_for :item_sale do |f| %>
-          <div class="form-group">
-            <%= render 'backoffice/item_sales/item_fields', f: f  %>
+          <div id="item_sales">
+            <%= f.simple_fields_for :item_sales do |f| %>
+            <div class="form-group">
+              <%= render 'backoffice/item_sales/item_fields', f: f  %>
+            </div>
+            <% end %>
+            <div class="links">
+              <%= link_to_add_association 'Adicionar Produto', f, :item_sales,
+              :partial => 'backoffice/item_sales/item_fields', :class => "btn btn-success "%>
+            </div>
           </div>
-          <% end %>
         </div>
       </div>
 

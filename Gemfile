@@ -16,6 +16,10 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
+# Forularios
+gem 'simple_form'
+#Dynamic nested forms using jQuery made easy; works with formtastic, simple_form or default forms
+gem "cocoon"
 #This gem does some CPF/CNPJ magic.
 gem "cpf_cnpj"
 #Some ActiveModel/ActiveRecord validators

@@ -8,7 +8,7 @@ class Backoffice::SalesController < BackofficeController
 	#before_action :authenticate_system_user!
 	def new
 		@sale = Sale.new
-		@sale.item_sale.build
+		@sale.item_sales.build
 
 	end
 
@@ -46,9 +46,7 @@ class Backoffice::SalesController < BackofficeController
 	def params_sale
 		params.require(:sale).permit(:date, :total_value, :discount_value, :state,
 			:person_id, :payment_type_id,
-			item_sale_attributes: [:id, :amount, :value, :total_value, :product_id, :sale_id],
-			product_attributes: [:id, :product_code, :description, :purchase_price,
-				:sale_price, :profit_margin, :stock, :stock_reserved, :category_id])
+			item_sales_attributes: [:id, :amount, :value, :total_value, :product_id, :sale_id])
 	end
 
 end

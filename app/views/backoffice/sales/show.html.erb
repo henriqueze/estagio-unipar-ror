@@ -41,14 +41,17 @@
 
     <p>
       <strong>Item Venda * TESTE *:</strong>
-      <% @sale.item_sale.each do |item| %>
+      <% @sale.item_sales.each do |item| %>
       <p>
+        <strong>Produto</strong>
         <%= item.product.description  %>
       </p>
       <p>
+        <strong>Quantidade</strong>
         <%= item.amount  %>
       </p>
       <p>
+        <strong>Valor Total</strong>
         <%= item.total_value %>
       </p>
       <% end %>
