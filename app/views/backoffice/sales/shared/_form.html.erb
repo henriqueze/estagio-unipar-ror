@@ -36,7 +36,7 @@
         <div class="form-group">
           <%= f.label :state, :class => 'control-label col-lg-1' %>
           <div class="col-lg-3">
-            <%= f.select(:state, options_for_select([['Ativa'], ['Aguardando Pagamento'],
+            <%= f.select(:state, options_for_select([['Aberta'], ['Aguardando Pagamento'],
             ['Finalizada'], ['Cancelada']]), {}, {:class => 'form-control'}) %>
           </div>
           <div class="colg-lg-5">
@@ -66,7 +66,7 @@
           <h5>Produtos</h5>
         </div>
         <div class="panel-body">
-          <%= f.fields_for :item_sale do |f| %>
+          <%= f.fields_for :item_sales do |f| %>
           <div class="form-group">
             <%= render 'backoffice/item_sales/item_fields', f: f  %>
           </div>
