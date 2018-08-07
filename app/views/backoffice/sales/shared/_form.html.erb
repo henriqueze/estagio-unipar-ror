@@ -67,14 +67,16 @@
           <h5>Produtos</h5>
         </div>
         <div class="panel-body">
-          <%= f.fields_for :item_sales do |f| %>
-          <div class="form-group">
-            <%= render 'backoffice/item_sales/item_fields', f: f  %>
-          </div>
-          <% end %>
-          <div class="form-actions">
-            <%= link_to_add_association 'Adicionar Produto', f, :item_sales, :class => "btn btn-success "%>
-            <hr/>
+          <div id="item_sales">
+            <%= f.simple_fields_for :item_sales do |f| %>
+            <div class="form-group">
+              <%= render 'backoffice/item_sales/item_fields', f: f  %>
+            </div>
+            <% end %>
+            <div class="links">
+              <%= link_to_add_association 'Adicionar Produto', f, :item_sales,
+              :partial => 'backoffice/item_sales/item_fields', :class => "btn btn-success "%>
+            </div>
           </div>
         </div>
       </div>

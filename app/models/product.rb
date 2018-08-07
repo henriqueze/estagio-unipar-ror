@@ -1,13 +1,13 @@
 class Product < ApplicationRecord
   belongs_to :category
   #venda
-  has_many :item_sales
+  has_many :item_sales, dependent: :destroy
   has_many :sales, through: :item_sales
   #orçamento
-  has_many :item_budgets
+  has_many :item_budgets, dependent: :destroy
   has_many :budgets, through: :item_budgets
   #compra
-  has_many :item_purchases
+  has_many :item_purchases, dependent: :destroy
   has_many :purchases, through: :item_purchases
 
   validates :description, :product_code, :sale_price, presence: true

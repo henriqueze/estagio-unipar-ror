@@ -1,27 +1,30 @@
-      <div class="panel-body">
+<div class="nested-fields">
 
-        <div class="row">
-          <div class="form-group">
-            <%= f.label :product_id, :class => 'control-label col-lg-2' %>
-            <div class="col-lg-4">
-              <%= f.collection_select :product_id, Product.all, :id, :description,
-              {}, {:class => 'form-control'} %>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :amount %>
-          <%= f.text_field :amount %>
-        </div>
-        <div class="form-group">
-          <%= f.label :value %>
-          <%= f.text_field :value %>
-        </div>
-        <div class="form-group">
-          <%= f.label :total_value %>
-          <%= f.text_field :total_value %>
-        </div>
-
-
+  <div class="row remove-item">
+    <div class="form-group">
+      <%= f.label :product_id, :class => 'control-label col-lg-2' %>
+      <div class="col-lg-4">
+        <%= f.collection_select :product_id, Product.all, :id, :description,
+        {}, {:class => 'form-control'} %>
       </div>
+    </div>
+    <div class="col-md-2 container-remote-item" style="margin-top: 25px">
+      <%= link_to_remove_association "Remover produto", f, :class => "btn btn-danger bt-remove-item"%>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+  </div>
+  <div class="form-group">
+    <%= f.label :value %>
+    <%= f.text_field :value %>
+  </div>
+  <div class="form-group">
+    <%= f.label :total_value %>
+    <%= f.text_field :total_value %>
+  </div>
+
+</div>

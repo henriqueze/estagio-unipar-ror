@@ -6,8 +6,8 @@ class Sale < ApplicationRecord
 	has_many :products, through: :item_sales
 
 
-	accepts_nested_attributes_for :item_sales
-	accepts_nested_attributes_for :products
+	accepts_nested_attributes_for :item_sales, reject_if: :all_blank, allow_destroy: true
+	accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
 
 	def atualiza_estoque_diminui
 		products.each do |product|
