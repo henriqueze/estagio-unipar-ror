@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :backoffice do
-    get 'item_budgets/index'
-  end
-  namespace :backoffice do
-    get 'item_purchases/index'
-  end
   get 'admin', to: 'backoffice/dashboard#index'
 
   namespace :backoffice do
@@ -19,6 +13,8 @@ Rails.application.routes.draw do
     resources :accounts_receivables, except: [:destroy]
     resources :accounts_payables, except: [:destroy]
     resources :item_sales
+    resources :item_purchases
+    resources :item_budgets
 
     get 'categories/index'
     get 'people/index'
