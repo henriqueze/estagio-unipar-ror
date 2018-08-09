@@ -18,6 +18,7 @@ class Backoffice::SalesController < BackofficeController
 			redirect_to backoffice_sales_path,
 			notice: "Venda #{@sale.id} Realizada com Sucesso"
 			@sale.atualiza_estoque_diminui
+			@sale.state = 'Finalizada'
 		else
 			render :new
 		end

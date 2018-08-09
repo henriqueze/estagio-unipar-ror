@@ -18,3 +18,4 @@ categories = ["Farol",
 categories.each do |category|
 	Category.create!(description: category)
 end
+
