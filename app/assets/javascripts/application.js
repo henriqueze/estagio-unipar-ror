@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require select2
 //= require jquery
 //= require cocoon
 //= require activestorage

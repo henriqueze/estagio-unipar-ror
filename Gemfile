@@ -16,6 +16,8 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
 
+#Select2 is a jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results.
+gem 'rails-assets-select2', source: 'https://rails-assets.org'
 # Forularios
 gem 'simple_form'
 #Dynamic nested forms using jQuery made easy; works with formtastic, simple_form or default forms
