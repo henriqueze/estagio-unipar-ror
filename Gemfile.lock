@@ -164,6 +164,7 @@ GEM
     rails-assets-bootstrap (4.1.3)
     rails-assets-jquery (3.3.1)
     rails-assets-notifyjs (0.4.2)
+    rails-assets-select2 (4.0.5)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -204,6 +205,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    select2-rails (4.0.3)
+      thor (~> 0.14)
     selenium-webdriver (3.13.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
@@ -272,9 +275,11 @@ DEPENDENCIES
   rails-assets-DataTables!
   rails-assets-bootstrap!
   rails-assets-notifyjs!
+  rails-assets-select2!
   rails-erd
   rails-i18n
   sass-rails (~> 5.0)
+  select2-rails
   selenium-webdriver
   simple_form
   spring

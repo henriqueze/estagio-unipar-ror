@@ -1,4 +1,9 @@
 /*
+*= require select2-bootstrap
  *= require font-awesome
  *= require bootstrap_sb_admin_base_v2
 */
+
+/*#e1{
+	width: 200px;
+}*/

@@ -1,0 +1,21 @@
+<div class="nested-fields">
+
+	<div class="form-group col-lg-12">
+		<div class="col-lg-5">
+			<%= f.association :product, label_method: :description, value_method: :id,
+			include_blank: false %>
+		</div>
+		<div class="col-md-2">
+			<%= f.input :amount, input_html: {min: 1, step: 1}, :id => 'quantidade', :onblur => 'soma' %>
+		</div>
+		<div class="col-md-2">
+			<%= f.input :value, input_html: {min: 0, step: 1}, :id => 'valor', :onblur => 'soma' %>
+		</div>
+	</div>
+
+	<div class="row remove-item">
+		<div class="col-md-2 container-remote-item" style="margin-top: 25px">
+			<%= link_to_remove_association "Remover Produto", f, :class => "btn btn-danger bt-remove-item" %>
+		</div>
+	</div>
+</div>

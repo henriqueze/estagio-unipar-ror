@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :accounts_receivables, except: [:destroy]
     resources :accounts_payables, except: [:destroy]
     resources :item_sales
+    resources :item_purchases
+    resources :item_budgets
 
     get 'categories/index'
     get 'people/index'
