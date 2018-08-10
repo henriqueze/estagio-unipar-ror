@@ -3,7 +3,7 @@
 	<div class="form-group col-lg-12">
 		<div class="col-lg-5">
 			<%= f.association :product, label_method: :description, value_method: :id,
-			include_blank: false %>
+			include_blank: false, input_html: {id: 'e1'} %>
 		</div>
 		<div class="col-md-2">
 			<%= f.input :amount, input_html: {min: 1, step: 1}, :id => 'quantidade', :onblur => 'soma' %>
@@ -15,7 +15,8 @@
 
 	<div class="row remove-item">
 		<div class="col-md-2 container-remote-item" style="margin-top: 25px">
-			<%= link_to_remove_association "Remover Produto", f, :class => "btn btn-danger bt-remove-item" %>
+			<%= link_to_remove_association "Remover Produto", f,
+			 :class => "btn btn-danger bt-remove-item" %>
 		</div>
 	</div>
 </div>

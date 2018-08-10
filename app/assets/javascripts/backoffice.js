@@ -25,3 +25,9 @@ function soma(){
 
   console.log("nada");
 };
+
+$(document).ready(function() {
+ $("#e1").select2();
+  theme: "bootstrap"
+  language: "pt-BR"
+});
