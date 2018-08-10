@@ -1,6 +1,7 @@
 //= require bootstrap_sb_admin_base_v2
 //= require notifyjs
 
+
 function exibir_ocultar(val) {
   if(val.value == 'Fisica') {
     document.getElementById('pes_juridica').style.display = 'none';
@@ -23,7 +24,3 @@ function soma(){
 
   console.log("nada");
 };
-
-$( "#dropdown" ).select2({
-    theme: "bootstrap"
-});
