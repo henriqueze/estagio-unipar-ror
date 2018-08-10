@@ -6,6 +6,8 @@ class Sale < ApplicationRecord
 	has_many :item_sales, dependent: :destroy
 	has_many :products, through: :item_sales
 
+	validates :item_sales, :total_value, presence: true
+
 
 	accepts_nested_attributes_for :item_sales, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
@@ -29,8 +31,10 @@ class Sale < ApplicationRecord
 	private
 
 	def valida_quantidade_produto
-		errors.add(:base, 'Pedido deve ter ao menos um item') if item_sales.empty?
+		if item_sales.empty?
+			errors.add(:base, 'Pedido deve ter ao menos um item')
+		end
 	end
 
-end
+	end
 

@@ -23,8 +23,7 @@
   </div>
   <!-- /.panel-heading -->
   <div class="panel-body">
-    <div class="form-horizontal">
-      <%= simple_form_for([:backoffice, @sale]) do |f| %>
+      <%= simple_form_for([:backoffice, @sale], html: { class: 'form-horizontal' }) do |f| %>
 
       <!-- <div class="form-group">
         <%= f.label :date, :class => 'control-label col-lg-2' %>
@@ -98,7 +97,6 @@
         <button type="submit" class="btn btn-success">Salvar</button>
         <% end %>
       </div>
-    </div>
   </div>
   <!-- /.panel-body -->
 </div>
