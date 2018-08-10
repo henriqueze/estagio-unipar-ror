@@ -46,6 +46,6 @@ class Backoffice::BudgetsController < BackofficeController
 	def params_budget
 		params.require(:budget).permit(:kind, :note, :date, :expiration_date,
 			:total_value, :state, :person_id,
-			 item_budgets_attributes: [:id, :amount, :value, :product_id, :budget_id]))
+			 item_budgets_attributes: [:id, :amount, :value, :product_id, :budget_id])
 	end
 end

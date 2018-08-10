@@ -3,6 +3,8 @@ class Budget < ApplicationRecord
 	has_many :item_budgets, dependent: :destroy
 	has_many :products, through: :item_budgets
 
+	validates :item_budgets, :total_value, presence: true
+
 	accepts_nested_attributes_for :item_budgets, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
 

@@ -23,6 +23,7 @@
   </div>
   <!-- /.panel-heading -->
   <div class="panel-body">
+    <div class="col-lg-12">
       <%= simple_form_for([:backoffice, @sale], html: { class: 'form-horizontal' }) do |f| %>
 
       <!-- <div class="form-group">
@@ -32,31 +33,35 @@
         </div>
       </div> -->
 
-      <div class="row">
-        <div class="form-group">
-          <%= f.label :state, :class => 'control-label col-lg-1' %>
-          <div class="col-lg-3">
-            <%= f.select(:state, options_for_select([['Aberta', 'Aberta'], ['Aguardando Pagamento',
-              'Aguardando Pagamento'],['Finalizada', 'Finalizada'], ['Cancelada', 'Cancelada']]),
-             {}, {:class => 'form-control'}) %>
-          </div>
-          <div class="colg-lg-5">
-            <%= f.label :payment_type_id, :class => 'control-label col-lg-3' %>
+      <div class="form-inputs">
+
+        <div class="row">
+          <div class="form-group">
+            <%= f.label :state, :class => 'control-label col-lg-1' %>
             <div class="col-lg-3">
-              <%= f.collection_select :payment_type_id, PaymentType.all, :id, :kind,
-              {}, {:class => 'form-control'} %>
+              <%= f.input :state, collection: ["Aberta", "Aguardando Pagamento", "Finalizada", "Cancelada"] %>
+            </div>
+            <div class="colg-lg-5">
+              <%= f.label :payment_type_id, :class => 'control-label col-lg-3' %>
+              <div class="col-lg-3">
+                <%= f.collection_select :payment_type_id, PaymentType.all, :id, :kind,
+                {}, {:class => 'form-control'} %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="form-inputs ">
+
+
         <div class="panel panel-default">
           <div class="panel-heading">
             <h5>Cliente</h5>
           </div>
           <div class="panel-body">
-            <%= f.association :person, :class => 'control-label col-lg-5' %>
-            <hr/>
+            <div class="col-lg-12">
+              <div class="col-lg-5">
+                <%= f.association :person %>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -66,13 +71,11 @@
           </div>
           <div class="panel-body">
             <div id="item_sales">
-              <div class="control-label col-lg-5">
+              <div class="col-lg-5">
                 <%= f.simple_fields_for :item_sales do |f| %>
                 <%= render 'backoffice/item_sales/item_fields', f: f %>
                 <% end %>
-              </div>
-              <div class="form-actions">
-                <div class="pull-right">
+                <div class="form-actions">
                   <hr/>
                   <%= link_to_add_association 'Adicionar Produto', f, :item_sales,
                   :partial => 'backoffice/item_sales/item_fields', :class => "btn btn-success "%>
@@ -81,22 +84,23 @@
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="field">
-        <%= f.label :total_value %>
-        <%= f.text_field :total_value %>
-      </div>
+        <div class="field">
+          <%= f.label :total_value %>
+          <%= f.text_field :total_value %>
+        </div>
 
-      <div class="field">
-        <%= f.label :discount_value %>
-        <%= f.text_field :discount_value %>
-      </div>
+        <div class="field">
+          <%= f.label :discount_value %>
+          <%= f.text_field :discount_value %>
+        </div>
 
-      <div class="form-actions">
-        <button type="submit" class="btn btn-success">Salvar</button>
-        <% end %>
+        <div class="form-actions">
+          <button type="submit" class="btn btn-success">Salvar</button>
+          <% end %>
+        </div>
       </div>
+    </div>
   </div>
   <!-- /.panel-body -->
 </div>

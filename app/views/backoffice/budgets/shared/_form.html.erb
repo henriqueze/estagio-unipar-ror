@@ -23,50 +23,78 @@
   </div>
   <!-- /.panel-heading -->
   <div class="panel-body">
-    <div class="col-lg-6">
-      <%= form_for([:backoffice, @budget]) do |f| %>
+    <div class="col-lg-12">
+      <%= simple_form_for([:backoffice, @budget], html: { class: 'form-horizontal' }) do |f| %>
 
-      <div class="form-group">
+      <div class="form-inputs col-lg-12">
 
-      <div class="field">
-        <%= f.label :kind %>
-        <%= f.text_field :kind %>
+        <div class="row">
+          <div class="form-group col-sm-6">
+            <div class="col-lg-6">
+              <%= f.input :kind, collection: ["Venda", "Compra", "Peças", "Serviços"] %>
+            </div>
+          </div>
+          <div class="form-group col-sm-6">
+            <div class="col-lg-6">
+              <%= f.input :state, collection: ["Em Analise", "Aprovado", "Cancelado" ], default: "Em Analise", disabled: true %>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="row col-lg-10">
+            <div class="form-group col-lg-7">
+              <%= f.input :note %>
+            </div>
+          </div>
+          <div class="form-group col-lg-2">
+            <div class="com-sm-1">
+              <%= f.input :expiration_date, as: :date,  html5: true %>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h5>Cliente</h5>
+          </div>
+          <div class="panel-body">
+            <div class="col-lg-12">
+              <%= f.association :person %>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h5>Produtos</h5>
+          </div>
+          <div class="panel-body">
+            <div id="item_budgets">
+              <div class="col-lg-5">
+                <%= f.simple_fields_for :item_budgets do |f| %>
+                <%= render 'backoffice/item_budgets/item_fields', f: f %>
+                <% end %>
+                <div class="form-actions">
+                  <hr/>
+                  <%= link_to_add_association 'Adicionar Produto', f, :item_budgets,
+                  :partial => 'backoffice/item_budgets/item_fields', :class => "btn btn-success "%>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= f.label :total_value %>
+          <%= f.text_field :total_value %>
+        </div>
+
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-success">Salvar</button>
+          <% end %>
+        </div>
       </div>
-
-      <div class="field">
-        <%= f.label :note %>
-        <%= f.text_field :note %>
-      </div>
-
-      <div class="field">
-        <%= f.label :date %>
-        <%= f.datetime_select :date %>
-      </div>
-
-      <div class="field">
-        <%= f.label :expiration_date %>
-        <%= f.datetime_select :expiration_date %>
-      </div>
-
-      <div class="field">
-        <%= f.label :total_value %>
-        <%= f.text_field :total_value %>
-      </div>
-
-      <div class="field">
-        <%= f.label :state %>
-        <%= f.text_field :state %>
-      </div>
-
-      <div class="field">
-        <%= f.label :person_id %>
-        <%= f.text_field :person_id %>
-      </div>
-
-      </div>
-
-      <button type="submit" class="btn btn-success">Salvar</button>
-      <% end %>
     </div>
   </div>
   <!-- /.panel-body -->
