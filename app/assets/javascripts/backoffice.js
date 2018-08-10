@@ -23,3 +23,7 @@ function soma(){
 
   console.log("nada");
 };
+
+$( "#dropdown" ).select2({
+    theme: "bootstrap"
+});

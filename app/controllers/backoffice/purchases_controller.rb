@@ -15,6 +15,7 @@ class Backoffice::PurchasesController < BackofficeController
 		if @purchase.save
 			redirect_to backoffice_purchases_path,
 			notice: "Compra #{@purchase.id} Cadastrada com Sucesso"
+			@purchase.atualiza_estoque_aumenta
 		else
 			render :new
 		end
@@ -42,6 +43,7 @@ class Backoffice::PurchasesController < BackofficeController
 	end
 
 	def params_purchase
-		params.require(:purchase).permit(:date, :total_value, :freight_value, :person_id)
+		params.require(:purchase).permit(:date, :total_value, :freight_value, :person_id,
+		 item_purchase_attributes: [:id, :amount, :value, :product_id, :purchase_id])
 	end
 end
