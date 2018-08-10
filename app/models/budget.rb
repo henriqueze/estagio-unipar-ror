@@ -28,7 +28,7 @@ class Budget < ApplicationRecord
 
 	def valida_quantidade_produto
 		if item_budgets.empty?
-			errors.add(:base, 'Pedido deve ter ao menos um item')
+			errors.add(:base, 'Orçamento deve ter ao menos um item')
 		end
 	end
 end

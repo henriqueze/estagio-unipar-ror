@@ -1,3 +1,10 @@
+<script>
+    $(document).ready(function() { $("#e1").select2(); });
+    $( "#dropdown" ).select2({
+    theme: "bootstrap"
+    });
+  </script>
+
 <h1 class="page-header">Orçamentos</h1>
 
 <% if @budget.errors.any? %>
@@ -88,6 +95,14 @@
           <%= f.label :total_value %>
           <%= f.text_field :total_value %>
         </div>
+
+        <select id="e1">
+          <option value="AL">Alabama</option>
+          <option value="WY">badsadsa</option>
+          <option value="WY">tregfd</option>
+          <option value="WY">khgjgdf</option>
+          <option value="WY">cxzgffd</option>
+        </select>
 
 
         <div class="form-actions">
