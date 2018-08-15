@@ -42,7 +42,6 @@ $(document).on('turbolinks:load', function() {
       var qtde = $('#qtde').val();
 
       if(valor == " ") valor = 0;
-      if(qtde == " ") qtde = 0;
 
       var resultado   = parseInt(valor) + parseInt(qtde);
       $('#valor_total_produto').val(resultado);
