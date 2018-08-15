@@ -26,5 +26,3 @@ class Purchase < ApplicationRecord
 		end
 	end
 end
-
-end

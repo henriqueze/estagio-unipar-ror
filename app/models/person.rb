@@ -5,7 +5,8 @@ class Person < ApplicationRecord
 	has_many :purchases
 	has_many :budgets
 
-	validates :person_cpf, :personC_cnpj, uniqueness:true
+	validates :person_cpf, if: :tipo_fisica?, uniqueness: true
+	validates :personC_cnpj, if: :tipo_juridica?, uniqueness: true
 	validates :address_zip, :person_tel1, :name, presence: true
 
 	validates_numericality_of :person_tel1, :person_tel2, length: { in: 8..11 },
@@ -14,8 +15,8 @@ class Person < ApplicationRecord
 	validates :person_email, uniqueness: true, :allow_blank => true
 	validates_format_of :person_email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :allow_blank => true
 
-	validates_cpf_format_of :person_cpf, presence: true, if: :tipo_fisica?
-	validates_cnpj_format_of :personC_cnpj, presence: true, if: :tipo_juridica?
+	validates_cpf_format_of :person_cpf, if: :tipo_fisica?, presence: true
+	validates_cnpj_format_of :personC_cnpj, if: :tipo_juridica?, presence: true
 	validates :address_zip, length: { in: 8..8 }
 	validates_inclusion_of :kind, in: %w(Fisica Juridica), message: "Aceita somente Fisica ou Juridica"
 

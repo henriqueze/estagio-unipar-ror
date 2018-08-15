@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   namespace :backoffice do
     resources :categories, except: [:show, :destroy]
-    resources :people, except: [ :destroy]
+    resources :people, except: [:destroy]
     resources :products, except: [:show, :destroy]
     resources :payment_types, except: [:show, :destroy]
     resources :sales, except: [:destroy]
@@ -15,9 +15,11 @@ Rails.application.routes.draw do
     resources :item_sales
     resources :item_purchases
     resources :item_budgets
+    resources :providers, except: [:destroy]
 
     get 'categories/index'
     get 'people/index'
+    get 'providers/index'
     get 'products/index'
     get 'payment_types/index'
     get 'sales/index'

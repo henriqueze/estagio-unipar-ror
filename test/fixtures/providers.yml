@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  provider_rasocial: 
+  provider_ie: 
+  provider_cnpj,: MyString
+  provider_tel1: MyString
+  provider_tel2: 
+  address: 
+  address_number,: MyString
+  address_complement: 
+  address_bairro: 
+  address_city: 
+  address_state: 
+  address_zip: MyString
+
+two:
+  name: 
+  provider_rasocial: 
+  provider_ie: 
+  provider_cnpj,: MyString
+  provider_tel1: MyString
+  provider_tel2: 
+  address: 
+  address_number,: MyString
+  address_complement: 
+  address_bairro: 
+  address_city: 
+  address_state: 
+  address_zip: MyString

@@ -1,0 +1,77 @@
+<h1 class="page-header">Fornecedores</h1>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Listando Fornecedores
+		<%= link_to new_backoffice_provider_path, class: "btn btn-success btn-circle
+		pull-right", style:"margin-top: -5px" do %>
+		<i class="fa fa-plus"></i>
+		<% end -%>
+	</div>
+	<!-- /.panel-heading -->
+	<div class="panel-body">
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<!--<th>Company name</th>
+						<th>provider rg</th>
+						<th>provider ie</th>
+						<th>provider cpf</th>
+						<th>provider cnpj</th>
+						<th>Address</th>
+						<th>Address number</th>
+						<th>Address complement</th>
+						<th>Address bairro</th>
+						<th>Address zip</th> -->
+						<th>Address city</th>
+						<th>Address state</th>
+						<th>Provider tel1</th>
+						<!-- <th>provider tel2</th>
+						<th>provider email</th>
+						<th>provider obs</th> -->
+						<th></th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @providers.each do |provider| %>
+					<tr>
+						<td><%= provider.name %></td>
+						<!--<td><%= provider.provider_rasocial %></td>
+						<td><%= provider.provider_ie %></td>
+						<td><%= provider.provider_cnpj %></td>
+						<td><%= provider.address %></td>
+						<td><%= provider.address_number %></td>
+						<td><%= provider.address_complement %></td>
+						<td><%= provider.address_bairro %></td>
+						<td><%= provider.address_zip %></td> -->
+						<td><%= provider.address_city %></td>
+						<td><%= provider.address_state %></td>
+						<td><%= provider.provider_tel1 %></td>
+						<!-- <td><%= provider.provider_tel2 %></td> -->
+						<td style="width: 150px">
+							<%= link_to backoffice_provider_path(provider),
+							class: "btn btn-primary btn-circle" do %>
+							<i class="fa fa-info-circle"></i>
+							<% end %>
+							<%= link_to edit_backoffice_provider_path(provider),
+							class: "btn btn-primary btn-circle" do %>
+							<i class="fa fa-edit"></i>
+							<% end %>
+							<button type="button" disabled="disabled"
+							class="btn btn-danger btn-circle">
+							<i class="fa fa-minus"></i>
+						</button>
+					</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<!-- /.table-responsive -->
+</div>
+<!-- /.panel-body -->
+</div>
+
