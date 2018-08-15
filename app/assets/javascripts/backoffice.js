@@ -35,4 +35,27 @@ $(document).ready(function() {
   language: "pt-BR"
 });
 
+$(document).on('turbolinks:load', function() {
+
+    $('#valor, #qtde').blur(function(){
+      var valor = $('#valor').val();
+      var qtde = $('#qtde').val();
+
+      if(valor == " ") valor = 0;
+      if(qtde == " ") qtde = 0;
+
+      var resultado   = parseInt(valor) + parseInt(qtde);
+      $('#valor_total_produto').val(resultado);
+    })
+
+  });
+
+$(document).on('turbolinks:load', function() {
+  $('.mask_phone').inputmask({mask: "(99) 9999[9]-9999"});
+  $('.mask_cpf').inputmask({mask: "999.999.999-99"});
+  $('.mask_rg').inputmask({mask: "99.999.999-9"})
+  $('.mask_cnpj').inputmask({mask: "99.999.999/9999-99"});
+  $('.mask_cep').inputmask({mask: "99999-999"});
+});
+
 
