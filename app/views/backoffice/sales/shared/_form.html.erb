@@ -26,31 +26,18 @@
     <div class="col-lg-12">
       <%= simple_form_for([:backoffice, @sale], html: { class: 'form-horizontal' }) do |f| %>
 
-      <!-- <div class="form-group">
-        <%= f.label :date, :class => 'control-label col-lg-2' %>
-        <div class="col-lg-5">
-          <%= f.datetime_select :date, :class => 'form-control', :disabled => 'disabled' %>
-        </div>
-      </div> -->
-
       <div class="form-inputs">
 
-        <div class="row">
-          <div class="form-group">
-            <%= f.label :state, :class => 'control-label col-lg-1' %>
+        <div class="form-group">
+          <div class="col-lg-1">
+            <%= f.input :state, disabled: true, collection: ["Aberta", "Aguardando Pagamento", "Finalizada",
+             "Cancelada"] %>
+           </div>
             <div class="col-lg-3">
-              <%= f.input :state, collection: ["Aberta", "Aguardando Pagamento", "Finalizada", "Cancelada"] %>
-            </div>
-            <div class="colg-lg-5">
-              <%= f.label :payment_type_id, :class => 'control-label col-lg-3' %>
-              <div class="col-lg-3">
-                <%= f.collection_select :payment_type_id, PaymentType.all, :id, :kind,
-                {}, {:class => 'form-control'} %>
-              </div>
+              <%= f.association :payment_type, label_method: :kind,
+              value_method: :id, include_blank: false %>
             </div>
           </div>
-        </div>
-
 
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -59,7 +46,7 @@
           <div class="panel-body">
             <div class="col-lg-12">
               <div class="col-lg-5">
-                <%= f.association :person %>
+                <%= f.association :person, value_method: :id, input_html: {id: 'e1'}%>
               </div>
             </div>
           </div>
@@ -71,7 +58,7 @@
           </div>
           <div class="panel-body">
             <div id="item_sales">
-              <div class="col-lg-5">
+              <div class="col-lg-12">
                 <%= f.simple_fields_for :item_sales do |f| %>
                 <%= render 'backoffice/item_sales/item_fields', f: f %>
                 <% end %>
@@ -85,19 +72,22 @@
           </div>
         </div>
 
-        <div class="field">
-          <%= f.label :total_value %>
-          <%= f.text_field :total_value %>
-        </div>
+        <div class="row col-lg-6">
+          <div class="form-group">
+            <div class="col-lg-3">
+              <%= f.input :total_value %>
+            </div>
 
-        <div class="field">
-          <%= f.label :discount_value %>
-          <%= f.text_field :discount_value %>
-        </div>
+            <div class="col-lg-3">
+              <%= f.input :discount_value %>
+            </div>
+          </div>
 
-        <div class="form-actions">
-          <button type="submit" class="btn btn-success">Salvar</button>
-          <% end %>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success">Salvar</button>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

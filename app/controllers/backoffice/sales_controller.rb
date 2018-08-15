@@ -9,7 +9,6 @@ class Backoffice::SalesController < BackofficeController
 	def new
 		@sale = Sale.new
 		@sale.item_sales.build
-
 	end
 
 	def create
@@ -18,7 +17,7 @@ class Backoffice::SalesController < BackofficeController
 			redirect_to backoffice_sales_path,
 			notice: "Venda #{@sale.id} Realizada com Sucesso"
 			@sale.atualiza_estoque_diminui
-			@sale.state = 'Finalizada'
+			@sale.total_value = @sale.total_all
 		else
 			render :new
 		end

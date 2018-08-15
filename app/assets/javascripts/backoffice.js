@@ -2,7 +2,6 @@
 //= require notifyjs
 
 
-
 function exibir_ocultar(val) {
   if(val.value == 'Fisica') {
     document.getElementById('pes_juridica').style.display = 'none';
@@ -31,3 +30,5 @@ $(document).ready(function() {
   theme: "bootstrap"
   language: "pt-BR"
 });
+
+

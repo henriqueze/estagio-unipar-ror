@@ -12,6 +12,20 @@ class Sale < ApplicationRecord
 	accepts_nested_attributes_for :item_sales, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
 
+	before_save :atualiza_status
+
+	def atualiza_status
+		self.state = "Finalizada"
+	end
+
+	def subtotals
+		self.item_sales.map { |i| i.subtotal }
+	end
+
+	def total_all
+		subtotals.sum
+	end
+
 	def atualiza_estoque_diminui
 		products.each do |product|
 			item_sale = item_sales.find_by(product_id: product)
@@ -28,13 +42,11 @@ class Sale < ApplicationRecord
 		end
 	end
 
-	private
-
 	def valida_quantidade_produto
 		if item_sales.empty?
 			errors.add(:base, 'Pedido deve ter ao menos um item')
 		end
 	end
 
-	end
+end
 
