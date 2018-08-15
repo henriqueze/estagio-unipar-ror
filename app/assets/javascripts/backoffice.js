@@ -1,5 +1,9 @@
 //= require bootstrap_sb_admin_base_v2
 //= require notifyjs
+//= require jquery.inputmask
+//= require jquery.inputmask.extensions
+//= require jquery.inputmask.numeric.extensions
+//= require jquery.inputmask.date.extensions
 
 
 function exibir_ocultar(val) {
