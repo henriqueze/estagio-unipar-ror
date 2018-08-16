@@ -203,7 +203,7 @@ ActiveRecord::Schema.define(version: 2018_08_10_232247) do
     t.datetime "date", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.decimal "total_value", precision: 10, null: false
     t.decimal "discount_value", precision: 10, default: "0"
-    t.string "state", limit: 20, default: "Aberta", null: false
+    t.string "state", limit: 20, null: false
     t.bigint "person_id"
     t.bigint "payment_type_id"
     t.datetime "created_at", null: false

@@ -8,11 +8,11 @@ class Sale < ApplicationRecord
 
 	validates :item_sales, :total_value, presence: true
 
-
 	accepts_nested_attributes_for :item_sales, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
 
 	before_save :atualiza_status
+	after_create :atualiza_estoque_diminui
 
 	def atualiza_status
 		self.state = "Finalizada"

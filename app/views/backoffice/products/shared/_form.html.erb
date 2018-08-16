@@ -33,7 +33,7 @@
             <%= f.text_field :product_code, :class => 'form-control', :placeholder => '*' %>
           </div>
           <div  class="col-lg-1">
-          <%= f.label :description, :class => 'control-label col-lg-2' %>
+            <%= f.label :description, :class => 'control-label col-lg-2' %>
           </div>
           <div class="col-lg-6">
             <%= f.text_field :description, :class => 'form-control', :placeholder => '*' %>
@@ -43,34 +43,36 @@
       </div>
       <!-- end principal -->
       <!-- select categoria -->
-      <div class="row">
+      <div class="row col-lg-13">
         <div class="form-group">
           <%= f.label :category_id, :class => 'control-label col-lg-2' %>
           <div class="col-lg-2">
             <%= f.collection_select :category_id, Category.all, :id, :description,
-            {}, {:class => 'form-control'} %>
+            {}, {:class => 'form-control', :id => 'e1'} %>
           </div>
         </div>
       </div>
       <!-- end categorias-->
+
       <!-- form valores -->
       <div class="row">
         <div class="form-group">
           <%= f.label :purchase_price, :class => 'control-label col-lg-2' %>
           <div class="col-lg-2">
-            <%= f.text_field :purchase_price, :id => 'texto', :class => 'form-control' %>
+            <%= f.text_field :purchase_price, :id => 'texto', :class => 'form-control money', :id => 'valor_compra' %>
           </div>
           <%= f.label :sale_price, :class => 'control-label col-lg-2' %>
           <div class="col-lg-2">
-            <%= f.text_field :sale_price, :class => 'form-control', :placeholder => '*' %>
+            <%= f.text_field :sale_price, :class => 'form-control money', :placeholder => '*', :id => 'valor_venda' %>
           </div>
           <%= f.label :profit_margin, :class => 'control-label col-lg-2' %>
-          <div class="col-lg-2">
-            <%= f.text_field :profit_margin, :class => 'form-control' %>
+          <div class="col-lg-1">
+            <%= f.text_field :profit_margin, :class => 'form-control', :id => 'margem' %>
           </div>
         </div>
       </div>
       <!-- end valores -->
+
       <!-- form estoque -->
       <div class="row">
         <div class="form-group">
@@ -80,15 +82,15 @@
           </div>
           <%= f.label :stock_reserved, :class => 'control-label col-lg-2' %>
           <div class="col-lg-2">
-            <%= f.text_field :stock_reserved, :class => 'form-control' %>
+            <%= f.text_field :stock_reserved, disabled: true, :class => 'form-control' %>
           </div>
         </div>
       </div>
-        <!-- end estoque -->
+      <!-- end estoque -->
 
-        <button type="submit" class="btn btn-success">Salvar</button>
-        <% end %>
-      </div>
+      <button type="submit" class="btn btn-success">Salvar</button>
+      <% end %>
     </div>
-    <!-- /.panel-body -->
   </div>
+  <!-- /.panel-body -->
+</div>

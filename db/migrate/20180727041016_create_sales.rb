@@ -4,7 +4,7 @@ class CreateSales < ActiveRecord::Migration[5.2]
       t.datetime :date, null: false, default: -> { 'CURRENT_TIMESTAMP' }
       t.decimal :total_value, null: false
       t.decimal :discount_value, default: 0
-      t.string :state, limit: 20, null: false, default: "Aberta"
+      t.string :state, limit: 20, null: false
       t.references :person, foreign_key: true
       t.references :payment_type, foreign_key: true
 
