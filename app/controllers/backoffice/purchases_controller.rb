@@ -44,6 +44,6 @@ class Backoffice::PurchasesController < BackofficeController
 
 	def params_purchase
 		params.require(:purchase).permit(:date, :total_value, :freight_value, :provider_id,
-		 item_purchase_attributes: [:id, :amount, :value, :product_id, :purchase_id])
+		 item_purchases_attributes: [:id, :amount, :value, :product_id, :purchase_id])
 	end
 end
