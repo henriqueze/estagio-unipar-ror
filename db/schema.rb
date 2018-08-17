@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2018_08_10_232247) do
 
   create_table "accounts_payables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "state", limit: 20, default: "Aberta", null: false
+    t.string "state", limit: 20, null: false
     t.string "description", limit: 100, null: false
     t.string "document_kind", limit: 20
     t.string "document_number", limit: 100
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2018_08_10_232247) do
   end
 
   create_table "accounts_receivables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "state", default: "Aberta", null: false
+    t.string "state", null: false
     t.string "description", limit: 100, null: false
     t.string "kind", limit: 50
     t.datetime "issue_date", default: -> { "CURRENT_TIMESTAMP" }, null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2018_08_10_232247) do
     t.decimal "total_value", precision: 10, null: false
     t.decimal "received_value", precision: 10, default: "0"
     t.decimal "remaining_value", precision: 10
-    t.integer "total_parcels", default: 0, null: false
+    t.integer "total_parcels", null: false
     t.integer "parcel"
     t.bigint "sale_id"
     t.datetime "created_at", null: false
