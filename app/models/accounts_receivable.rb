@@ -3,10 +3,11 @@ class AccountsReceivable < ApplicationRecord
 
 	def cria_parcelas
 		i = 0
+		aux = 0
 		if self.total_parcels > 1
 			i = self.total_parcels
 			i -= 1
-			i.times do |conta|
+			for conta in 1..i
 				conta = AccountsReceivable.new
 				conta.state = self.state = "Aberta"
 				conta.description = self.description
@@ -17,9 +18,10 @@ class AccountsReceivable < ApplicationRecord
 				conta.total_value = self.total_value
 				conta.remaining_value = self.remaining_value
 				conta.total_parcels = self.total_parcels
-				conta.parcel = i
+				conta.parcel = aux
 				conta.sale = self.sale
 				conta.save
+				aux += 1
 			end
 		else
 			self.state = "Fechada"
