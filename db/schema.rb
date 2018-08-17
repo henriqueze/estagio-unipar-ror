@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_10_232247) do
+ActiveRecord::Schema.define(version: 2018_07_27_041136) do
 
   create_table "accounts_payables", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "state", limit: 20, null: false
@@ -193,10 +193,10 @@ ActiveRecord::Schema.define(version: 2018_08_10_232247) do
     t.datetime "date", default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.decimal "total_value", precision: 10, null: false
     t.decimal "freight_value", precision: 10, default: "0"
-    t.bigint "person_id"
+    t.bigint "provider_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["person_id"], name: "index_purchases_on_person_id"
+    t.index ["provider_id"], name: "index_purchases_on_provider_id"
   end
 
   create_table "sales", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -242,7 +242,7 @@ ActiveRecord::Schema.define(version: 2018_08_10_232247) do
   add_foreign_key "item_sales", "products"
   add_foreign_key "item_sales", "sales"
   add_foreign_key "products", "categories"
-  add_foreign_key "purchases", "people"
+  add_foreign_key "purchases", "providers"
   add_foreign_key "sales", "payment_types"
   add_foreign_key "sales", "people"
 end
