@@ -15,6 +15,7 @@ class Backoffice::AccountsReceivablesController < BackofficeController
 		if @accounts_receivable.save
 			redirect_to backoffice_accounts_receivables_path,
 			notice: "Conta a Receber #{@accounts_receivable.id} Registrada com Sucesso"
+			@accounts_receivable.cria_parcelas
 		else
 			render :new
 		end

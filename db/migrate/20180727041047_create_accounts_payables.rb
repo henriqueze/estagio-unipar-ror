@@ -1,7 +1,7 @@
 class CreateAccountsPayables < ActiveRecord::Migration[5.2]
   def change
     create_table :accounts_payables do |t|
-      t.string :state, limit: 20, null: false, default: "Aberta"
+      t.string :state, limit: 20, null: false
       t.string :description, limit: 100, null: false
       t.string :document_kind, limit: 20
       t.string :document_number, limit: 100

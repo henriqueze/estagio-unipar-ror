@@ -12,10 +12,11 @@ class Product < ApplicationRecord
 
   validates :description, :product_code, :sale_price, presence: true
   validates :product_code, uniqueness: {case_sensitive: false} , length: { maximum: 20}
-  #validates_numericality_of :purchase_price, :sale_price, length: { maximum: 10}, only_integer: false
+
   validates :stock, numericality: { only_integer: true,
    message: "Apenas Inteiros" }, length: { maximum: 5}, numericality: { greater_than_or_equal_to: 0 }
-  #validates :sale_price, :numericality =>{:greater_than_or_equal_to => :purchase_price},
-   #length: { maximum: 13}
+  validates :sale_price, :numericality =>{:greater_than_or_equal_to => :purchase_price},
+   length: { maximum: 13}
   #validates :Preco_Custo, allow_nil: true
+  #validates_numericality_of :purchase_price, :sale_price, length: { maximum: 10}, only_integer: false
 end

@@ -45,7 +45,7 @@
 						<td><%= accounts_receivable.remaining_value %></td>
 						<td><%= accounts_receivable.total_parcels %></td>
 						<td><%= accounts_receivable.parcel %></td>
-						<td><%= accounts_receivable.sale %></td>
+						<td><%= accounts_receivable.sale.id %></td>
 						<td style="width: 150px">
 							<%= link_to backoffice_accounts_receivable_path(accounts_receivable),
 							class: "btn btn-primary btn-circle" do %>

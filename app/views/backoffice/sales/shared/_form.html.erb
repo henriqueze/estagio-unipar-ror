@@ -30,48 +30,41 @@
 
         <div class="form-group">
           <div class="col-lg-1">
-            <%= f.input :state, disabled: true, collection: ["Aberta", "Aguardando Pagamento", "Finalizada",
-             "Cancelada"] %>
+            <%= f.input :state, disabled: true, collection: [["Aberta, Aberta"],
+             ["Aguardando Pagamento, Aguardando Pagamento"], ["Finalizada, Finalizada"],
+             ["Cancelada, Cancelada"]] %>
            </div>
-            <div class="col-lg-3">
-              <%= f.association :payment_type, label_method: :kind,
-              value_method: :id, include_blank: false %>
-            </div>
-          </div>
-
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h5>Cliente</h5>
-          </div>
-          <div class="panel-body">
-            <div class="col-lg-12">
-              <div class="col-lg-5">
-                <%= f.association :person, value_method: :id, input_html: {id: 'e1'}%>
-              </div>
-            </div>
+           <div class="col-lg-3">
+            <%= f.association :payment_type, label_method: :kind,
+            value_method: :id, include_blank: false %>
           </div>
         </div>
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h5>Produtos</h5>
+        <fieldset>
+          <legend> Ciente </legend>
+          <div class="col-lg-5">
+            <%= f.association :person, value_method: :id, input_html: {id: 'e1'}%>
           </div>
-          <div class="panel-body">
-            <div id="item_sales">
-              <div class="col-lg-12">
-                <%= f.simple_fields_for :item_sales do |f| %>
-                <%= render 'backoffice/item_sales/item_fields', f: f %>
-                <% end %>
-                <div class="form-actions">
-                  <hr/>
-                  <%= link_to_add_association 'Adicionar Produto', f, :item_sales,
-                  :partial => 'backoffice/item_sales/item_fields', :class => "btn btn-success "%>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          <br>
+        </fieldset>
 
+        <fieldset>
+          <legend> Produtos </legend>
+          <div class="col-lg-12">
+            <%= f.simple_fields_for :item_sales do |f| %>
+            <%= render 'backoffice/item_sales/item_fields', f: f %>
+            <% end %>
+            <br>
+            <div class="form-actions">
+              <%= link_to_add_association 'Adicionar Produto', f, :item_sales,
+              :partial => 'backoffice/item_sales/item_fields', :class => "btn btn-success "%>
+            </div>
+            <br>
+          </div>
+          <br>
+        </fieldset>
+
+        <br>
         <div class="row col-lg-6">
           <div class="form-group">
             <div class="col-lg-3">
