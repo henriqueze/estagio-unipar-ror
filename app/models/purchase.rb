@@ -1,5 +1,5 @@
 class Purchase < ApplicationRecord
-	belongs_to :person
+	belongs_to :provider
 	has_many :accounts_payables
 	has_many :item_purchases, dependent: :destroy
 	has_many :products, through: :item_purchases
@@ -8,6 +8,8 @@ class Purchase < ApplicationRecord
 
 	accepts_nested_attributes_for :item_purchases, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
+
+	after_create :atualiza_estoque_aumenta
 
 
 	def atualiza_estoque_aumenta

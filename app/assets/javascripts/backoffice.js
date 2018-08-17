@@ -79,13 +79,12 @@ $(document).on('turbolinks:load', function() {
   $('.mask_cep').inputmask({mask: "99999-999"});
 });
 
-$(document).submit(function() {
-
-  $('.mask_phone').unmask();
-  $('.mask_cpf').unmask();
-  $('.mask_rg').unmask();
-  $('.mask_cnpj').unmask();
-  $('.mask_cep').unmask();
+$('#btn_sub').click(function() {
+  $('.mask_phone').inputmask('remove');
+  $('.mask_cpf').inputmask('remove');
+  $('.mask_rg').inputmask('remove');
+  $('.mask_cnpj').inputmask('remove');
+  $('.mask_cep').inputmask('remove');
 
 });
 
