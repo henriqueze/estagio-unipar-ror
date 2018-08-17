@@ -52,9 +52,8 @@ $(document).on('turbolinks:load', function(){
     var vlrCompra = parseFloat($('#valor_compra').val()) || 0;
 
     var valor1 = vlrVenda - vlrCompra;
-    var valor2 = valor1 / vlrVenda;
-    console.log(valor2)
-    var valor3 = valor2 * 100;
+    var valor2 = valor1 * 100;
+    var valor3 = valor2 / vlrCompra;
 
     $('#margem').val(valor3);
   })
@@ -78,6 +77,16 @@ $(document).on('turbolinks:load', function() {
   $('.mask_rg').inputmask({mask: "99.999.999-9"})
   $('.mask_cnpj').inputmask({mask: "99.999.999/9999-99"});
   $('.mask_cep').inputmask({mask: "99999-999"});
+});
+
+$(document).submit(function() {
+
+  $('.mask_phone').unmask();
+  $('.mask_cpf').unmask();
+  $('.mask_rg').unmask();
+  $('.mask_cnpj').unmask();
+  $('.mask_cep').unmask();
+
 });
 
 
