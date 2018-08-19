@@ -51,7 +51,7 @@
             <div id="cnpj">
               <%= f.label :provider_cnpj, :class => 'control-label col-lg-2' %>
               <div class="col-lg-3">
-                <%= f.text_field :provider_cnpj, :class => 'form-control' %>
+                <%= f.text_field :provider_cnpj, :class => 'form-control mask_cnpj' %>
               </div>
             </div>
           </div>
@@ -84,7 +84,7 @@
 
             <%= f.label :address_zip, :class => 'control-label col-xs-1' %>
             <div class="col-lg-1">
-              <%= f.text_field :address_zip, :class => 'form-control' %>
+              <%= f.text_field :address_zip, :class => 'form-control mask_cep' %>
             </div>
 
             <%= f.label :address_city, :class => 'control-label col-xs-1' %>
@@ -105,11 +105,11 @@
         <div class="form-group">
           <%= f.label :provider_tel1, :class => 'control-label col-xs-2' %>
           <div class="col-lg-2">
-            <%= f.text_field :provider_tel1, :class => 'form-control' %>
+            <%= f.text_field :provider_tel1, :class => 'form-control mask_phone' %>
           </div>
           <%= f.label :provider_tel2, :class => 'control-label col-lg-1' %>
           <div class="col-lg-2">
-            <%= f.text_field :provider_tel2, :class => 'form-control' %>
+            <%= f.text_field :provider_tel2, :class => 'form-control mask_phone' %>
           </div>
         </div>
       </div>

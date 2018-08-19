@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :item_sales
     resources :item_purchases
     resources :item_budgets
+    resources :master_users, except: [:show, :destroy]
     resources :providers, except: [:destroy]
 
     get 'categories/index'
@@ -27,6 +28,7 @@ Rails.application.routes.draw do
     get 'purchases/index'
     get 'accounts_receivables/index'
     get 'accounts_payables/index'
+    get 'master_users/index'
     get 'dashboard', to: 'dashboard#index'
   end
 
@@ -35,7 +37,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :system_users
-  devise_for :master_users
+  devise_for :master_users, :skip => [:registrations]
 
   get 'home/index'
   root 'site/home#index'

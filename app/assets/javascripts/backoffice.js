@@ -4,7 +4,9 @@
 //= require jquery.inputmask.extensions
 //= require jquery.inputmask.numeric.extensions
 //= require jquery.inputmask.date.extensions
+//= require DataTables
 
+$('table').dataTable();
 
 function exibir_ocultar(val) {
   if(val.value == 'Fisica') {

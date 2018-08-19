@@ -7,6 +7,15 @@ class ItemSale < ApplicationRecord
 
 	before_save :set_total
 
+	validate :check_quantity
+
+	def check_quantity
+		if self.amount > self.product.stock
+			errors[:amount] << "Quantidade de item insuficiente. Produto atualmente só tem #{self.product.stock} items."
+			throw :abort
+		end
+	end
+
 	def set_total
 		if self.amount.blank?
 			0
