@@ -10,37 +10,37 @@
   </div>
   <div class="panel-body">
     <p>
-      <strong>Date:</strong>
+      <strong>Data:</strong>
       <%= @sale.date %>
     </p>
 
     <p>
-      <strong>Total value:</strong>
+      <strong>Valor Total:</strong>
       <%= @sale.total_value %>
     </p>
 
     <p>
-      <strong>Discount value:</strong>
+      <strong>Desconto:</strong>
       <%= @sale.discount_value %>
     </p>
 
     <p>
-      <strong>State:</strong>
+      <strong>Estado:</strong>
       <%= @sale.state %>
     </p>
 
     <p>
-      <strong>Person:</strong>
+      <strong>Cliente:</strong>
       <%= @sale.person.name %>
     </p>
 
     <p>
-      <strong>Payment Type:</strong>
+      <strong>Tipo de Pagamento:</strong>
       <%= @sale.payment_type.kind %>
     </p>
 
     <p>
-      <strong>Item Venda * TESTE *:</strong>
+      <strong>Produtos da Venda:</strong>
       <% @sale.item_sales.each do |item| %>
       <p>
         <strong>Produto</strong>

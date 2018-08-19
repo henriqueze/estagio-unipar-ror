@@ -24,6 +24,17 @@ gem 'jquery-inputmask-rails'
 #Select2 is a jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results.
 #gem 'rails-assets-select2', source: 'https://rails-assets.org'
 
+source 'https://rails-assets.org' do
+  #Wrappers for JavaScript alert(), confirm() and other flexible dialogs using Twitter's bootstrap framework http://bootboxjs.com
+  gem 'rails-assets-bootbox'
+  #A simple, versatile notification library
+  gem 'rails-assets-notifyjs'
+  #Tables plug-in for jQuery
+  gem 'rails-assets-DataTables'
+  #bootstrap
+  gem 'rails-assets-bootstrap'
+end
+
 # Forularios
 gem 'simple_form'
 #Dynamic nested forms using jQuery made easy; works with formtastic, simple_form or default forms
@@ -34,10 +45,7 @@ gem "cpf_cnpj"
 gem "validators"
 #This gem provides jQuery and the jQuery-ujs driver for your Rails 4+ application.
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
-#A simple, versatile notification library
-gem 'rails-assets-notifyjs', source: 'https://rails-assets.org'
-#Tables plug-in for jQuery
-gem 'rails-assets-DataTables', source: 'https://rails-assets.org'
+
 #Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related I18n stuff
 gem 'rails-i18n'
 #Manage Procfile-based applications
@@ -48,8 +56,6 @@ gem 'devise'
 gem 'devise-i18n'
 #Rails gem of the Bootstrap based admin theme SB Admin 2.
 gem 'bootstrap_sb_admin_base_v2'
-#bootstrap
-gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -87,6 +93,7 @@ group :development do
   gem 'binding_of_caller'
   # Generate Entity-Relationship Diagrams for Rails applications
   gem 'rails-erd'
+  gem 'faker'
 end
 
 group :test do
