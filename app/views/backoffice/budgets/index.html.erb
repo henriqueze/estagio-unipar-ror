@@ -35,7 +35,7 @@
 						<td><%= budget.expiration_date %></td>
 						<td><%= budget.total_value %></td>
 						<td><%= budget.state %></td>
-						<td><%= budget.person %></td>
+						<td><%= budget.person.name %></td>
 						<td style="width: 150px">
 							<%= link_to backoffice_budget_path(budget),
 							class: "btn btn-primary btn-circle" do %>

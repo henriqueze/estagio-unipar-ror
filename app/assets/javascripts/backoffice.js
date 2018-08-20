@@ -62,9 +62,9 @@ $(document).ready(function() {
   language: "pt-BR"
 });
 
-//soma valor da view de item venda
-$(document).on('turbolinks:load', function() {
 
+$(document).on('turbolinks:load', function() {
+//soma valor da view de item venda
   $('#valor, #qtde').blur(function(){
     var valor = parseFloat($('#valor').val()) || 0;
     var qtde = parseFloat($('#qtde').val()) || 0;
@@ -76,9 +76,13 @@ $(document).on('turbolinks:load', function() {
     $('#valor_total_produto').val(resultado);
   })
 
+//margem de lucro em %
   $('#valor_venda, #valor_compra').blur(function() {
     var vlrVenda = parseFloat($('#valor_venda').val()) || 0;
     var vlrCompra = parseFloat($('#valor_compra').val()) || 0;
+
+    if(vlrCompra == " ") vlrCompra = 0;
+    if(vlrVenda == " ") vlrVenda = 0;
 
     var valor1 = vlrVenda - vlrCompra;
     var valor2 = valor1 * 100;
@@ -87,6 +91,7 @@ $(document).on('turbolinks:load', function() {
     $('#margem').val(valor3);
   })
 
+//mascaras de input
   $('.mask_celphone').inputmask({mask: "(99) 9999[9]-9999"});
   $('.mask_phone').inputmask({mask: "(99) 9999-9999"});
   $('.mask_cpf').inputmask({mask: "999.999.999-99"});
@@ -97,11 +102,19 @@ $(document).on('turbolinks:load', function() {
 
 });
 
+//remover mascaras
+$('#btn_sub').click(function() {
+  $('.mask_celphone').inputmask('remove');
+  $('.mask_phone').inputmask('remove');
+  $('.mask_cpf').inputmask('remove');
+  $('.mask_rg').inputmask('remove');
+  $('.mask_cnpj').inputmask('remove');
+  $('.mask_cep').inputmask('remove');
+
+});
+
 /*//calcula margem de lucro
 $(document).on('turbolinks:load', function(){
-
-
-
 METODO PARA CALCULAR COM A PORCENTAGEM OU COM O VALOR DEPENDENDO DO CHECKBOX
 UTILIZAR UM IF E ELSE
     $('#valor_compra, #margem').blur(function(){
@@ -115,16 +128,6 @@ UTILIZAR UM IF E ELSE
 
 });*/
 
-
-$('#btn_sub').click(function() {
-  $('.mask_celphone').inputmask('remove');
-  $('.mask_phone').inputmask('remove');
-  $('.mask_cpf').inputmask('remove');
-  $('.mask_rg').inputmask('remove');
-  $('.mask_cnpj').inputmask('remove');
-  $('.mask_cep').inputmask('remove');
-
-});
 
 /* Sobrescreve  data-confirm do Rails */
 $.rails.allowAction = function(element) {

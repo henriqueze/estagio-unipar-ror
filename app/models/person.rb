@@ -4,6 +4,7 @@ class Person < ApplicationRecord
 	has_many :sales
 	has_many :purchases
 	has_many :budgets
+	has_many :accounts_receivables
 
 	validates :person_cpf, :name, if: :tipo_fisica?, uniqueness: true, presence: true
 	validates :personC_cnpj, :company_name, if: :tipo_juridica?, uniqueness: true, presence: true

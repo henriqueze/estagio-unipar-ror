@@ -46,7 +46,7 @@ class Backoffice::AccountsPayablesController < BackofficeController
 						 :document_number, :issue_date, :expiration_date,
 						 :payment_date, :total_parcels, :current_parcel, :payable_value,
 						 :additions_value, :discount_value, :total_value, :paid_value,
-						  :voucher_image, :purchase_id)
+						  :voucher_image, :purchase_id, :provider_id)
 	end
 end
 

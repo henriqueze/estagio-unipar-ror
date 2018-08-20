@@ -1,5 +1,6 @@
 class AccountsReceivable < ApplicationRecord
-	belongs_to :sale
+	belongs_to :sale, optional: true
+	belongs_to :person, optional: true
 
 	def cria_parcelas
 		i = 0

@@ -1,5 +1,6 @@
 class Provider < ApplicationRecord
 	has_many :purchases
+	has_many :accounts_payables
 
 	validates :provider_cnpj, :provider_ie, uniqueness: true
 	validates :address_zip, :provider_tel1, :provider_rasocial, presence: true
