@@ -67,7 +67,8 @@
           </div>
           <%= f.label :profit_margin, :class => 'control-label col-lg-2' %>
           <div class="col-lg-1">
-            <%= f.text_field :profit_margin, :class => 'form-control', :id => 'margem' %>
+            <%= f.text_field :profit_margin, :class => 'form-control mask_percent',
+             :id => 'margem', disabled: true %>
           </div>
         </div>
       </div>

@@ -15,9 +15,9 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Date</th>
-						<th>Total value</th>
-						<th>Freight value</th>
+						<th>Data</th>
+						<th>Valor Total</th>
+						<!-- <th>Freight value</th> -->
 						<th>Fornecedor</th>
 						<th></th>
 					</tr>
@@ -28,8 +28,8 @@
 						<td><%= purchase.id %></td>
 						<td><%= purchase.date %></td>
 						<td><%= purchase.total_value %></td>
-						<td><%= purchase.freight_value %></td>
-						<td><%= purchase.provider %></td>
+						<!-- <td><%= purchase.freight_value %></td> -->
+						<td><%= purchase.provider.provider_rasocial %></td>
 						<td style="width: 150px">
 							<%= link_to backoffice_purchase_path(purchase),
 							class: "btn btn-primary btn-circle" do %>

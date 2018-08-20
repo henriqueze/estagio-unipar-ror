@@ -14,20 +14,22 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>Product code</th>
-						<th>Description</th>
-						<th>Category</th>
-						<th>Purchase price</th>
-						<th>Sale price</th>
-						<th>Profit margin</th>
-						<th>Stock</th>
-						<th>Stock reserved</th>
+						<th>#</th>
+						<th>Código Referencia</th>
+						<th>Descrição</th>
+						<th>Categoria</th>
+						<th>Preço de Compra</th>
+						<th>Preço de Venda</th>
+						<th>Margem de Lucro</th>
+						<th>Estoque</th>
+						<th>Estoque Reservado</th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					<% @products.each do |product| %>
 					<tr>
+						<td><%= product.id %></td>
 						<td><%= product.product_code %></td>
 						<td><%= product.description %></td>
 						<td><%= product.category.description %></td>

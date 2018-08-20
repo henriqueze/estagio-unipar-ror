@@ -23,96 +23,131 @@
   </div>
   <!-- /.panel-heading -->
   <div class="panel-body">
-    <div class="col-lg-6">
-      <%= form_for([:backoffice, @accounts_payable]) do |f| %>
+    <div class="col-lg-12">
+      <%= simple_form_for([:backoffice, @accounts_payable],
+      html: {class: 'form-horizontal'}) do |f| %>
 
-      <div class="form-group">
 
-        <div class="field">
-          <%= f.label :state %>
-          <%= f.text_field :state %>
+      <div class="row">
+        <div class="col-sm-1">
+          <%= f.input :state, collection: ["Aberta", "Paga", "Cancelada" ], default: "Aberta", disabled: true, :class => "control-label" %>
+        </div>
+        <div class="col-sm-2">
+          <%= f.input :document_kind, collection: ["Conta", "Boleto", "Despesas"] %>
+        </div>
+        <div class="col-sm-6">
+          <div class="col-sm-6">
+            <%= f.input :description %>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <%= f.input :document_number %>
         </div>
 
-        <div class="field">
-          <%= f.label :description %>
-          <%= f.text_field :description %>
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="col-sm-4">
+              <%= f.label :purchase_id %>
+              <%= f.text_field :purchase_id, :class => "form-control" %>
+            </div>
+          </div>
         </div>
-
-        <div class="field">
-          <%= f.label :document_kind %>
-          <%= f.text_field :document_kind %>
-        </div>
-
-        <div class="field">
-          <%= f.label :document_number %>
-          <%= f.text_field :document_number %>
-        </div>
-
-        <div class="field">
-          <%= f.label :issue_date %>
-          <%= f.datetime_select :issue_date %>
-        </div>
-
-        <div class="field">
-          <%= f.label :expiration_date %>
-          <%= f.datetime_select :expiration_date %>
-        </div>
-
-        <div class="field">
-          <%= f.label :payment_date %>
-          <%= f.datetime_select :payment_date %>
-        </div>
-
-        <div class="field">
-          <%= f.label :total_parcels %>
-          <%= f.number_field :total_parcels %>
-        </div>
-
-        <div class="field">
-          <%= f.label :current_parcel %>
-          <%= f.number_field :current_parcel %>
-        </div>
-
-        <div class="field">
-          <%= f.label :payable_value %>
-          <%= f.text_field :payable_value %>
-        </div>
-
-        <div class="field">
-          <%= f.label :additions_value %>
-          <%= f.text_field :additions_value %>
-        </div>
-
-        <div class="field">
-          <%= f.label :discount_value %>
-          <%= f.text_field :discount_value %>
-        </div>
-
-        <div class="field">
-          <%= f.label :total_value %>
-          <%= f.text_field :total_value %>
-        </div>
-
-        <div class="field">
-          <%= f.label :paid_value %>
-          <%= f.text_field :paid_value %>
-        </div>
-
-        <div class="field">
-          <%= f.label :voucher_image %>
-          <%= f.text_field :voucher_image %>
-        </div>
-
-        <div class="field">
-          <%= f.label :purchase_id %>
-          <%= f.text_field :purchase_id %>
-        </div>
-
       </div>
+      <br>
 
-      <button type="submit" class="btn btn-success">Salvar</button>
-      <% end %>
+      <fieldset>
+        <legend> Datas </legend>
+
+        <div class="row">
+          <div class="col-sm-2">
+            <%= f.label :issue_date %>
+            <%= f.date_field :issue_date, :class => "form-control" %>
+          </div>
+          <div class="col-sm-2">
+            <%= f.label :expiration_date %>
+            <%= f.date_field :expiration_date, :class => "form-control" %>
+          </div>
+          <div class="col-sm-2">
+            <%= f.label :payment_date %>
+            <%= f.date_field :payment_date, :class => "form-control" %>
+          </div>
+        </div>
+        <br>
+      </fieldset>
+
+      <fieldset>
+        <legend> Parcelas </legend>
+        <div class="row">
+          <div class="col-sm-2">
+            <%= f.label :total_parcels %>
+            <%= f.number_field :total_parcels, :class => "form-control" %>
+          </div>
+
+          <div class="col-sm-2">
+            <%= f.label :current_parcel %>
+            <%= f.number_field :current_parcel, :class => "form-control" %>
+          </div>
+        </div>
+        <br>
+      </fieldset>
+
+      <fieldset>
+        <legend> Valores </legend>
+        <div class="row">
+          <div class="col-sm-2">
+            <%= f.label :payable_value %>
+            <%= f.number_field :payable_value, :class => "form-control",
+            in: 0..999999, :step => 0.01 %>
+          </div>
+
+          <div class="col-sm-2">
+            <%= f.label :additions_value %>
+            <%= f.number_field :additions_value, :class => "form-control",
+            in: 0..999999, :step => 0.01 %>
+          </div>
+
+          <div class="col-sm-2">
+            <%= f.label :discount_value %>
+            <%= f.number_field :discount_value, :class => "form-control",
+            in: 0..999999 , :step => 0.01 %>
+          </div>
+
+          <div class="col-sm-2">
+            <%= f.label :total_value %>
+            <%= f.number_field :total_value, :class => "form-control",
+            in: 0..999999 , :step => 0.01 %>
+          </div>
+
+          <div class="col-sm-2">
+            <%= f.label :paid_value %>
+            <%= f.number_field :paid_value, :class => "form-control",
+            in: 0..999999 , :step => 0.01 %>
+          </div>
+        </div>
+        <br>
+      </fieldset>
+
+      <fieldset>
+        <legend> Imagem </legend>
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="col-sm-2">
+              <%= f.label :voucher_image %>
+            </div>
+            <%= f.text_field :voucher_image, :class => "col-lg-2" %>
+            <button type="button" class="btn btn-info btn-circle btn-sm">
+              <i class="fa fa-link"></i></button>
+          </div>
+        </div>
+        <br>
+        <br>
+      </fieldset>
+
     </div>
+
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <% end %>
   </div>
-  <!-- /.panel-body -->
+</div>
+<!-- /.panel-body -->
 </div>

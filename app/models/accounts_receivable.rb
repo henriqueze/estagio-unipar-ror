@@ -1,5 +1,6 @@
 class AccountsReceivable < ApplicationRecord
-	belongs_to :sale
+	belongs_to :sale, optional: true
+	belongs_to :person, optional: true
 
 	def cria_parcelas
 		i = 0
@@ -18,7 +19,7 @@ class AccountsReceivable < ApplicationRecord
 				conta.total_value = self.total_value
 				conta.remaining_value = self.remaining_value
 				conta.total_parcels = self.total_parcels
-				conta.parcel = aux
+				conta.parcel = aux + 1
 				conta.sale = self.sale
 				conta.save
 				aux += 1

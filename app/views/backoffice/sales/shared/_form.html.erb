@@ -29,10 +29,10 @@
       <div class="form-inputs">
 
         <div class="form-group">
-          <div class="col-lg-1">
-            <%= f.input :state, disabled: true, collection: [["Aberta, Aberta"],
-             ["Aguardando Pagamento, Aguardando Pagamento"], ["Finalizada, Finalizada"],
-             ["Cancelada, Cancelada"]] %>
+          <div class="col-lg-2">
+            <%= f.input :state, disabled: true, collection: [["Aberta", "Aberta"],
+             ["Aguardando Pagamento", "Aguardando Pagamento"], ["Finalizada", "Finalizada"],
+             ["Cancelada", "Cancelada"]], default: "Aberta" %>
            </div>
            <div class="col-lg-3">
             <%= f.association :payment_type, label_method: :kind,

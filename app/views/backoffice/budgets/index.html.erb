@@ -15,13 +15,13 @@
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Kind</th>
-						<th>Note</th>
-						<th>Date</th>
-						<th>Expiration date</th>
-						<th>Total value</th>
-						<th>State</th>
-						<th>Person</th>
+						<th>Tipo</th>
+						<th>Nota</th>
+						<th>Data</th>
+						<th>Data Vencimento</th>
+						<th>Valor Total</th>
+						<th>Estado</th>
+						<th>Cliente</th>
 						<th></th>
 					</tr>
 				</thead>
@@ -35,7 +35,7 @@
 						<td><%= budget.expiration_date %></td>
 						<td><%= budget.total_value %></td>
 						<td><%= budget.state %></td>
-						<td><%= budget.person %></td>
+						<td><%= budget.person.name %></td>
 						<td style="width: 150px">
 							<%= link_to backoffice_budget_path(budget),
 							class: "btn btn-primary btn-circle" do %>

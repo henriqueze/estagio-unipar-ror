@@ -42,7 +42,7 @@ class Sale < ApplicationRecord
 		end
 	end
 
-	def valida_quantidade_produto
+	def valida_produto_venda
 		if item_sales.empty?
 			errors.add(:base, 'Pedido deve ter ao menos um item')
 		end

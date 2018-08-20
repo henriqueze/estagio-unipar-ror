@@ -1,0 +1,164 @@
+"pt-BR":
+  activerecord:
+    models:
+      category:
+        one: Categoria
+        other: Categorias
+      product:
+        one: Produto
+        other: Produtos
+      person:
+        one: Pessoa
+        other: Pessoas
+      provider:
+       one: Fornecedor
+       other: Fornecedores
+      sale:
+        one: Venda
+        other: Vendas
+      purchase:
+        one: Compra
+        other: Compras
+      budget:
+        one: Orçamento
+        other: Orçamentos
+      accounts_payable:
+        one: Conta a Pagar
+        other: Contas a Pagar
+      payment_type:
+        one: Tipo de Pagamento
+        other: Tipos de Pagamento
+      accounts_receivable:
+        one: Conta a Receber
+        other: Contas a Receber
+    attributes:
+      category:
+        id: "Código"
+        description: "Descrição"
+      person:
+        id: "Código"
+        kind: "Tipo"
+        name: "Nome"
+        company_name: "Razão Social"
+        person_rg: "RG"
+        personC_ie: "Inscrição Estadual"
+        person_cpf: "CPF"
+        personC_cnpj: "CNPJ"
+        address: "Logradouro"
+        address_number: "Numero"
+        address_complement: "Complemento"
+        address_bairro: "Bairro"
+        address_zip: "CEP"
+        address_city: "Cidade"
+        address_state: "Estado"
+        person_tel1: "Telefone Celular"
+        person_tel2: "Telefone Fixo"
+        person_email: "Email"
+        person_obs: "Observação"
+      provider:
+        id: "Código"
+        name: "Nome Fantasia"
+        provider_rasocial: "Razão Social"
+        provider_ie: "Inscrição Estadual"
+        provider_cnpj: "CNPJ"
+        address: "Logradouro"
+        address_number: "Numero"
+        address_complement: "Complemento"
+        address_bairro: "Bairro"
+        address_zip: "CEP"
+        address_city: "Cidade"
+        address_state: "Estado"
+        provider_tel1: "Telefone Celular"
+        provider_tel2: "Telefone Fixo"
+      product:
+        id: "Código"
+        product_code: "Código Referencia Produto"
+        description: "Descrição"
+        category_id: "Categoria"
+        purchase_price: "Preço de Compra"
+        sale_price: "Preço de Venda"
+        profit_margin: "Margem de Lucro"
+        stock: "Quantidade em Estoque"
+        stock_reserved: "Estoque Reservado"
+      payment_type:
+        id: "Código"
+        kind: "Tipo"
+        description: "Descrição"
+        interest_rates: "Taxas"
+        max_parcel: "Maximo de Parcelas"
+        Num_MaxParcelas: "Maximo de Parcelas"
+      sale:
+        id: "Código"
+        state: "Estado da Venda"
+        payment_type: "Tipo de Pagamento"
+        person: "Cliente"
+        total_value: "Valor Total"
+        discount_value: "Desconto"
+      item_sale:
+        product: "Produto"
+        amount: "Quantidade"
+        value: "Valor"
+        total_value: "Valor Total"
+      budget:
+        id: "Código"
+        state: "Estado do Orçamento"
+        kind: "Tipo de Orçamento"
+        note: "Descrição"
+        expiration_date: "Data de Vencimento"
+        person: "Cliente"
+        total_value: "Valor Total"
+      item_budget:
+        product: "Produto"
+        amount: "Quantidade"
+        value: "Valor"
+      purchase:
+        id: "Código"
+        provider: "Fornecedor"
+        total_value: "Valor Total"
+        freight_value: "Valor do Frete"
+      item_purchase:
+        product: "Produto"
+        amount: "Quantidade"
+        value: "Valor"
+      accounts_receivable:
+        state: "Estado"
+        description: "Descrição"
+        kind: "Tipo"
+        issue_date: "Data de Emissão"
+        expiration_date: "Data de Vencimento"
+        received_date: "Data Recebido"
+        total_value: "Valor Total"
+        received_value: "Valor Recebido"
+        remaining_value: "Valor Restante"
+        total_parcels: "Total de Parcelas"
+        parcel: "Parcela Atual"
+        sale_id: "Venda"
+      accounts_payable:
+        state: "Estado"
+        description: "Descrição"
+        document_kind: "Tipo do Documento"
+        document_number: "Numero do Documento"
+        issue_date: "Data de Emissão"
+        expiration_date: "Data de Vencimento"
+        payment_date: "Data Pagamento"
+        total_value: "Valor Total"
+        payable_value: "Valor a Pagar"
+        additions_value: "Valor Adicional"
+        discount_value: "Valor Desconto"
+        paid_value: "Valor Pago"
+        voucher_image: "Imagem Comprovante"
+        remaining_value: "Valor Restante"
+        total_parcels: "Total de Parcelas"
+        current_parcel: "Parcela Atual"
+        purchase_id: "Compra"
+      master_user:
+        email: "Email"
+        password: "Senha"
+        password_confirmation: "Confirmação de Senha"
+        created_at: "Criado em"
+        updated_at: "Atualizado em"
+
+
+
+
+      # will translate User attribute "login" as "Handle"

@@ -17,21 +17,23 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
     t.string "description", limit: 100, null: false
     t.string "document_kind", limit: 20
     t.string "document_number", limit: 100
-    t.datetime "issue_date", null: false
-    t.datetime "expiration_date", null: false
-    t.datetime "payment_date"
+    t.datetime "issue_date", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.date "expiration_date", null: false
+    t.date "payment_date"
     t.integer "total_parcels", default: 0, null: false
     t.integer "current_parcel", default: 0
-    t.decimal "payable_value", precision: 10, null: false
-    t.decimal "additions_value", precision: 10, default: "0"
-    t.decimal "discount_value", precision: 10, default: "0"
-    t.decimal "total_value", precision: 10, null: false
-    t.decimal "paid_value", precision: 10, default: "0"
+    t.decimal "payable_value", precision: 8, scale: 2, null: false
+    t.decimal "additions_value", precision: 8, scale: 2, default: "0.0"
+    t.decimal "discount_value", precision: 8, scale: 2, default: "0.0"
+    t.decimal "total_value", precision: 8, scale: 2, null: false
+    t.decimal "paid_value", precision: 8, scale: 2, default: "0.0"
     t.binary "voucher_image", limit: 4294967295
     t.bigint "purchase_id"
+    t.bigint "provider_id"
     t.bigint "system_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_accounts_payables_on_provider_id"
     t.index ["purchase_id"], name: "index_accounts_payables_on_purchase_id"
     t.index ["system_user_id"], name: "index_accounts_payables_on_system_user_id"
   end
@@ -41,16 +43,18 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
     t.string "description", limit: 100, null: false
     t.string "kind", limit: 50
     t.datetime "issue_date", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.datetime "expiration_date", null: false
-    t.datetime "received_date"
-    t.decimal "total_value", precision: 10, null: false
-    t.decimal "received_value", precision: 10, default: "0"
-    t.decimal "remaining_value", precision: 10
+    t.date "expiration_date", null: false
+    t.date "received_date"
+    t.decimal "total_value", precision: 8, scale: 2, null: false
+    t.decimal "received_value", precision: 8, scale: 2, default: "0.0"
+    t.decimal "remaining_value", precision: 8, scale: 2
     t.integer "total_parcels", null: false
     t.integer "parcel"
     t.bigint "sale_id"
+    t.bigint "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["person_id"], name: "index_accounts_receivables_on_person_id"
     t.index ["sale_id"], name: "index_accounts_receivables_on_sale_id"
   end
 
@@ -58,8 +62,8 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
     t.string "kind", limit: 20
     t.string "note", limit: 200
     t.datetime "date", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.datetime "expiration_date", null: false
-    t.decimal "total_value", precision: 10, null: false
+    t.date "expiration_date", null: false
+    t.decimal "total_value", precision: 8, scale: 2, null: false
     t.string "state", limit: 20, default: "Aberto", null: false
     t.bigint "person_id"
     t.datetime "created_at", null: false
@@ -75,7 +79,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
 
   create_table "item_budgets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "amount", default: 0, null: false
-    t.decimal "value", precision: 10, null: false
+    t.decimal "value", precision: 8, scale: 2, null: false
     t.bigint "product_id"
     t.bigint "budget_id"
     t.datetime "created_at", null: false
@@ -86,7 +90,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
 
   create_table "item_purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "amount", default: 0, null: false
-    t.decimal "value", precision: 10, null: false
+    t.decimal "value", precision: 8, scale: 2, null: false
     t.bigint "product_id"
     t.bigint "purchase_id"
     t.datetime "created_at", null: false
@@ -97,8 +101,8 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
 
   create_table "item_sales", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "amount", default: 0, null: false
-    t.decimal "value", precision: 10, null: false
-    t.decimal "total_value", precision: 10, null: false
+    t.decimal "value", precision: 8, scale: 2, null: false
+    t.decimal "total_value", precision: 8, scale: 2, null: false
     t.bigint "product_id"
     t.bigint "sale_id"
     t.datetime "created_at", null: false
@@ -127,7 +131,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
   create_table "payment_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "kind", limit: 50, null: false
     t.string "description", limit: 100
-    t.decimal "interest_rates", precision: 10, default: "0"
+    t.decimal "interest_rates", precision: 5, scale: 2, default: "0.0"
     t.integer "max_parcel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -159,9 +163,9 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "product_code", limit: 100, null: false
     t.string "description", limit: 100, null: false
-    t.decimal "purchase_price", precision: 10, default: "0"
-    t.decimal "sale_price", precision: 10, null: false
-    t.decimal "profit_margin", precision: 10, default: "0"
+    t.decimal "purchase_price", precision: 8, scale: 2, default: "0.0"
+    t.decimal "sale_price", precision: 8, scale: 2, null: false
+    t.decimal "profit_margin", precision: 8, scale: 2
     t.integer "stock"
     t.integer "stock_reserved", default: 0
     t.bigint "category_id"
@@ -191,8 +195,8 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "date", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.decimal "total_value", precision: 10, null: false
-    t.decimal "freight_value", precision: 10, default: "0"
+    t.decimal "total_value", precision: 8, scale: 2, null: false
+    t.decimal "freight_value", precision: 8, scale: 2, default: "0.0"
     t.bigint "provider_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -201,8 +205,8 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
 
   create_table "sales", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "date", default: -> { "CURRENT_TIMESTAMP" }, null: false
-    t.decimal "total_value", precision: 10, null: false
-    t.decimal "discount_value", precision: 10, default: "0"
+    t.decimal "total_value", precision: 8, scale: 2, null: false
+    t.decimal "discount_value", precision: 8, scale: 2, default: "0.0"
     t.string "state", limit: 20, null: false
     t.bigint "person_id"
     t.bigint "payment_type_id"
@@ -231,8 +235,10 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
     t.index ["username"], name: "index_system_users_on_username", unique: true
   end
 
+  add_foreign_key "accounts_payables", "providers"
   add_foreign_key "accounts_payables", "purchases"
   add_foreign_key "accounts_payables", "system_users"
+  add_foreign_key "accounts_receivables", "people"
   add_foreign_key "accounts_receivables", "sales"
   add_foreign_key "budgets", "people"
   add_foreign_key "item_budgets", "budgets"

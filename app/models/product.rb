@@ -19,4 +19,13 @@ class Product < ApplicationRecord
    length: { maximum: 13}
   #validates :Preco_Custo, allow_nil: true
   #validates_numericality_of :purchase_price, :sale_price, length: { maximum: 10}, only_integer: false
+
+  before_save :calcula_margem_lucro
+
+  def calcula_margem_lucro
+    valor1 = self.sale_price - self.purchase_price
+    valor2 = valor1 * 100
+    self.profit_margin = valor2 / self.purchase_price
+  end
+
 end
