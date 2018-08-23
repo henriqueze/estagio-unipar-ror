@@ -16,12 +16,21 @@
       sale:
         one: Venda
         other: Vendas
+    item_sale:
+        one: Item Venda
+        other: Itens Venda
       purchase:
         one: Compra
         other: Compras
+    item_purchase:
+        one: Item Compra
+        other: Itens Compra
       budget:
         one: Orçamento
         other: Orçamentos
+    item_budget:
+        one: Item Orçamento
+        other: Itens Orçamento
       accounts_payable:
         one: Conta a Pagar
         other: Contas a Pagar

@@ -11,19 +11,26 @@ class Sale < ApplicationRecord
 	accepts_nested_attributes_for :item_sales, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
 
-	before_save :atualiza_status
+	before_save :set_value_total, :recebe_data
+	after_save  :atualiza_estoque_aumenta, if: :venda_cancelada
+	before_create :atualiza_status
 	after_create :atualiza_estoque_diminui
 
+
+	def recebe_data
+		self.date = Date.today
+	end
+
+	def venda_cancelada
+	 self.state == "Cancelada"
+	end
+
 	def atualiza_status
-		self.state = "Finalizada"
-	end
-
-	def subtotals
-		self.item_sales.map { |i| i.subtotal }
-	end
-
-	def total_all
-		subtotals.sum
+		if self.state == "Aberta"
+			self.state = "Finalizada"
+		else
+			self.state = state
+		end
 	end
 
 	def atualiza_estoque_diminui
@@ -44,9 +51,23 @@ class Sale < ApplicationRecord
 
 	def valida_produto_venda
 		if item_sales.empty?
-			errors.add(:base, 'Pedido deve ter ao menos um item')
+			errors.add(:base, 'Venda deve ter ao menos um item')
 		end
 	end
+
+	def set_value_total
+		self.total_value = 0
+		value_aux = self.item_sales.map{|is| is.amount*is.product.sale_price}.sum
+		self.total_value = value_aux - self.discount_value
+
+		self.item_sales.each do |item_sale|
+			item_sale.value = item_sale.product.sale_price
+			item_sale.total_value = item_sale.product.sale_price * item_sale.amount
+			item_sale.save
+		end
+	end
+
+
 
 end
 

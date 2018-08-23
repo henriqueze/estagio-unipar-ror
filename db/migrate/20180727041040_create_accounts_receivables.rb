@@ -4,7 +4,7 @@ class CreateAccountsReceivables < ActiveRecord::Migration[5.2]
       t.string :state, null: false
       t.string :description, limit: 100, null: false
       t.string :kind, limit: 50
-      t.datetime :issue_date, null: false, default: -> { 'CURRENT_TIMESTAMP' }
+      t.date :issue_date, null: false
       t.date :expiration_date, null: false
       t.date :received_date
       t.decimal :total_value, null: false, precision: 8, scale: 2

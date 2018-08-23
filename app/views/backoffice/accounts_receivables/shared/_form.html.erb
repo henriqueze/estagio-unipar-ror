@@ -31,7 +31,7 @@
         <div class="row">
           <div class="col-sm-1">
             <%= f.input :state, collection: [["Aberta", "Aberta"], ["Paga", "Paga"],
-             ["Cancelada", "Cancelada"]], default: "Aberta", :class => "control-label" %>
+             ["Cancelada", "Cancelada"]], :class => "control-label" %>
           </div>
           <div class="col-sm-1">
             <%= f.input :kind, collection: ["De Cliente", "De Oficina"] %>
@@ -73,19 +73,19 @@
             <div class="col-sm-4">
               <%= f.label :total_value %>
               <%= f.number_field :total_value, :class => "form-control",
-              in: 0..999999, :step => 0.01 %>
+              in: 0..999999, :step => 0.01, :id => "valor_tConta" %>
             </div>
 
             <div class="col-sm-4">
               <%= f.label :received_value %>
               <%= f.number_field :received_value, :class => "form-control",
-              in: 0..999999, :step => 0.01 %>
+              in: 0..999999, :step => 0.01, :id => "valor_rConta" %>
             </div>
 
             <div class="col-sm-4">
               <%= f.label :remaining_value %>
               <%= f.number_field :remaining_value, :class => "form-control",
-              in: 0..999999 , :step => 0.01 %>
+              in: 0..999999 , :step => 0.01, :id => "valor_reConta", disabled: true %>
             </div>
           </div>
           <br>
@@ -101,7 +101,7 @@
 
             <div class="col-sm-2">
               <%= f.label :parcel %>
-              <%= f.number_field :parcel, :class => "form-control" %>
+              <%= f.number_field :parcel, :class => "form-control", disabled: true%>
             </div>
           </div>
           <br>

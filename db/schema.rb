@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
     t.string "description", limit: 100, null: false
     t.string "document_kind", limit: 20
     t.string "document_number", limit: 100
-    t.datetime "issue_date", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.date "issue_date", null: false
     t.date "expiration_date", null: false
     t.date "payment_date"
     t.integer "total_parcels", default: 0, null: false
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
     t.string "state", null: false
     t.string "description", limit: 100, null: false
     t.string "kind", limit: 50
-    t.datetime "issue_date", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.date "issue_date", null: false
     t.date "expiration_date", null: false
     t.date "received_date"
     t.decimal "total_value", precision: 8, scale: 2, null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
   create_table "budgets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "kind", limit: 20
     t.string "note", limit: 200
-    t.datetime "date", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.date "date", null: false
     t.date "expiration_date", null: false
     t.decimal "total_value", precision: 8, scale: 2, null: false
     t.string "state", limit: 20, default: "Aberto", null: false
@@ -194,7 +194,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
   end
 
   create_table "purchases", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "date", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.date "date", null: false
     t.decimal "total_value", precision: 8, scale: 2, null: false
     t.decimal "freight_value", precision: 8, scale: 2, default: "0.0"
     t.bigint "provider_id"
@@ -204,7 +204,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
   end
 
   create_table "sales", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.datetime "date", default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.date "date", null: false
     t.decimal "total_value", precision: 8, scale: 2, null: false
     t.decimal "discount_value", precision: 8, scale: 2, default: "0.0"
     t.string "state", limit: 20, null: false

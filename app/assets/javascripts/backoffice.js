@@ -62,43 +62,63 @@ $(document).ready(function() {
   language: "pt-BR"
 });
 
+$(document).on('turbolinks:load', function() {
+  $('#e3').select2();
+  theme: "bootstrap"
+  language: "pt-BR"
+});
+
 
 $(document).on('turbolinks:load', function() {
 //soma valor da view de item venda
-  $('#valor, #qtde').blur(function(){
-    var valor = parseFloat($('#valor').val()) || 0;
-    var qtde = parseFloat($('#qtde').val()) || 0;
+$('#valor, #qtde').blur(function(){
+  var valor = parseFloat($('#valor').val()) || 0;
+  var qtde = parseFloat($('#qtde').val()) || 0;
 
-    if(valor == " ") valor = 0;
+  if(valor == " ") valor = 0;
 
-    var resultado = valor * qtde;
-    console.log(resultado);
-    $('#valor_total_produto').val(resultado);
-  })
+  var resultado = valor * qtde;
+  console.log(resultado);
+  $('#valor_total_produto').val(resultado);
+});
 
 //margem de lucro em %
-  $('#valor_venda, #valor_compra').blur(function() {
-    var vlrVenda = parseFloat($('#valor_venda').val()) || 0;
-    var vlrCompra = parseFloat($('#valor_compra').val()) || 0;
+$('#valor_venda, #valor_compra').blur(function() {
+  var vlrVenda = parseFloat($('#valor_venda').val()) || 0;
+  var vlrCompra = parseFloat($('#valor_compra').val()) || 0;
 
-    if(vlrCompra == " ") vlrCompra = 0;
-    if(vlrVenda == " ") vlrVenda = 0;
+  if(vlrCompra == " ") vlrCompra = 0;
+  if(vlrVenda == " ") vlrVenda = 0;
 
-    var valor1 = vlrVenda - vlrCompra;
-    var valor2 = valor1 * 100;
-    var valor3 = valor2 / vlrCompra;
+  var valor1 = vlrVenda - vlrCompra;
+  var valor2 = valor1 * 100;
+  var valor3 = valor2 / vlrCompra;
 
-    $('#margem').val(valor3);
-  })
+  $('#margem').val(valor3);
+});
+
+// conta a receber
+$('#valor_tConta, #valor_rConta').blur(function(){
+  var total_conta = parseFloat($('#valor_tConta').val()) || 0;
+  var recebido_conta = parseFloat($('#valor_rConta').val()) || 0;
+
+  if(total_conta == " ") total_conta = 0;
+  if(recebido_conta == " ") recebido_conta = 0;
+
+  var resultado = total_conta - recebido_conta;
+  console.log(resultado);
+  $('#valor_reConta').val(resultado);
+
+});
 
 //mascaras de input
-  $('.mask_celphone').inputmask({mask: "(99) 9999[9]-9999"});
-  $('.mask_phone').inputmask({mask: "(99) 9999-9999"});
-  $('.mask_cpf').inputmask({mask: "999.999.999-99"});
-  $('.mask_rg').inputmask({mask: "99.999.999-9"});
-  $('.mask_cnpj').inputmask({mask: "99.999.999/9999-99"});
-  $('.mask_ie').inputmask({mask: "99999999-99"})
-  $('.mask_cep').inputmask({mask: "99999-999"});
+$('.mask_celphone').inputmask({mask: "(99) 9999[9]-9999"});
+$('.mask_phone').inputmask({mask: "(99) 9999-9999"});
+$('.mask_cpf').inputmask({mask: "999.999.999-99"});
+$('.mask_rg').inputmask({mask: "99.999.999-9"});
+$('.mask_cnpj').inputmask({mask: "99.999.999/9999-99"});
+$('.mask_ie').inputmask({mask: "99999999-99"})
+$('.mask_cep').inputmask({mask: "99999-999"});
 
 });
 
