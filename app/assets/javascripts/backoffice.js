@@ -1,9 +1,7 @@
 //= require bootstrap_sb_admin_base_v2
+//= require select2-full
 //= require notifyjs
 //= require jquery.inputmask
-//= require jquery.inputmask.extensions
-//= require jquery.inputmask.numeric.extensions
-//= require jquery.inputmask.date.extensions
 //= require DataTables
 //= require bootbox
 
@@ -20,7 +18,8 @@ function exibir_ocultar(val) {
     document.getElementById('pes_juridica').style.display = 'none';
     document.getElementById('pes_fisica').style.display = 'none';
   }
-}
+};
+
 
 $('table').DataTable( {
   language: {
@@ -54,20 +53,18 @@ $('table').DataTable( {
     }
   }
 });
-
 //select 2
-$(document).ready(function() {
+$(document).on('turbolinks:load', function() {
   $("#e1").select2();
   theme: "bootstrap"
   language: "pt-BR"
 });
 
 $(document).on('turbolinks:load', function() {
-  $('#e3').select2();
+  $("#e3").select2();
   theme: "bootstrap"
   language: "pt-BR"
 });
-
 
 $(document).on('turbolinks:load', function() {
 //soma valor da view de item venda
@@ -132,22 +129,6 @@ $('#btn_sub').click(function() {
   $('.mask_cep').inputmask('remove');
 
 });
-
-/*//calcula margem de lucro
-$(document).on('turbolinks:load', function(){
-METODO PARA CALCULAR COM A PORCENTAGEM OU COM O VALOR DEPENDENDO DO CHECKBOX
-UTILIZAR UM IF E ELSE
-    $('#valor_compra, #margem').blur(function(){
-      var valrCompra = $('#valor_compra').val();
-      var margem = $('#margem').val();
-
-      var vlr_venda = parseInt(valrCompra) * parseFloat(margem);
-      $('#valor_venda').val(vlr_venda);
-    })
-  }
-
-});*/
-
 
 /* Sobrescreve  data-confirm do Rails */
 $.rails.allowAction = function(element) {
