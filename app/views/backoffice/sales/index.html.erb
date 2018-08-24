@@ -29,8 +29,8 @@
 					<tr>
 						<td><%= sale.id %></td>
 						<td><%= sale.date %></td>
-						<td><%= sale.total_value %></td>
-						<td><%= sale.discount_value %></td>
+						<td><%= valor_formatado(sale.total_value) %></td>
+						<td><%= valor_formatado(sale.discount_value) %></td>
 						<td><%= sale.state %></td>
 						<td><%= sale.person.name %></td>
 						<td><%= sale.payment_type.kind %></td>

@@ -20,7 +20,6 @@ function exibir_ocultar(val) {
   }
 };
 
-
 $('table').DataTable( {
   language: {
     "sEmptyTable": "Nenhum registro encontrado",
