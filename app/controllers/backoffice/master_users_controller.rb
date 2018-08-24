@@ -4,7 +4,6 @@ class Backoffice::MasterUsersController < BackofficeController
 	def index
 		@q = MasterUser.ransack(params[:q])
 		@master_users = @q.result.page(params[:page]).per(6)
-		@q.build_condition if @q.conditions.empty?
 
 		respond_to do |format|
 			format.html

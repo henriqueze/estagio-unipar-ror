@@ -1,20 +1,19 @@
 <h1 class="page-header">Compras</h1>
 
-<button class="btn btn-info pull-right" data-toggle="collapse"
-data-target="#demo">Filtros Para Pesquisa</button>
+<button class="btn btn-info icon fa fa-arrow-down pull-right" data-toggle="collapse"
+data-target="#demo"> Filtros Para Pesquisa</button>
 <br>
-<br>
-
 <div id="demo" class="collapse">
 	<div class="panel-body">
 		<%= search_form_for [:backoffice, @q] do |f| %>
-		<%= f.condition_fields do |c| %>
-		<%= render "backoffice/purchases/condition_fields", f: c %>
+			<%= f.condition_fields do |c| %>
+			<%= render "backoffice/purchases/condition_fields", f: c %>
 		<% end %>
 		<br>
 		<%= link_to_add_fields "Adicionar Condições", f, :condition,
-		:class => 'icon fa fa-plus' %>
+			:class => 'icon fa fa-plus' %>
 		<div class="actions text-center">
+			<%= link_to " ", request.path, :class => 'icon fa fa-times btn btn-danger' %>
 			<%= f.submit "Pesquisar", :class => 'btn btn-primary'  %>
 		</div>
 		<br>
@@ -22,7 +21,6 @@ data-target="#demo">Filtros Para Pesquisa</button>
 	</div>
 </div>
 <br>
-
 
 <div class="panel panel-default">
 	<div class="panel-heading">

@@ -1,10 +1,8 @@
 <h1 class="page-header">Produtos</h1>
 
-<button class="btn btn-info pull-right" data-toggle="collapse"
-data-target="#demo">Filtros Para Pesquisa</button>
+<button class="btn btn-info icon fa fa-arrow-down pull-right" data-toggle="collapse"
+data-target="#demo"> Filtros Para Pesquisa</button>
 <br>
-<br>
-
 <div id="demo" class="collapse">
 	<div class="panel-body">
 		<%= search_form_for [:backoffice, @q] do |f| %>
@@ -16,6 +14,7 @@ data-target="#demo">Filtros Para Pesquisa</button>
 		:class => 'icon fa fa-plus' %>
 		<div class="actions text-center">
 			<%= f.submit "Pesquisar", :class => 'btn btn-primary'  %>
+			<%= link_to " ", request.path, :class => 'icon fa fa-times btn btn-danger' %>
 		</div>
 		<br>
 		<% end %>

@@ -1,5 +1,24 @@
 <h1 class="page-header">Pessoas</h1>
 
+<button class="btn btn-info icon fa fa-arrow-down pull-right" data-toggle="collapse"
+	data-target="#demo"> Pesquisa</button>
+<br>
+<br>
+<div id="demo" class="collapse">
+	<%= search_form_for [:backoffice, @q] do |f| %>
+	<div class="col-md-8">
+		<%= f.search_field :kind_or_name_or_address_city_or_person_tel1_or_address_state_cont,
+		 :placeholder => "Digite sua Pesquisa",
+		:class => 'form-control' %>
+	</div>
+	<div class="actions">
+		<%= link_to " ", request.path, :class => 'icon fa fa-times btn btn-danger' %>
+		<%= f.submit "Pesquisar", :class => 'btn btn-primary' %>
+	</div>
+	<br>
+	<% end %>
+</div>
+
 <div class="panel panel-default">
 	<div class="panel-heading">
 		Listando Pessoas

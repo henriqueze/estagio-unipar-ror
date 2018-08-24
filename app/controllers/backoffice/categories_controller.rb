@@ -4,7 +4,6 @@ class Backoffice::CategoriesController < BackofficeController
 	def index
 		@q = Category.ransack(params[:q])
 		@categories = @q.result.page(params[:page]).per(6)
-		@q.build_condition if @q.conditions.empty?
 
 		respond_to do |format|
 			format.html

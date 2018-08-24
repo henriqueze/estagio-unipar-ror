@@ -4,7 +4,6 @@ class Backoffice::ProvidersController < BackofficeController
 	def index
 		@q = Provider.ransack(params[:q])
 		@providers = @q.result.page(params[:page]).per(6)
-		@q.build_condition if @q.conditions.empty?
 
 		respond_to do |format|
 			format.html

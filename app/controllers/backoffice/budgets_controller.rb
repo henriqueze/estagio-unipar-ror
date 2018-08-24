@@ -4,7 +4,6 @@ class Backoffice::BudgetsController < BackofficeController
 	def index
 		@q = Budget.ransack(params[:q])
 		@budgets = @q.result.page(params[:page]).per(6)
-		@q.build_condition if @q.conditions.empty?
 
 		respond_to do |format|
 			format.html

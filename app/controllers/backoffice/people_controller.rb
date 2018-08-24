@@ -4,7 +4,6 @@ class Backoffice::PeopleController < BackofficeController
 	def index
 		@q = Person.ransack(params[:q])
 		@people = @q.result.page(params[:page]).per(6)
-		@q.build_condition if @q.conditions.empty?
 
 		respond_to do |format|
 			format.html
