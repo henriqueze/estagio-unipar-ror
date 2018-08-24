@@ -3,8 +3,13 @@ class Backoffice::ProductsController < BackofficeController
 
 	def index
 		@q = Product.ransack(params[:q])
-		@products = @q.result
+		@products = @q.result.page(params[:page]).per(10)
 		@q.build_condition if @q.conditions.empty?
+
+		respond_to do |format|
+			format.html
+			format.pdf {@q.result}
+		end
 	end
 
 	#before_action :authenticate_system_user! verificar depois porque não está passando o sql correto

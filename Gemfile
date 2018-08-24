@@ -22,6 +22,8 @@ gem "select2-rails"
 gem 'jquery-inputmask-rails'
 #Object-based searching. http://ransack-demo.herokuapp.com
 gem 'ransack'
+#⚡ A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
+gem 'kaminari'
 
 #Select2 is a jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results.
 #gem 'rails-assets-select2', source: 'https://rails-assets.org'

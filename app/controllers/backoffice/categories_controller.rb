@@ -2,7 +2,7 @@ class Backoffice::CategoriesController < BackofficeController
 	before_action :set_category, only: [:edit, :update]
 
 	def index
-		@categories = Category.all
+		@categories = Category.all.page(params[:page]).per(10)
 	end
 
 	#before_action :authenticate_system_user! verificar depois porque não está passando o sql correto
