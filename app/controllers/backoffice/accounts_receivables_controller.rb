@@ -2,7 +2,14 @@ class Backoffice::AccountsReceivablesController < BackofficeController
 	before_action :set_accounts_receivable, only: [:edit, :update, :show]
 
 	def index
-		@accounts_receivables = AccountsReceivable.all
+		@q = AccountsReceivable.ransack(params[:q])
+		@accounts_receivables = @q.result.page(params[:page]).per(10)
+		@q.build_condition if @q.conditions.empty?
+
+		respond_to do |format|
+			format.html
+			format.pdf {@q.result}
+		end
 	end
 
 	#before_action :authenticate_system_user! verificar depois porque não está passando o sql correto
@@ -44,9 +51,9 @@ class Backoffice::AccountsReceivablesController < BackofficeController
 
 	def params_accounts_receivable
 		params.require(:accounts_receivable).permit(:state, :description, :kind,
-						 :issue_date, :expiration_date, :received_date, :total_value,
-						 :received_value, :remaining_value, :total_parcels, :parcel,
-						 :sale_id, :person_id)
+			:issue_date, :expiration_date, :received_date, :total_value,
+			:received_value, :remaining_value, :total_parcels, :parcel,
+			:sale_id, :person_id)
 	end
 end
 

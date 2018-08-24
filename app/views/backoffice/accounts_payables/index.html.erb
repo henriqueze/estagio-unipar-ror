@@ -1,5 +1,27 @@
 <h1 class="page-header">Contas a Pagar</h1>
 
+<button class="btn btn-info icon fa fa-arrow-down pull-right" data-toggle="collapse"
+data-target="#demo"> Filtros Para Pesquisa</button>
+<br>
+<div id="demo" class="collapse">
+	<div class="panel-body">
+		<%= search_form_for [:backoffice, @q] do |f| %>
+		<%= f.condition_fields do |c| %>
+		<%= render "backoffice/accounts_payables/condition_fields", f: c %>
+		<% end %>
+		<br>
+		<%= link_to_add_fields "Adicionar Condições", f, :condition,
+		:class => 'icon fa fa-plus' %>
+		<div class="actions text-center">
+			<%= link_to " ", request.path, :class => 'icon fa fa-times btn btn-danger' %>
+			<%= f.submit "Pesquisar", :class => 'btn btn-primary'  %>
+		</div>
+		<br>
+		<% end %>
+	</div>
+</div>
+<br>
+
 <div class="panel panel-default">
 	<div class="panel-heading">
 		Listando Contas a Pagar
@@ -18,58 +40,59 @@
 						<th>Estado</th>
 						<th>Descrição</th>
 						<!-- <th>Document kind</th>
-						<th>Document number</th> -->
-						<th>Data Emissão</th>
-						<th>Data Vencimento</th>
+							<th>Document number</th> -->
+							<th>Data Emissão</th>
+							<th>Data Vencimento</th>
 						<!-- <th>Payment date</th>
-						<th>Total parcels</th> -->
-						<th>Parcela Atual</th>
+							<th>Total parcels</th> -->
+							<th>Parcela Atual</th>
 						<!-- <th>Payable value</th>
 						<th>Additions value</th>
 						<th>Discount value</th> -->
 						<th>Valor Total</th>
 						<th>Valor Pago</th>
 						<!-- <th>Voucher image</th>
-						<th>Purchase</th> -->
-						<th></th>
-					</tr>
-				</thead>
-				<tbody>
-					<% @accounts_payables.each do |accounts_payable| %>
-					<tr>
-						<td><%= accounts_payable.id %></td>
-						<td><%= accounts_payable.state %></td>
-						<td><%= accounts_payable.description %></td>
+							<th>Purchase</th> -->
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @accounts_payables.each do |accounts_payable| %>
+						<tr>
+							<td><%= accounts_payable.id %></td>
+							<td><%= accounts_payable.state %></td>
+							<td><%= accounts_payable.description %></td>
 						<!-- <td><%= accounts_payable.document_kind %></td>
-						<td><%= accounts_payable.document_number %></td> -->
-						<td><%= accounts_payable.issue_date %></td>
-						<td><%= accounts_payable.expiration_date %></td>
+							<td><%= accounts_payable.document_number %></td> -->
+							<td><%= accounts_payable.issue_date %></td>
+							<td><%= accounts_payable.expiration_date %></td>
 						<!-- <td><%= accounts_payable.payment_date %></td>
-						<td><%= accounts_payable.total_parcels %></td> -->
-						<td><%= accounts_payable.current_parcel %></td>
+							<td><%= accounts_payable.total_parcels %></td> -->
+							<td><%= accounts_payable.current_parcel %></td>
 						<!-- <td><%= accounts_payable.payable_value %></td>
 						<td><%= accounts_payable.additions_value %></td>
 						<td><%= accounts_payable.discount_value %></td> -->
 						<td><%= accounts_payable.total_value %></td>
 						<td><%= accounts_payable.paid_value %></td>
 						<!-- <td><%= accounts_payable.voucher_image %></td>
-						<td><%= accounts_payable.purchase %></td> -->
-						<td style="width: 150px">
-							<%= link_to edit_backoffice_accounts_payable_path(accounts_payable),
-							class: "btn btn-primary btn-circle" do %>
-							<i class="fa fa-edit"></i>
-							<% end %>
-							<button type="button" disabled="disabled"
-							class="btn btn-danger btn-circle">
-							<i class="fa fa-minus"></i>
-						</button>
-					</td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
+							<td><%= accounts_payable.purchase %></td> -->
+							<td style="width: 150px">
+								<%= link_to edit_backoffice_accounts_payable_path(accounts_payable),
+								class: "btn btn-primary btn-circle" do %>
+								<i class="fa fa-edit"></i>
+								<% end %>
+								<button type="button" disabled="disabled"
+								class="btn btn-danger btn-circle">
+								<i class="fa fa-minus"></i>
+							</button>
+						</td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<%= paginate @accounts_payables %>
+		</div>
+		<!-- /.table-responsive -->
 	</div>
-	<!-- /.table-responsive -->
-</div>
-<!-- /.panel-body -->
+	<!-- /.panel-body -->
 </div>

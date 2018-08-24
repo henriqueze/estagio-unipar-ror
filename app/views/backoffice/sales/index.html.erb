@@ -1,5 +1,27 @@
 <h1 class="page-header">Vendas</h1>
 
+<button class="btn btn-info icon fa fa-arrow-down pull-right" data-toggle="collapse"
+data-target="#demo"> Filtros Para Pesquisa</button>
+<br>
+<div id="demo" class="collapse">
+	<div class="panel-body">
+		<%= search_form_for [:backoffice, @q] do |f| %>
+		<%= f.condition_fields do |c| %>
+		<%= render "backoffice/sales/condition_fields", f: c %>
+		<% end %>
+		<br>
+		<%= link_to_add_fields "Adicionar Condições", f, :condition,
+		:class => 'icon fa fa-plus' %>
+		<div class="actions text-center">
+			<%= link_to " ", request.path, :class => 'icon fa fa-times btn btn-danger' %>
+			<%= f.submit "Pesquisar", :class => 'btn btn-primary'  %>
+		</div>
+		<br>
+		<% end %>
+	</div>
+</div>
+<br>
+
 <div class="panel panel-default">
 	<div class="panel-heading">
 		Listando Vendas
@@ -14,13 +36,13 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>#</th>
-						<th>Data</th>
-						<th>Valor Total</th>
+						<th><%= sort_link(@q, :id, "#") %></th>
+						<th><%= sort_link(@q, :data, "Data") %></th>
+						<th><%= sort_link(@q, :total_value, "Valor Total") %></th>
 						<th>Desconto</th>
-						<th>Estado</th>
+						<th><%= sort_link(@q, :state, "Estado") %></th>
 						<th>Cliente</th>
-						<th>Tipo de Pagamento</th>
+						<th><%= sort_link(@q, :payment_type, "Tipo de Pagamento") %></th>
 						<th></th>
 					</tr>
 				</thead>
@@ -49,6 +71,7 @@
 					<% end %>
 				</tbody>
 			</table>
+			<%= paginate @sales %>
 		</div>
 		<!-- /.table-responsive -->
 	</div>

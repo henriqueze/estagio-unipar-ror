@@ -2,7 +2,13 @@ class Backoffice::PaymentTypesController < BackofficeController
 	before_action :set_payment_type, only: [:edit, :update]
 
 	def index
-		@payment_types = PaymentType.all
+		@q = PaymentType.ransack(params[:q])
+		@payment_types = @q.result.page(params[:page]).per(6)
+
+		respond_to do |format|
+			format.html
+			format.pdf {@q.result}
+		end
 	end
 
 	#before_action :authenticate_system_user! verificar depois porque não está passando o sql correto

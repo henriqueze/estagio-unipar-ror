@@ -1,5 +1,24 @@
 <h1 class="page-header">Tipos de Pagamento</h1>
 
+<button class="btn btn-info icon fa fa-arrow-down pull-right" data-toggle="collapse"
+	data-target="#demo"> Pesquisa</button>
+<br>
+<br>
+<div id="demo" class="collapse">
+	<%= search_form_for [:backoffice, @q] do |f| %>
+	<div class="col-md-8">
+		<%= f.search_field :kind_or_description_cont,
+		 :placeholder => "Digite sua Pesquisa",
+		:class => 'form-control' %>
+	</div>
+	<div class="actions">
+		<%= link_to " ", request.path, :class => 'icon fa fa-times btn btn-danger' %>
+		<%= f.submit "Pesquisar", :class => 'btn btn-primary' %>
+	</div>
+	<br>
+	<% end %>
+</div>
+
 <div class="panel panel-default">
 	<div class="panel-heading">
 		Listando Tipos de Pagamento
@@ -43,6 +62,7 @@
 				<% end %>
 			</tbody>
 		</table>
+		<%= paginate @payment_types %>
 	</div>
 	<!-- /.table-responsive -->
 </div>

@@ -2,7 +2,14 @@ class Backoffice::PurchasesController < BackofficeController
 	before_action :set_purchase, only: [:edit, :update, :show]
 
 	def index
-		@purchases = Purchase.all
+		@q = Purchase.ransack(params[:q])
+		@purchases = @q.result.page(params[:page]).per(6)
+		@q.build_condition if @q.conditions.empty?
+
+		respond_to do |format|
+			format.html
+			format.pdf {@q.result}
+		end
 	end
 
 	#before_action :authenticate_system_user! verificar depois porque não está passando o sql correto
@@ -44,6 +51,6 @@ class Backoffice::PurchasesController < BackofficeController
 
 	def params_purchase
 		params.require(:purchase).permit(:date, :total_value, :freight_value, :provider_id,
-		 item_purchases_attributes: [:id, :amount, :value, :product_id, :purchase_id])
+			item_purchases_attributes: [:id, :amount, :value, :product_id, :purchase_id])
 	end
 end
