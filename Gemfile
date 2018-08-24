@@ -20,7 +20,8 @@ gem 'uglifier', '>= 1.3.0'
 gem "select2-rails"
 #Jquery::Inputmask::Rails
 gem 'jquery-inputmask-rails'
-
+#Object-based searching. http://ransack-demo.herokuapp.com
+gem 'ransack'
 
 #Select2 is a jQuery based replacement for select boxes. It supports searching, remote data sets, and infinite scrolling of results.
 #gem 'rails-assets-select2', source: 'https://rails-assets.org'
