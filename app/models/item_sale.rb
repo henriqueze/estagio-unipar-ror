@@ -6,7 +6,6 @@ class ItemSale < ApplicationRecord
 	validates :amount, numericality: { greater_than_or_equal_to: 1 }
 
 	before_save :set_total
-
 	validate :check_quantity
 
 	def check_quantity
@@ -21,14 +20,6 @@ class ItemSale < ApplicationRecord
 			0
 		else
 			self.total_value = self.amount * self.product.sale_price
-		end
-	end
-
-	def subtotal
-		if self.amount.blank?
-			0
-		else
-			self.amount * self.product.sale_price
 		end
 	end
 

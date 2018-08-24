@@ -15,7 +15,13 @@ categories = ["Farol",
 	"Acessório",
 	"Acabamento",
 	"Mecanica",
-	"Suspensão"]
+	"Suspensão",
+	"Porta",
+	"Capo",
+	"Tampa Traseira",
+	"Paralama",
+	"Emblema",
+	"Calota"]
 
 	categories.each do |category|
 		Category.create!(description: category)
@@ -23,25 +29,52 @@ categories = ["Farol",
 
 	puts "Cadastrado com Sucesso"
 
-##########usuario#############
+##################Usuario##################
 
 puts "Cadastrando Administrador"
 
-MasterUser.create!(email: "henrique.ze@live.com",
+MasterUser.create!(
+	email: "henrique.ze@live.com",
 	password: "123456",
 	password_confirmation: "123456")
 
 puts "Administrador Cadastrado com Sucesso"
 
-##############pessoa####################
+##################Pessoa##################
 puts "Cadastrando Pessoa"
-Person.create!(kind: "Fisica", name: "Henrique Poncetti Zegalo",
-				person_rg: "107814159", person_cpf: "08798865951",
-				address: "Rua Campinas", address_number: "423", address_complement: "Casa",
-				 address_bairro: "Zona 04", address_zip: "87210012", address_city: "Cianort",
-				  address_state: "PR", person_tel1: "44999266459", person_tel2: "4436318292",
-				   person_email: "henrique.ze@live.com", person_obs: "nada a declarar" )
+
+Person.create!(
+	kind: "Fisica",
+	name: "Henrique Poncetti Zegalo",
+	person_rg: "107814159",
+	person_cpf: "08798865951",
+	address: "Rua Campinas",
+	address_number: "423",
+	address_complement: "Casa",
+	address_bairro: "Zona 04",
+	address_zip: "87210012",
+	address_city: "Cianorte",
+	address_state: "PR",
+	person_tel1: "44999266459",
+	person_tel2: "4436318292",
+	person_email: "henrique.ze@live.com",
+	person_obs: "nada a declarar" )
+
 puts "Pessoa Cadastrada"
 
-##################fornecedor##################
+##################Produtos##################
+puts "Cadastrando Produtos"
+
+Product.create!(
+	product_code: "00129874",
+	description: "Porta Dianteira Direita",
+	purchase_price: "199.93",
+	sale_price: "332.15",
+	profit_margin: "",
+	stock: "76",
+	stock_reserved: "0",
+	category_id:"9")
+
+puts "Produto Cadastrado"
+
 

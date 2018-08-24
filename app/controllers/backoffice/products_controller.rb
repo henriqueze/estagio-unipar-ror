@@ -2,7 +2,14 @@ class Backoffice::ProductsController < BackofficeController
 	before_action :set_product, only: [:edit, :update]
 
 	def index
-		@products = Product.all
+		@q = Product.ransack(params[:q])
+		@products = @q.result.page(params[:page]).per(10)
+		@q.build_condition if @q.conditions.empty?
+
+		respond_to do |format|
+			format.html
+			format.pdf {@q.result}
+		end
 	end
 
 	#before_action :authenticate_system_user! verificar depois porque não está passando o sql correto
@@ -40,7 +47,7 @@ class Backoffice::ProductsController < BackofficeController
 
 	def params_product
 		params.require(:product).permit(:product_code, :description, :purchase_price,
-								:sale_price, :profit_margin, :stock, :stock_reserved, :category_id)
+			:sale_price, :profit_margin, :stock, :stock_reserved, :category_id)
 	end
 end
 

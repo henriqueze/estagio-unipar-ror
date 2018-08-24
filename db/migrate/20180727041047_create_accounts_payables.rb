@@ -5,7 +5,7 @@ class CreateAccountsPayables < ActiveRecord::Migration[5.2]
       t.string :description, limit: 100, null: false
       t.string :document_kind, limit: 20
       t.string :document_number, limit: 100
-      t.datetime :issue_date, null: false, default: -> { 'CURRENT_TIMESTAMP' }
+      t.date :issue_date, null: false
       t.date :expiration_date, null: false
       t.date :payment_date
       t.integer :total_parcels, null: false, default: 0

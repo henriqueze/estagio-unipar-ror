@@ -28,49 +28,50 @@
 
       <div class="form-inputs">
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h5>Cliente</h5>
+        <fieldset>
+          <legend>Cliente</legend>
+          <h5>Cliente</h5>
+          <div class="col-lg-12">
+            <div class="col-lg-5">
+              <%= f.association :provider, value_method: :id, input_html: {id: 'e1'}%>
+            </div>
           </div>
-          <div class="panel-body">
+          <br>
+          <br>
+        </fieldset>
+
+
+        <fieldset>
+          <legend>Produtos</legend>
+          <div id="item_purchases">
             <div class="col-lg-12">
-              <div class="col-lg-5">
-                <%= f.association :provider, value_method: :id, input_html: {id: 'e1'}%>
+              <%= f.simple_fields_for :item_purchases do |f| %>
+              <%= render 'backoffice/item_purchases/item_fields', f: f %>
+              <% end %>
+              <div class="form-actions">
+                <hr/>
+                <%= link_to_add_association 'Adicionar Produto', f, :item_purchases,
+                :partial => 'backoffice/item_purchases/item_fields',
+                :class => "btn btn-success "%>
               </div>
             </div>
           </div>
-        </div>
+          <br>
+          <br>
+        </fieldset>
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h5>Produtos</h5>
-          </div>
-          <div class="panel-body">
-            <div id="item_purchases">
-              <div class="col-lg-12">
-                <%= f.simple_fields_for :item_purchases do |f| %>
-                <%= render 'backoffice/item_purchases/item_fields', f: f %>
-                <% end %>
-                <div class="form-actions">
-                  <hr/>
-                  <%= link_to_add_association 'Adicionar Produto', f, :item_purchases,
-                  :partial => 'backoffice/item_purchases/item_fields', :class => "btn btn-success "%>
-                </div>
+        <fieldset>
+          <div class="row col-lg-6">
+            <div class="form-group">
+              <div class="col-lg-3">
+                <%= f.input :total_value %>
+              </div>
+
+              <div class="col-lg-3">
+                <%= f.input :freight_value %>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div class="row col-lg-6">
-          <div class="form-group">
-            <div class="col-lg-3">
-              <%= f.input :total_value %>
-            </div>
-
-            <div class="col-lg-3">
-              <%= f.input :freight_value %>
-            </div>
-          </div>
+          </fieldset>
 
           <button type="submit" class="btn btn-success">Salvar</button>
           <% end %>

@@ -1,5 +1,5 @@
 class Backoffice::SalesController < BackofficeController
-	before_action :set_sale, only: [:edit, :update, :show]
+	before_action :set_sale, only: [:edit, :update, :show, :destroy]
 
 	def index
 		@sales = Sale.all
@@ -28,13 +28,21 @@ class Backoffice::SalesController < BackofficeController
 	end
 
 	def update
-		if @sale.update(params_sale)
+		#não funciona aqui, tentar ver algum jeito de fazer no model
+		 #para validar antes de entrar no modo de edição
+		if @sale.state == 'Finalizada'
 			redirect_to backoffice_sales_path,
-			notice: "Venda #{@sale.id} atualizado com Sucesso"
+			notice: "Venda #{@sale.id} não pode ser Alterada"
 		else
-			render :edit
+			if @sale.update(params_sale)
+				redirect_to backoffice_sales_path,
+				notice: "Venda #{@sale.id} atualizado com Sucesso"
+			else
+				render :edit
+			end
 		end
 	end
+
 
 	private
 

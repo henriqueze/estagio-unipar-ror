@@ -8,6 +8,10 @@ class Budget < ApplicationRecord
 	accepts_nested_attributes_for :item_budgets, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
 
+	before_save :set_value_total
+	after_create :atualiza_estoque_diminui, :atualiza_estoque_reservado_aumenta
+
+
 	def atualiza_estoque_diminui
 		products.each do |product|
 			item_budget = item_budgets.find_by(product_id: product)
@@ -24,7 +28,15 @@ class Budget < ApplicationRecord
 		end
 	end
 
-	private
+	def set_value_total
+		self.total_value = 0
+		self.total_value = self.item_budgets.map{|ib| ib.amount * ib.product.sale_price}.sum
+
+		self.item_budgets.each do |item_budget|
+			item_budget.value = item_budget.product.sale_price
+			item_budget.save
+		end
+	end
 
 	def valida_quantidade_produto
 		if item_budgets.empty?

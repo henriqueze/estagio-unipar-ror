@@ -15,8 +15,6 @@ class Backoffice::BudgetsController < BackofficeController
 		if @budget.save
 			redirect_to backoffice_budgets_path,
 			notice: "Orçamento #{@budget.id} Cadastrado com Sucesso"
-			@budget.atualiza_estoque_diminui
-			@budget.atualiza_estoque_reservado_aumenta
 		else
 			render :new
 		end

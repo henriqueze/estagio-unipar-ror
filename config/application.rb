@@ -2,6 +2,9 @@ require_relative 'boot'
 
 require 'rails/all'
 
+Time::DATE_FORMATS[:default] = "%d/%m/%Y %H:%M"
+Date::DATE_FORMATS[:default] = "%d/%m/%Y"
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)

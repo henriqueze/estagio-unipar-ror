@@ -1,12 +1,29 @@
 <h1 class="page-header">Produtos</h1>
 
+<fieldset>
+	<legend>Pesquisa</legend>
+	<%= search_form_for [:backoffice, @q] do |f| %>
+		<%= f.condition_fields do |c| %>
+			<%= render "backoffice/products/condition_fields", f: c %>
+			<br>
+		<% end %>
+		<%= link_to_add_fields "Adicionar Condições", f, :condition, :class => 'icon fa fa-plus' %>
+		<br>
+		<br>
+		<div class="actions">
+			<%= f.submit "Pesquisar", :class => 'btn btn-primary'  %>
+		</div>
+		<br>
+	<% end %>
+</fieldset>
+
 <div class="panel panel-default">
 	<div class="panel-heading">
 		Listando Produtos
 		<%= link_to new_backoffice_product_path, class: "btn btn-success btn-circle
 		pull-right", style:"margin-top: -5px" do %>
 		<i class="fa fa-plus"></i>
-		<% end -%>
+		<% end %>
 	</div>
 	<!-- /.panel-heading -->
 	<div class="panel-body">
@@ -14,14 +31,14 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th>#</th>
+						<th><%= sort_link(@q, :id, "#") %></th>
 						<th>Código Referencia</th>
-						<th>Descrição</th>
+						<th><%= sort_link(@q, :description, "Descrição") %></th>
 						<th>Categoria</th>
 						<th>Preço de Compra</th>
-						<th>Preço de Venda</th>
+						<th><%= sort_link(@q, :sale_price, "Preço de Venda") %></th>
 						<th>Margem de Lucro</th>
-						<th>Estoque</th>
+						<th><%= sort_link(@q, :stock, "Estoque") %></th>
 						<th>Estoque Reservado</th>
 						<th></th>
 					</tr>
@@ -38,7 +55,7 @@
 						<td><%= percentual_formatado(product.profit_margin) %></td>
 						<td><%= product.stock %></td>
 						<td><%= product.stock_reserved %></td>
-						<td style="width: 150px">
+						<td style="width: 80px">
 							<%= link_to edit_backoffice_product_path(product),
 							class: "btn btn-primary btn-circle" do %>
 							<i class="fa fa-edit"></i>
@@ -52,8 +69,12 @@
 				<% end %>
 			</tbody>
 		</table>
+		<%= paginate @products %>
 	</div>
 	<!-- /.table-responsive -->
 </div>
 <!-- /.panel-body -->
 </div>
+
+
+

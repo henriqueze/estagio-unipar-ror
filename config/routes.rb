@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     get 'accounts_receivables/index'
     get 'accounts_payables/index'
     get 'master_users/index'
+    get 'ajuda/index'
     get 'dashboard', to: 'dashboard#index'
   end
 
