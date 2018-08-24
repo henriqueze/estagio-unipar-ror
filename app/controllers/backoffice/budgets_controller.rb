@@ -2,7 +2,14 @@ class Backoffice::BudgetsController < BackofficeController
 	before_action :set_budget, only: [:edit, :update, :show]
 
 	def index
-		@budgets = Budget.all
+		@q = Budget.ransack(params[:q])
+		@budgets = @q.result.page(params[:page]).per(6)
+		@q.build_condition if @q.conditions.empty?
+
+		respond_to do |format|
+			format.html
+			format.pdf {@q.result}
+		end
 	end
 
 	#before_action :authenticate_system_user! verificar depois porque não está passando o sql correto
@@ -44,6 +51,6 @@ class Backoffice::BudgetsController < BackofficeController
 	def params_budget
 		params.require(:budget).permit(:kind, :note, :date, :expiration_date,
 			:total_value, :state, :person_id,
-			 item_budgets_attributes: [:id, :amount, :value, :product_id, :budget_id])
+			item_budgets_attributes: [:id, :amount, :value, :product_id, :budget_id])
 	end
 end

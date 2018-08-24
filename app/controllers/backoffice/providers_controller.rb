@@ -1,9 +1,15 @@
 class Backoffice::ProvidersController < BackofficeController
 	before_action :set_provider, only: [:edit, :update, :show]
 
-
 	def index
-		@providers = Provider.all
+		@q = Provider.ransack(params[:q])
+		@providers = @q.result.page(params[:page]).per(6)
+		@q.build_condition if @q.conditions.empty?
+
+		respond_to do |format|
+			format.html
+			format.pdf {@q.result}
+		end
 	end
 
 	#before_action :authenticate_system_user! verificar depois porque não está passando o sql correto

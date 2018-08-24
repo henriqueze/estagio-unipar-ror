@@ -3,7 +3,7 @@ class Backoffice::ProductsController < BackofficeController
 
 	def index
 		@q = Product.ransack(params[:q])
-		@products = @q.result.page(params[:page]).per(10)
+		@products = @q.result.page(params[:page]).per(6)
 		@q.build_condition if @q.conditions.empty?
 
 		respond_to do |format|

@@ -3,7 +3,7 @@ class Backoffice::SalesController < BackofficeController
 
 	def index
 		@q = Sale.ransack(params[:q])
-		@sales = @q.result.page(params[:page]).per(10)
+		@sales = @q.result.page(params[:page]).per(6)
 		@q.build_condition if @q.conditions.empty?
 
 		respond_to do |format|
