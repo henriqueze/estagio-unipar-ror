@@ -1,21 +1,27 @@
 <h1 class="page-header">Produtos</h1>
 
-<fieldset>
-	<legend>Pesquisa</legend>
-	<%= search_form_for [:backoffice, @q] do |f| %>
+<button class="btn btn-info pull-right" data-toggle="collapse"
+data-target="#demo">Filtros Para Pesquisa</button>
+<br>
+<br>
+
+<div id="demo" class="collapse">
+	<div class="panel-body">
+		<%= search_form_for [:backoffice, @q] do |f| %>
 		<%= f.condition_fields do |c| %>
-			<%= render "backoffice/products/condition_fields", f: c %>
-			<br>
+		<%= render "backoffice/products/condition_fields", f: c %>
 		<% end %>
-		<%= link_to_add_fields "Adicionar Condições", f, :condition, :class => 'icon fa fa-plus' %>
 		<br>
-		<br>
-		<div class="actions">
+		<%= link_to_add_fields "Adicionar Condições", f, :condition,
+		:class => 'icon fa fa-plus' %>
+		<div class="actions text-center">
 			<%= f.submit "Pesquisar", :class => 'btn btn-primary'  %>
 		</div>
 		<br>
-	<% end %>
-</fieldset>
+		<% end %>
+	</div>
+</div>
+<br>
 
 <div class="panel panel-default">
 	<div class="panel-heading">

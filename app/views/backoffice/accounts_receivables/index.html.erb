@@ -1,5 +1,28 @@
 <h1 class="page-header">Contas a Receber</h1>
 
+<button class="btn btn-info pull-right" data-toggle="collapse"
+data-target="#demo">Filtros Para Pesquisa</button>
+<br>
+<br>
+
+<div id="demo" class="collapse">
+	<div class="panel-body">
+		<%= search_form_for [:backoffice, @q] do |f| %>
+		<%= f.condition_fields do |c| %>
+		<%= render "backoffice/accounts_receivables/condition_fields", f: c %>
+		<% end %>
+		<br>
+		<%= link_to_add_fields "Adicionar Condições", f, :condition,
+		:class => 'icon fa fa-plus' %>
+		<div class="actions text-center">
+			<%= f.submit "Pesquisar", :class => 'btn btn-primary'  %>
+		</div>
+		<br>
+		<% end %>
+	</div>
+</div>
+<br>
+
 <div class="panel panel-default">
 	<div class="panel-heading">
 		Listando Contas a Receber
@@ -64,6 +87,7 @@
 				<% end %>
 			</tbody>
 		</table>
+		<%= paginate @products %>
 	</div>
 	<!-- /.table-responsive -->
 </div>

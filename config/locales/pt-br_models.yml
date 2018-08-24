@@ -74,6 +74,7 @@
         address_state: "Estado"
         provider_tel1: "Telefone Celular"
         provider_tel2: "Telefone Fixo"
+        provider_email: "Email"
         created_at: "Criado em"
         updated_at: "Atualizado em"
       product:
@@ -99,11 +100,13 @@
         updated_at: "Atualizado em"
       sale:
         id: "Código"
+        date: "Data"
         state: "Estado da Venda"
         payment_type: "Tipo de Pagamento"
-        person: "Cliente"
         total_value: "Valor Total"
         discount_value: "Desconto"
+        person_id: "Cliente"
+        payment_type_id: "Tipo de Pagamento"
         created_at: "Criado em"
         updated_at: "Atualizado em"
       item_sale:
@@ -131,7 +134,7 @@
         updated_at: "Atualizado em"
       purchase:
         id: "Código"
-        provider: "Fornecedor"
+        provider_id: "Fornecedor"
         total_value: "Valor Total"
         freight_value: "Valor do Frete"
         created_at: "Criado em"
@@ -143,6 +146,7 @@
         created_at: "Criado em"
         updated_at: "Atualizado em"
       accounts_receivable:
+        id: "Código"
         state: "Estado"
         description: "Descrição"
         kind: "Tipo"
@@ -155,9 +159,11 @@
         total_parcels: "Total de Parcelas"
         parcel: "Parcela Atual"
         sale_id: "Venda"
+        person_id: "Cliente"
         created_at: "Criado em"
         updated_at: "Atualizado em"
       accounts_payable:
+        id: "Código"
         state: "Estado"
         description: "Descrição"
         document_kind: "Tipo do Documento"
@@ -175,6 +181,8 @@
         total_parcels: "Total de Parcelas"
         current_parcel: "Parcela Atual"
         purchase_id: "Compra"
+        provider_id: "Fornecedor"
+        system_user_id: "Usuario"
         created_at: "Criado em"
         updated_at: "Atualizado em"
       master_user:
