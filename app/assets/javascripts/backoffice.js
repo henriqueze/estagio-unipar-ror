@@ -2,7 +2,6 @@
 //= require select2-full
 //= require notifyjs
 //= require jquery.inputmask
-//= require DataTables
 //= require bootbox
 
 function exibir_ocultar(val) {
@@ -20,7 +19,8 @@ function exibir_ocultar(val) {
   }
 };
 
-$('table').DataTable( {
+/*DATA TABLE*/
+/*$('table').DataTable( {
   language: {
     "sEmptyTable": "Nenhum registro encontrado",
     "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -51,7 +51,9 @@ $('table').DataTable( {
       }
     }
   }
-});
+});*/
+
+
 //select 2
 $(document).on('turbolinks:load', function() {
   $("#e1").select2();
