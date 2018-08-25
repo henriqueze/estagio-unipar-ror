@@ -37,7 +37,7 @@
         </div>
         <div class="col-sm-6">
           <div class="col-sm-6">
-            <%= f.input :description %>
+            <%= f.input :description, :placeholder => "*" %>
           </div>
         </div>
         <div class="col-sm-3">
@@ -69,7 +69,7 @@
           </div>
           <div class="col-sm-2">
             <%= f.label :payment_date %>
-            <%= f.date_field :payment_date, :class => "form-control" %>
+            <%= f.date_field :payment_date, :class => "form-control", readonly: true %>
           </div>
         </div>
         <br>
@@ -97,25 +97,25 @@
           <div class="col-sm-2">
             <%= f.label :payable_value %>
             <%= f.number_field :payable_value, :class => "form-control",
-            in: 0..999999, :step => 0.01 %>
+            in: 0..999999, :step => 0.01, :placeholder => "*", :id => "valor_pConta" %>
           </div>
 
           <div class="col-sm-2">
             <%= f.label :additions_value %>
             <%= f.number_field :additions_value, :class => "form-control",
-            in: 0..999999, :step => 0.01 %>
+            in: 0..999999, :step => 0.01, :id => "valor_aConta" %>
           </div>
 
           <div class="col-sm-2">
             <%= f.label :discount_value %>
             <%= f.number_field :discount_value, :class => "form-control",
-            in: 0..999999 , :step => 0.01 %>
+            in: 0..999999 , :step => 0.01, :id => "valor_dConta" %>
           </div>
 
           <div class="col-sm-2">
             <%= f.label :total_value %>
             <%= f.number_field :total_value, :class => "form-control",
-            in: 0..999999 , :step => 0.01 %>
+            in: 0..999999 , :step => 0.01, :placeholder => "*", readonly: true, :id => "valor_tConta" %>
           </div>
 
           <div class="col-sm-2">
@@ -127,27 +127,9 @@
         <br>
       </fieldset>
 
-      <fieldset>
-        <legend> Imagem </legend>
-        <div class="row">
-          <div class="col-lg-8">
-            <div class="col-sm-2">
-              <%= f.label :voucher_image %>
-            </div>
-            <%= f.text_field :voucher_image, :class => "col-lg-2" %>
-            <button type="button" class="btn btn-info btn-circle btn-sm">
-              <i class="fa fa-link"></i></button>
-          </div>
-        </div>
-        <br>
-        <br>
-      </fieldset>
-
+      <button type="submit" class="btn btn-success">Salvar</button>
+      <% end %>
     </div>
-
-    <button type="submit" class="btn btn-success">Salvar</button>
-    <% end %>
   </div>
 </div>
 <!-- /.panel-body -->
-</div>

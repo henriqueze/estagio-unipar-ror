@@ -1,0 +1,77 @@
+<h1 class="page-header">Fornecedores</h1>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    Visualizando Fornecedor
+    <%= link_to backoffice_providers_path, class: "btn btn-warning btn-circle pull-right",
+    style:"margin-top: -5px"  do %>
+    <i class="fa fa-arrow-left"></i>
+    <% end %>
+  </div>
+  <div class="panel-body">
+    <p>
+      <strong>Nome:</strong>
+      <%= @provider.name %>
+    </p>
+
+    <p>
+      <strong>Razão Social:</strong>
+      <%= @provider.provider_rasocial %>
+    </p>
+
+    <p>
+      <strong>Inscrição Estadual:</strong>
+      <%= @provider.provider_ie %>
+    </p>
+
+    <p>
+      <strong>CNPJ:</strong>
+      <%= @provider.provider_cnpj %>
+    </p>
+
+    <p>
+      <strong>Endereço:</strong>
+      <%= @provider.address %>
+    </p>
+
+    <p>
+      <strong>Numero Endereço:</strong>
+      <%= @provider.address_number %>
+    </p>
+
+    <p>
+      <strong>Complemento:</strong>
+      <%= @provider.address_complement %>
+    </p>
+
+    <p>
+      <strong>Bairro:</strong>
+      <%= @provider.address_bairro %>
+    </p>
+
+    <p>
+      <strong>CEP:</strong>
+      <%= @provider.address_zip %>
+    </p>
+
+    <p>
+      <strong>Cidade:</strong>
+      <%= @provider.address_city %>
+    </p>
+
+    <p>
+      <strong>Estado:</strong>
+      <%= @provider.address_state %>
+    </p>
+
+    <p>
+      <strong>Telefone Celular:</strong>
+      <%= @provider.provider_tel1 %>
+    </p>
+
+    <p>
+      <strong>Telefone Fixo:</strong>
+      <%= @provider.provider_tel2 %>
+    </p>
+  </div>
+</div>

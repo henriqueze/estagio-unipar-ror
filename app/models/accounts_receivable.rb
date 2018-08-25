@@ -2,7 +2,7 @@ class AccountsReceivable < ApplicationRecord
 	belongs_to :sale, optional: true
 	belongs_to :person, optional: true
 
-	validate :valida_datas
+	validate :valida_data_vencimento, :valida_data_criada
 	validates :total_value, numericality: { greater_than_or_equal_to: 1 }, allow_blank: true
 	validates :state, :description, :issue_date, :expiration_date, :total_value,
 		:total_parcels, presence: true
@@ -18,7 +18,13 @@ class AccountsReceivable < ApplicationRecord
 		end
 	end
 
-	def valida_datas
+	def valida_data_criada
+		if self.issue_date > Date.today || self.issue_date < Date.today - 30
+			self.errors.add(:base, 'Data de Emissão nao pode ser Futura ou Muito antiga')
+		end
+	end
+
+	def valida_data_vencimento
 		if self.expiration_date < self.issue_date
 			self.errors.add(:base, 'Data de Vencimento deve ser maior')
 		end

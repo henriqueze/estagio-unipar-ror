@@ -56,27 +56,27 @@
 
     <p>
       <strong>Valor à Pagar:</strong>
-      <%= @accounts_payable.payable_value %>
+      <%= valor_formatado(@accounts_payable.payable_value) %>
     </p>
 
     <p>
       <strong>Valor Adicional:</strong>
-      <%= @accounts_payable.additions_value %>
+      <%= valor_formatado(@accounts_payable.additions_value) %>
     </p>
 
     <p>
       <strong>Valor Desconto:</strong>
-      <%= @accounts_payable.discount_value %>
+      <%= valor_formatado(@accounts_payable.discount_value) %>
     </p>
 
     <p>
       <strong>Valor Total:</strong>
-      <%= @accounts_payable.total_value %>
+      <%= valor_formatado(@accounts_payable.total_value) %>
     </p>
 
     <p>
       <strong>Valor Pago:</strong>
-      <%= @accounts_payable.paid_value %>
+      <%= valor_formatado(@accounts_payable.paid_value) %>
     </p>
 
     <p>

@@ -16,9 +16,11 @@
     <div class="col-md-2">
       <%= f.input :amount, input_html: {min: 1, step: 1, id:'qtd'} %>
     </div>
+    <% if @product %>
     <div class="col-md-2">
       <%= f.input :value, input_html: {min: 0, step: 1, id: 'valor'} %>
     </div>
+    <% end %>
     <div class="row remove-item">
       <div class="container-remote-item" style="margin-top: 25px">
         <%= link_to_remove_association "", f, :class => "btn btn-danger btn-circle fa fa-minus"%>
