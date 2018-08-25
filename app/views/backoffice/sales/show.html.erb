@@ -16,12 +16,12 @@
 
     <p>
       <strong>Valor Total:</strong>
-      <%= @sale.total_value %>
+      <%= valor_formatado(@sale.total_value) %>
     </p>
 
     <p>
       <strong>Desconto:</strong>
-      <%= @sale.discount_value %>
+      <%= valor_formatado(@sale.discount_value) %>
     </p>
 
     <p>
@@ -52,7 +52,7 @@
       </p>
       <p>
         <strong>Valor Total</strong>
-        <%= item.total_value %>
+        <%= valor_formatado(item.total_value) %>
       </p>
       <% end %>
     </p>

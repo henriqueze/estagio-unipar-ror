@@ -31,6 +31,12 @@
       accounts_receivable:
         one: Conta a Receber
         other: Contas a Receber
+    item_sale:
+        one: Item Venda
+    item_budget:
+        one: Item Orçamento
+    item_purchases:
+        one: Item Compra
     attributes:
       category:
         id: "Código"
@@ -105,7 +111,8 @@
         payment_type: "Tipo de Pagamento"
         total_value: "Valor Total"
         discount_value: "Desconto"
-        person_id: "Cliente"
+        person: "Cliente"
+        item_sales: "Produto"
         payment_type_id: "Tipo de Pagamento"
         created_at: "Criado em"
         updated_at: "Atualizado em"
@@ -123,6 +130,7 @@
         note: "Descrição"
         expiration_date: "Data de Vencimento"
         person: "Cliente"
+        item_budgets: "Produto"
         total_value: "Valor Total"
         created_at: "Criado em"
         updated_at: "Atualizado em"
@@ -134,7 +142,8 @@
         updated_at: "Atualizado em"
       purchase:
         id: "Código"
-        provider_id: "Fornecedor"
+        provider: "Fornecedor"
+        item_purchases: "Produto"
         total_value: "Valor Total"
         freight_value: "Valor do Frete"
         created_at: "Criado em"

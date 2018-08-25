@@ -30,7 +30,7 @@
 
       <div class="row">
         <div class="col-sm-1">
-          <%= f.input :state, collection: ["Aberta", "Paga", "Cancelada" ], default: "Aberta", disabled: true, :class => "control-label" %>
+          <%= f.input :state, collection: ["Aberta", "Paga", "Cancelada" ], default: "Aberta", :class => "control-label" %>
         </div>
         <div class="col-sm-2">
           <%= f.input :document_kind, collection: ["Conta", "Boleto", "Despesas"] %>

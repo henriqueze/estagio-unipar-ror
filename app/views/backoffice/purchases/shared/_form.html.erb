@@ -29,8 +29,7 @@
       <div class="form-inputs">
 
         <fieldset>
-          <legend>Cliente</legend>
-          <h5>Cliente</h5>
+          <legend>Fornecedor</legend>
           <div class="col-lg-12">
             <div class="col-lg-5">
               <%= f.association :provider, value_method: :id, input_html: {id: 'e1'}%>
@@ -60,24 +59,28 @@
           <br>
         </fieldset>
 
-        <fieldset>
-          <div class="row col-lg-6">
-            <div class="form-group">
-              <div class="col-lg-3">
-                <%= f.input :total_value %>
-              </div>
-
-              <div class="col-lg-3">
+        <hr>
+        <br>
+        <div class="row col-lg-6">
+          <div class="form-group">
+            <div class="col-sm-3">
+              <%= f.input :total_value, input_html: {readonly: true, :value => "0", :class => 'form-control'} %>
+            </div>
+            <div class="col-lg-3">
+              <div class="col-sm-11">
                 <%= f.input :freight_value %>
               </div>
             </div>
-          </fieldset>
+          </div>
 
-          <button type="submit" class="btn btn-success">Salvar</button>
-          <% end %>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-success">Salvar</button>
+            <% end %>
+          </div>
         </div>
       </div>
+      <!-- /.panel-body -->
     </div>
-    <!-- /.panel-body -->
   </div>
 </div>
+

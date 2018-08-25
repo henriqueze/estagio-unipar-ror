@@ -3,12 +3,18 @@ class AccountsReceivable < ApplicationRecord
 	belongs_to :person, optional: true
 
 	validate :valida_datas
+	validates :total_value, numericality: { greater_than_or_equal_to: 1 }, allow_blank: true
+	validates :state, :description, :issue_date, :expiration_date, :total_value,
+		:total_parcels, presence: true
 
 	before_save :verifica_valor
 
 	def verifica_valor
 		if self.total_value == self.received_value
 			self.state = "Paga"
+			self.received_date = Date.today
+		else
+			self.state = "Aberta"
 		end
 	end
 

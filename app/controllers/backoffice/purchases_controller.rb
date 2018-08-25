@@ -15,7 +15,6 @@ class Backoffice::PurchasesController < BackofficeController
 	#before_action :authenticate_system_user! verificar depois porque não está passando o sql correto
 	def new
 		@purchase = Purchase.new
-		@purchase.item_purchases.build
 	end
 
 	def create

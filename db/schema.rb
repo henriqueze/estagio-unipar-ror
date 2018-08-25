@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_041136) do
     t.date "date", null: false
     t.date "expiration_date", null: false
     t.decimal "total_value", precision: 8, scale: 2, null: false
-    t.string "state", limit: 20, default: "Aberto", null: false
+    t.string "state", limit: 20, null: false
     t.bigint "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -49,7 +49,7 @@ data-target="#demo"> Filtros Para Pesquisa</button>
 					<tr>
 						<td><%= purchase.id %></td>
 						<td><%= purchase.date %></td>
-						<td><%= purchase.total_value %></td>
+						<td><%= valor_formatado(purchase.total_value) %></td>
 						<!-- <td><%= purchase.freight_value %></td> -->
 						<td><%= purchase.provider.provider_rasocial %></td>
 						<td style="width: 150px">

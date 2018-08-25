@@ -16,17 +16,31 @@
 
     <p>
       <strong>Total value:</strong>
-      <%= @purchase.total_value %>
+      <%= valor_formatado(@purchase.total_value) %>
     </p>
 
     <p>
       <strong>Freight value:</strong>
-      <%= @purchase.freight_value %>
+      <%= valor_formatado(@purchase.freight_value) %>
     </p>
 
     <p>
       <strong>Person:</strong>
       <%= @purchase.provider.provider_rasocial %>
+    </p>
+
+    <p>
+      <strong>Produtos da Compra:</strong>
+      <% @purchase.item_purchases.each do |item| %>
+      <p>
+        <strong>Produto</strong>
+        <%= item.product.description  %>
+      </p>
+      <p>
+        <strong>Quantidade</strong>
+        <%= item.amount  %>
+      </p>
+      <% end %>
     </p>
   </div>
 </div>

@@ -9,8 +9,12 @@ class Purchase < ApplicationRecord
 	accepts_nested_attributes_for :item_purchases, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
 
-	before_save  :set_value_total
+	before_save  :set_value_total, :recebe_data
 	after_create :atualiza_estoque_aumenta
+
+	def recebe_data
+		self.date = Date.today
+	end
 
 	def atualiza_estoque_aumenta
 		products.each do |product|

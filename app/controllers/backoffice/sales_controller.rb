@@ -15,7 +15,6 @@ class Backoffice::SalesController < BackofficeController
 	#before_action :authenticate_system_user!
 	def new
 		@sale = Sale.new
-		@sale.item_sales.build
 	end
 
 	def create
