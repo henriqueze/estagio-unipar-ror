@@ -36,12 +36,12 @@
           </div>
           <div class="form-group col-sm-6">
             <div class="col-lg-6">
-              <%= f.input :state, collection: ["Em Analise", "Aprovado", "Cancelado" ], default: "Em Analise", disabled: true %>
+              <%= f.input :state, collection: ["Em Analise", "Aprovado", "Cancelado" ], default: "Em Analise" %>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="row col-lg-10">
+          <div class="row col-sm-10">
             <div class="form-group col-lg-7">
               <%= f.input :note %>
             </div>
@@ -53,41 +53,38 @@
           </div>
         </div>
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h5>Cliente</h5>
+        <fieldset>
+          <legend> Ciente </legend>
+          <div class="col-lg-5">
+            <%= f.association :person, value_method: :id, input_html: {id: 'e1'}%>
           </div>
-          <div class="panel-body">
-            <div class="col-lg-12">
-              <%= f.association :person, value_method: :id, input_html: {id: 'e1'} %>
-            </div>
-          </div>
-        </div>
+          <br>
+          <br>
+        </fieldset>
 
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h5>Produtos</h5>
-          </div>
-          <div class="panel-body">
-            <div id="item_budgets">
-              <div class="col-lg-12">
-                <%= f.simple_fields_for :item_budgets do |f| %>
-                <%= render 'backoffice/item_budgets/item_fields', f: f %>
-                <% end %>
-                <div class="form-actions">
-                  <hr/>
-                  <%= link_to_add_association 'Adicionar Produto', f, :item_budgets,
-                  :partial => 'backoffice/item_budgets/item_fields', :class => "btn btn-success" %>
-                </div>
-              </div>
+        <fieldset>
+          <legend> Produtos </legend>
+          <div class="col-lg-12">
+            <%= f.simple_fields_for :item_budgets do |f| %>
+            <%= render 'backoffice/item_budgets/item_fields', f: f %>
+            <% end %>
+            <br>
+            <div class="form-actions">
+              <%= link_to_add_association 'Adicionar Produto', f, :item_budgets,
+              :partial => 'backoffice/item_budgets/item_fields', :class => "btn btn-success" %>
             </div>
+            <br>
+          </div>
+          <br>
+          <br>
+        </fieldset>
+
+        <div class="form-group">
+          <div class="col-sm-1">
+            <%= f.input :total_value, input_html: {readonly: true, :value => "0", :class => 'form-control'} %>
           </div>
         </div>
-
-        <div class="field">
-          <%= f.label :total_value %>
-          <%= f.text_field :total_value %>
-        </div>
+        <br>
 
         <div class="form-actions">
           <button type="submit" class="btn btn-success">Salvar</button>
@@ -95,6 +92,7 @@
         </div>
       </div>
     </div>
+    <!-- /.panel-body -->
   </div>
-  <!-- /.panel-body -->
 </div>
+

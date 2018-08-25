@@ -1,30 +1,24 @@
-<script>
-	$(document).ready(function() {
-		$("#e3").select2();
-		theme: "bootstrap"
-		language: "pt-BR"
-	});
-</script>
-
 <div class="nested-fields">
-
-	<div class="form-group">
-		<div class="col-lg-8">
-			<%= f.association :product, label_method: :description, value_method: :id,
-			include_blank: false, input_html: {id: 'e3'} %>
-		</div>
-		<div class="col-lg-2">
-			<%= f.input :amount, input_html: {min: 1, step: 1}, :id => 'quantidade',
-			:onblur => 'soma' %>
-		</div>
-		<div class="col-lg-2">
-			<%= f.input :value, input_html: {min: 0, step: 1}, :id => 'valor',
-			:onblur => 'soma' %>
-		</div>
-		<div class="row remove-item">
-			<div class="container-remote-item" style="margin-top: 25px">
-				<%= link_to_remove_association "", f, :class => "btn btn-danger btn-circle fa fa-minus"%>
+	<div class="row">
+		<div class="form-group">
+			<div class="col-lg-4">
+				<%= f.association :product, label_method: :description,
+				value_method: :id, input_html: {id: 'e3' }, :class => 'form-control' %>
+			</div>
+			<div class="col-sm-2">
+				<%= f.input :amount, input_html: {min: 1, step: 1, id:'qtde'} %>
+			</div>
+			<%if @product %>
+			<div class="col-sm-2 ">
+				<%= f.input :value, input_html: {min: 0, step: 1, id: 'valor', value: @product.sale_price}, readonly: true %>
+			</div>
+			<% end %>
+			<div class="row remove-item">
+				<div class="container-remote-item" style="margin-top: 25px">
+					<%= link_to_remove_association "", f, :class => "btn btn-danger btn-circle fa fa-minus"%>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
+

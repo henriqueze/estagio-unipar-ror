@@ -31,7 +31,7 @@
 
     <p>
       <strong>Valor Total:</strong>
-      <%= @budget.total_value %>
+      <%= valor_formatado(@budget.total_value) %>
     </p>
 
     <p>
@@ -41,7 +41,21 @@
 
     <p>
       <strong>Cliente:</strong>
-      <%= @budget.person %>
+      <%= @budget.person.name %>
+    </p>
+
+    <p>
+      <strong>Produtos do Orçamento:</strong>
+      <% @budget.item_budgets.each do |item| %>
+      <p>
+        <strong>Produto</strong>
+        <%= item.product.description  %>
+      </p>
+      <p>
+        <strong>Quantidade</strong>
+        <%= item.amount  %>
+      </p>
+      <% end %>
     </p>
   </div>
 </div>

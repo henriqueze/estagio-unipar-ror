@@ -2,7 +2,7 @@ class ItemSale < ApplicationRecord
 	belongs_to :product
 	belongs_to :sale
 
-	validates :product_id, presence: true
+	validates :product_id, :amount, presence: true
 	validates :amount, numericality: { greater_than_or_equal_to: 1 }
 
 	before_save :set_total

@@ -104,8 +104,24 @@ $('#valor_tConta, #valor_rConta').blur(function(){
   if(recebido_conta == " ") recebido_conta = 0;
 
   var resultado = total_conta - recebido_conta;
-  console.log(resultado);
   $('#valor_reConta').val(resultado);
+
+});
+
+//conta a pagar
+$('#valor_pConta, #valor_aConta, #valor_dConta').blur(function(){
+  var valor_pagar = parseFloat($('#valor_pConta').val()) || 0;
+  var valor_adicional = parseFloat($('#valor_aConta').val()) || 0;
+  var valor_desconto = parseFloat($('#valor_dConta').val()) || 0;
+
+
+  if(valor_pagar == " ") valor_pagar = 0;
+  if(valor_adicional == " ") valor_adicional = 0;
+  if(valor_desconto == " ") valor_desconto = 0;
+
+  var resultado = (valor_pagar + valor_adicional) - valor_desconto;
+  console.log(resultado);
+  $('#valor_tConta').val(resultado);
 
 });
 

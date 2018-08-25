@@ -72,11 +72,15 @@ data-target="#demo"> Filtros Para Pesquisa</button>
 						<!-- <td><%= accounts_payable.payable_value %></td>
 						<td><%= accounts_payable.additions_value %></td>
 						<td><%= accounts_payable.discount_value %></td> -->
-						<td><%= accounts_payable.total_value %></td>
-						<td><%= accounts_payable.paid_value %></td>
+						<td><%= valor_formatado(accounts_payable.total_value) %></td>
+						<td><%= valor_formatado(accounts_payable.paid_value) %></td>
 						<!-- <td><%= accounts_payable.voucher_image %></td>
 							<td><%= accounts_payable.purchase %></td> -->
 							<td style="width: 150px">
+								<%= link_to backoffice_accounts_payable_path(accounts_payable),
+								class: "btn btn-primary btn-circle" do %>
+								<i class="fa fa-info-circle"></i>
+								<% end %>
 								<%= link_to edit_backoffice_accounts_payable_path(accounts_payable),
 								class: "btn btn-primary btn-circle" do %>
 								<i class="fa fa-edit"></i>
