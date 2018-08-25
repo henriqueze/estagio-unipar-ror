@@ -86,7 +86,7 @@
 
         <div class="field">
           <%= f.label :total_value %>
-          <%= f.text_field :total_value %>
+          <%= f.text_field :total_value, :readonly => true, :value => '0' %>
         </div>
 
         <div class="form-actions">

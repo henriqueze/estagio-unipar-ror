@@ -36,7 +36,7 @@
 						<th>Tipo</th>
 						<th>Descrição</th>
 						<th>Taxas</th>
-						<th>Maximo de Parcelas</th>
+						<!-- <th>Maximo de Parcelas</th> -->
 						<th></th>
 					</tr>
 				</thead>
@@ -47,7 +47,7 @@
 						<td><%= payment_type.kind %></td>
 						<td><%= payment_type.description %></td>
 						<td><%= percentual_formatado(payment_type.interest_rates) %></td>
-						<td><%= payment_type.max_parcel %></td>
+						<!-- <td><%= payment_type.max_parcel %></td> -->
 						<td style="width: 150px">
 							<%= link_to edit_backoffice_payment_type_path(payment_type),
 							class: "btn btn-primary btn-circle" do %>

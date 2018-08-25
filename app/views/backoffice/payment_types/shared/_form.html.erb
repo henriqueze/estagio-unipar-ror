@@ -38,7 +38,7 @@
           <%= f.label :description, :class => 'control-label col-lg-2' %>
           <div class="col-lg-4">
             <%= f.text_field :description, :class => 'form-control',
-             :placeholder => 'Ex: Somente Dinheiro/ Nota 30 dias' %>
+             :placeholder => 'Ex: Somente Dinheiro/ Nota 30 dias *' %>
           </div>
         </div>
       </div>
@@ -49,11 +49,13 @@
           <div class="col-lg-2">
             <%= f.text_field :interest_rates, :class => 'form-control' %>
           </div>
-          <%= f.label :max_parcel, :class => 'control-label col-lg-2' %>
+
+<!--          <%= f.label :max_parcel, :class => 'control-label col-lg-2' %>
           <div class="col-lg-2">
-            <%= f.text_field :max_parcel, :class => 'form-control' %>
-          </div>
+            <%= f.text_field :max_parcel, :class => 'form-control', :value => '0' %>
+          </div> -->
         </div>
+
       </div>
 
       <button type="submit" class="btn btn-success">Salvar</button>

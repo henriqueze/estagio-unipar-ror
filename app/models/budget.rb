@@ -3,14 +3,25 @@ class Budget < ApplicationRecord
 	has_many :item_budgets, dependent: :destroy
 	has_many :products, through: :item_budgets
 
-	validates :item_budgets, :total_value, presence: true
+	validates :item_budgets, :total_value, :expiration_date, :kind, presence: true
+	validate :data_vencimento
+	validates :total_value, numericality: { greater_than_or_equal_to: 0 }
 
 	accepts_nested_attributes_for :item_budgets, reject_if: :all_blank, allow_destroy: true
 	accepts_nested_attributes_for :products, reject_if: :all_blank, allow_destroy: true
 
-	before_save :set_value_total
+	before_save :set_value_total, :seta_data
 	after_create :atualiza_estoque_diminui, :atualiza_estoque_reservado_aumenta
 
+	def data_vencimento
+		if self.expiration_date <= Date.today
+			errors.add(:base, "Data de Vencimento deve ser maior que a Data de Hoje")
+		end
+	end
+
+	def seta_data
+		self.date = Date.today
+	end
 
 	def atualiza_estoque_diminui
 		products.each do |product|

@@ -8,7 +8,7 @@ class Backoffice::ProductsController < BackofficeController
 
 		respond_to do |format|
 			format.html
-			format.pdf {@q.result}
+			format.pdf {render template: 'backoffice/products/report', pdf: 'Report'}
 		end
 	end
 
