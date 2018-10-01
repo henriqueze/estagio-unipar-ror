@@ -5,7 +5,9 @@ class AccountsReceivable < ApplicationRecord
 	validate :valida_data_vencimento, :valida_data_criada
 	validates :total_value, numericality: { greater_than_or_equal_to: 1 }, allow_blank: true
 	validates :state, :description, :issue_date, :expiration_date, :total_value,
-		:total_parcels, presence: true
+	:total_parcels, presence: true
+	validates :total_parcels, numericality: { greater_than_or_equal_to: 0, only_integer: true }
+	validates :total_parcels, numericality: { less_than_or_equal_to: 12, only_integer: true }
 
 	before_save :verifica_valor
 
